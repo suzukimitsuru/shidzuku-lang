@@ -2,7 +2,7 @@
 
 - 状態: Draft
 - 日付: 2026-08-18
-- 進め方: GitHub リポジトリ(`shizuku-lang`)+ Claude Code で検討・実装を進める
+- 進め方: GitHub リポジトリ(`shidzuku-lang`)+ Claude Code で検討・実装を進める
 
 ## 1. フェーズ計画
 
@@ -48,7 +48,7 @@
 ## 3. リポジトリ構成(案)
 
 ``` plaintext
-shizuku-lang/
+shidzuku-lang/
 ├── README.md
 ├── docs/
 │   ├── spec/
