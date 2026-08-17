@@ -1,8 +1,8 @@
-# 雫 (Shizuku)
+# 雫 (Shidzuku)
 
 **綺麗なコード、静かなシステム。**
 
-Shizuku は、設計意図から制約・構造・実装までを一本の記述で貫く事を目指す言語プロジェクトです。
+Shidzuku は、設計意図から制約・構造・実装までを一本の記述で貫く事を目指す言語プロジェクトです。
 図面は別に描くものではなく、コードからの投影として常に実装と一致します。
 
 ## 中核となる考え
@@ -20,7 +20,7 @@ Shizuku は、設計意図から制約・構造・実装までを一本の記述
 | [docs/spec/00-vision.md](docs/spec/00-vision.md)  | 第0章 ビジョン                          |
 | [docs/PLAN.md](docs/PLAN.md)                      | フェーズ計画と未解決課題 (U1〜U8)       |
 | docs/decisions/                                   | ADR — 課題の決定を記録する              |
-| docs/experiments/                                 | 思考実験 — 既存システムの Shizuku 記述  |
+| docs/experiments/                                 | 思考実験 — 既存システムの Shidzuku 記述 |
 
 ## 状態
 
