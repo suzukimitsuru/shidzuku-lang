@@ -137,6 +137,7 @@
   .sep        { stroke: var(--line); stroke-dasharray: 2 4; }
   .chip       { fill: var(--surface); stroke: var(--line); stroke-width: 1.2; }
   .chip-adr   { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 1.4; }
+  .chip-done  { fill: var(--done-soft); stroke: var(--done); stroke-width: 1.4; }
   .chip-rel   { fill: var(--surface); stroke: var(--accent); stroke-width: 1.4; stroke-dasharray: 4 3; }
   .chip-text  { font-size: 12px; fill: var(--ink); }
 
@@ -260,9 +261,9 @@
         <line class="sep" x1="180" y1="192" x2="960" y2="192"></line>
 
         <!-- Phase 0 issues -->
-        <rect class="chip-adr" x="50" y="210" width="150" height="26" rx="13"></rect>
+        <rect class="chip-done" x="50" y="210" width="150" height="26" rx="13"></rect>
         <text class="chip-text" x="125" y="227" text-anchor="middle">U1 意図の記述形式</text>
-        <rect class="chip-adr" x="50" y="244" width="150" height="26" rx="13"></rect>
+        <rect class="chip-done" x="50" y="244" width="150" height="26" rx="13"></rect>
         <text class="chip-text" x="125" y="261" text-anchor="middle">U2 通信モデル</text>
         <rect class="chip-adr" x="50" y="278" width="150" height="26" rx="13"></rect>
         <text class="chip-text" x="125" y="295" text-anchor="middle">U3 内部階層の制約</text>
@@ -285,16 +286,18 @@
         <text class="chip-text" x="615" y="261" text-anchor="middle">U6 Raft の適用範囲</text>
 
         <!-- Phase 3 issue -->
-        <rect class="chip" x="785" y="210" width="150" height="26" rx="13"></rect>
+        <rect class="chip-rel" x="785" y="210" width="150" height="26" rx="13"></rect>
         <text class="chip-text" x="860" y="227" text-anchor="middle">U8 図と実装の一致</text>
 
         <!-- legend -->
-        <rect class="chip-adr" x="20" y="366" width="26" height="16" rx="8"></rect>
-        <text class="tiny" x="54" y="378" text-anchor="start">ADR 提案あり(U1〜U3・U7: ADR 0003〜0006)</text>
-        <rect class="chip-rel" x="280" y="366" width="26" height="16" rx="8"></rect>
-        <text class="tiny" x="314" y="378" text-anchor="start">関連 ADR のみ・本体は未決(U6: ADR 0001)</text>
-        <rect class="chip" x="640" y="366" width="26" height="16" rx="8"></rect>
-        <text class="tiny" x="674" y="378" text-anchor="start">未着手</text>
+        <rect class="chip-done" x="20" y="366" width="26" height="16" rx="8"></rect>
+        <text class="tiny" x="54" y="378" text-anchor="start">ADR 採用済み(U1・U2)</text>
+        <rect class="chip-adr" x="230" y="366" width="26" height="16" rx="8"></rect>
+        <text class="tiny" x="264" y="378" text-anchor="start">ADR 提案あり(U3・U7)</text>
+        <rect class="chip-rel" x="440" y="366" width="26" height="16" rx="8"></rect>
+        <text class="tiny" x="474" y="378" text-anchor="start">関連/先行 ADR は採用・本体は未決(U6・U8)</text>
+        <rect class="chip" x="790" y="366" width="26" height="16" rx="8"></rect>
+        <text class="tiny" x="824" y="378" text-anchor="start">未着手(U4・U5)</text>
       </svg>
       <figcaption>docs/PLAN.md 第1・2節より。現在は Phase 0(言語仕様)。compiler/ と runtime/ への着手は、仕様の裏付けができてから。</figcaption>
     </figure>
@@ -316,12 +319,14 @@
       <div class="card">
         <h3>決定と検証(docs/decisions/・experiments/)</h3>
         <ul>
-          <li><span class="what">ADR 0001 分散環境の通信プロトコル <span class="note">U6 関連</span></span><span class="pill prog">提案</span></li>
+          <li><span class="what">ADR 0001 分散環境の通信プロトコル <span class="note">U6 関連</span></span><span class="pill done">採用 ✓</span></li>
           <li><span class="what">ADR 0002 プロジェクト名の再考</span><span class="pill done">採用 ✓</span></li>
-          <li><span class="what">ADR 0003 検証不能な意図の記述形式 <span class="note">U1</span></span><span class="pill prog">提案</span></li>
-          <li><span class="what">ADR 0004 単位間の通信モデル <span class="note">U2</span></span><span class="pill prog">提案</span></li>
+          <li><span class="what">ADR 0003 検証不能な意図の記述形式 <span class="note">U1</span></span><span class="pill done">採用 ✓</span></li>
+          <li><span class="what">ADR 0004 単位間の通信モデル <span class="note">U2</span></span><span class="pill done">採用 ✓</span></li>
           <li><span class="what">ADR 0005 内部階層の制約宣言 <span class="note">U3</span></span><span class="pill prog">提案</span></li>
           <li><span class="what">ADR 0006 単位の粒度の指針 <span class="note">U7・継続検証</span></span><span class="pill prog">提案</span></li>
+          <li><span class="what">ADR 0007 ADR と C4 の考え方の取り込み <span class="note">U8 先行</span></span><span class="pill done">採用 ✓</span></li>
+          <li><span class="what">ADR 0008 省略の禁止 <span class="note">全体制約・0004/0005 を改訂</span></span><span class="pill done">採用 ✓</span></li>
           <li><span class="what">思考実験 01 注文管理サービス <span class="note">U1 の実地検証</span></span><span class="pill done">一巡 ✓</span></li>
           <li><span class="what">思考実験 02 センサー収集パイプライン <span class="note">U2/U3/U7 の検証</span></span><span class="pill done">一巡 ✓</span></li>
           <li><span class="what">思考実験 03 画像変換サービス <span class="note">ADR 0004〜0006 の検証</span></span><span class="pill done">一巡 ✓</span></li>
@@ -333,7 +338,7 @@
 
   <section>
     <h2>Phase 0 の検証ループ</h2>
-    <p class="lead">仕様だけを先行させないための往復。思考実験 01〜04 が一巡し、Phase 0 の課題(U1〜U3・U7)の ADR 提案と第1〜3章の初稿が揃った。次は ADR・章の採否判断と、配置の記述(思考実験 04 の論点)の骨格判断。</p>
+    <p class="lead">仕様だけを先行させないための往復。U1(意図)・U2(通信)・省略の禁止(ADR 0008)は採用され、仕様の背骨が固まった。判断待ちは U3(ADR 0005)・U7(ADR 0006)と、配置の記述(思考実験 04 の論点)。</p>
     <figure>
       <svg viewBox="0 0 560 132" role="img" aria-label="仕様と思考実験のあいだを往復するループ。仕様を既存システムで記述してみて、書けない事があれば仕様に戻す">
         <defs>
@@ -357,7 +362,7 @@
   </section>
 
   <footer>
-    出典: docs/PLAN.md(Draft, 2026-08-18)・docs/spec/ 第0〜3章・docs/decisions/ 0001〜0006・docs/experiments/ 01〜04。2026-08-19 時点の状態を反映。
+    出典: docs/PLAN.md(Draft, 2026-08-18)・docs/spec/ 第0〜3章・docs/decisions/ 0001〜0008・docs/experiments/ 01〜04。2026-08-19 時点の状態を反映。
   </footer>
 
 </div>
