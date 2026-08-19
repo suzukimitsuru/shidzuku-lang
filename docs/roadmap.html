@@ -262,11 +262,11 @@
         <!-- Phase 0 issues -->
         <rect class="chip-adr" x="50" y="210" width="150" height="26" rx="13"></rect>
         <text class="chip-text" x="125" y="227" text-anchor="middle">U1 意図の記述形式</text>
-        <rect class="chip" x="50" y="244" width="150" height="26" rx="13"></rect>
+        <rect class="chip-adr" x="50" y="244" width="150" height="26" rx="13"></rect>
         <text class="chip-text" x="125" y="261" text-anchor="middle">U2 通信モデル</text>
-        <rect class="chip" x="50" y="278" width="150" height="26" rx="13"></rect>
+        <rect class="chip-adr" x="50" y="278" width="150" height="26" rx="13"></rect>
         <text class="chip-text" x="125" y="295" text-anchor="middle">U3 内部階層の制約</text>
-        <rect class="chip" x="50" y="312" width="150" height="26" rx="13"></rect>
+        <rect class="chip-adr" x="50" y="312" width="150" height="26" rx="13"></rect>
         <text class="chip-text" x="125" y="329" text-anchor="middle">U7 単位の粒度</text>
 
         <!-- U7 continues across phases -->
@@ -290,7 +290,7 @@
 
         <!-- legend -->
         <rect class="chip-adr" x="20" y="366" width="26" height="16" rx="8"></rect>
-        <text class="tiny" x="54" y="378" text-anchor="start">ADR 提案あり(U1: ADR 0003)</text>
+        <text class="tiny" x="54" y="378" text-anchor="start">ADR 提案あり(U1〜U3・U7: ADR 0003〜0006)</text>
         <rect class="chip-rel" x="280" y="366" width="26" height="16" rx="8"></rect>
         <text class="tiny" x="314" y="378" text-anchor="start">関連 ADR のみ・本体は未決(U6: ADR 0001)</text>
         <rect class="chip" x="640" y="366" width="26" height="16" rx="8"></rect>
@@ -308,9 +308,9 @@
         <h3>仕様の章立て(docs/spec/)</h3>
         <ul>
           <li><span class="what">第0章 ビジョン</span><span class="pill done">初稿 ✓</span></li>
-          <li><span class="what">第1章 基本単位の定義</span><span class="pill todo">未着手</span></li>
-          <li><span class="what">第2章 制約の体系</span><span class="pill todo">未着手</span></li>
-          <li><span class="what">第3章 通信モデル</span><span class="pill todo">未着手</span></li>
+          <li><span class="what">第1章 基本単位の定義</span><span class="pill done">初稿 ✓</span></li>
+          <li><span class="what">第2章 制約の体系</span><span class="pill done">初稿 ✓</span></li>
+          <li><span class="what">第3章 通信モデル</span><span class="pill done">初稿 ✓</span></li>
         </ul>
       </div>
       <div class="card">
@@ -319,7 +319,13 @@
           <li><span class="what">ADR 0001 分散環境の通信プロトコル <span class="note">U6 関連</span></span><span class="pill prog">提案</span></li>
           <li><span class="what">ADR 0002 プロジェクト名の再考</span><span class="pill done">採用 ✓</span></li>
           <li><span class="what">ADR 0003 検証不能な意図の記述形式 <span class="note">U1</span></span><span class="pill prog">提案</span></li>
-          <li><span class="what">思考実験 01 注文管理サービス <span class="note">U1 の実地検証</span></span><span class="pill prog">Draft</span></li>
+          <li><span class="what">ADR 0004 単位間の通信モデル <span class="note">U2</span></span><span class="pill prog">提案</span></li>
+          <li><span class="what">ADR 0005 内部階層の制約宣言 <span class="note">U3</span></span><span class="pill prog">提案</span></li>
+          <li><span class="what">ADR 0006 単位の粒度の指針 <span class="note">U7・継続検証</span></span><span class="pill prog">提案</span></li>
+          <li><span class="what">思考実験 01 注文管理サービス <span class="note">U1 の実地検証</span></span><span class="pill done">一巡 ✓</span></li>
+          <li><span class="what">思考実験 02 センサー収集パイプライン <span class="note">U2/U3/U7 の検証</span></span><span class="pill done">一巡 ✓</span></li>
+          <li><span class="what">思考実験 03 画像変換サービス <span class="note">ADR 0004〜0006 の検証</span></span><span class="pill done">一巡 ✓</span></li>
+          <li><span class="what">思考実験 04 分散 KV ストア <span class="note">第1〜3章の検証</span></span><span class="pill done">一巡 ✓</span></li>
         </ul>
       </div>
     </div>
@@ -327,7 +333,7 @@
 
   <section>
     <h2>Phase 0 の検証ループ</h2>
-    <p class="lead">仕様だけを先行させないための往復。いま思考実験 01 がこのループの中にある。</p>
+    <p class="lead">仕様だけを先行させないための往復。思考実験 01〜04 が一巡し、Phase 0 の課題(U1〜U3・U7)の ADR 提案と第1〜3章の初稿が揃った。次は ADR・章の採否判断と、配置の記述(思考実験 04 の論点)の骨格判断。</p>
     <figure>
       <svg viewBox="0 0 560 132" role="img" aria-label="仕様と思考実験のあいだを往復するループ。仕様を既存システムで記述してみて、書けない事があれば仕様に戻す">
         <defs>
@@ -351,7 +357,7 @@
   </section>
 
   <footer>
-    出典: docs/PLAN.md(Draft, 2026-08-18)・docs/decisions/ 0001〜0003・docs/experiments/ 01。2026-08-19 時点の状態を反映。
+    出典: docs/PLAN.md(Draft, 2026-08-18)・docs/spec/ 第0〜3章・docs/decisions/ 0001〜0006・docs/experiments/ 01〜04。2026-08-19 時点の状態を反映。
   </footer>
 
 </div>
