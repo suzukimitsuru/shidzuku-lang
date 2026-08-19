@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>雫の道のり</title>
+<style>
+  :root {
+    --bg: #F5F8F8;
+    --surface: #FFFFFF;
+    --ink: #1F2B2F;
+    --muted: #5D7278;
+    --line: #CFDCDF;
+    --accent: #2E7A8C;
+    --accent-soft: #DFEDF0;
+    --done: #3C8A59;
+    --done-soft: #E2F0E7;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #12191B;
+      --surface: #1A2427;
+      --ink: #E4ECEE;
+      --muted: #91A6AC;
+      --line: #2D3C41;
+      --accent: #67BACB;
+      --accent-soft: #1D3941;
+      --done: #6CBE8E;
+      --done-soft: #1E3529;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #12191B;
+    --surface: #1A2427;
+    --ink: #E4ECEE;
+    --muted: #91A6AC;
+    --line: #2D3C41;
+    --accent: #67BACB;
+    --accent-soft: #1D3941;
+    --done: #6CBE8E;
+    --done-soft: #1E3529;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+    line-height: 1.7;
+    margin: 0;
+    padding: 48px 24px 64px;
+  }
+  .page {
+    max-width: 920px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  header.masthead {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 24px;
+  }
+  .mark {
+    font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+    font-size: 64px;
+    line-height: 1;
+    color: var(--accent);
+    flex: none;
+  }
+  .masthead h1 {
+    font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+    font-size: 32px;
+    font-weight: 600;
+    margin: 0 0 6px;
+    letter-spacing: 0.04em;
+    text-wrap: balance;
+  }
+  .masthead p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 13.5px;
+  }
+
+  h2 {
+    font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+    font-size: 21px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin: 0 0 4px;
+  }
+  section > p.lead {
+    margin: 0 0 18px;
+    color: var(--muted);
+    font-size: 13.5px;
+  }
+
+  figure {
+    margin: 0;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 20px 16px 12px;
+    overflow-x: auto;
+  }
+  figure svg {
+    display: block;
+    min-width: 720px;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    color: var(--muted);
+  }
+  figcaption {
+    font-size: 12.5px;
+    color: var(--muted);
+    padding: 10px 8px 2px;
+    border-top: 1px solid var(--line);
+    margin-top: 14px;
+  }
+
+  /* SVG roles */
+  .box        { fill: var(--surface); stroke: var(--line); stroke-width: 1.2; }
+  .box-now    { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 2; }
+  .eyebrow    { font-size: 11px; letter-spacing: 2px; fill: var(--muted); }
+  .eyebrow-now{ fill: var(--accent); }
+  .name       { font-size: 16px; font-weight: 700; fill: var(--ink); }
+  .small      { font-size: 11.5px; fill: var(--muted); }
+  .tiny       { font-size: 10.5px; fill: var(--muted); }
+  .now-label  { font-size: 13px; font-weight: 700; fill: var(--accent); }
+  .droplet    { fill: var(--accent); }
+  .arrow      { stroke: currentColor; stroke-width: 1.4; fill: none; }
+  .dashed     { stroke-dasharray: 5 4; }
+  .sep        { stroke: var(--line); stroke-dasharray: 2 4; }
+  .chip       { fill: var(--surface); stroke: var(--line); stroke-width: 1.2; }
+  .chip-adr   { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 1.4; }
+  .chip-rel   { fill: var(--surface); stroke: var(--accent); stroke-width: 1.4; stroke-dasharray: 4 3; }
+  .chip-text  { font-size: 12px; fill: var(--ink); }
+
+  /* Phase 0 detail */
+  .detail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 16px;
+  }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 18px 20px;
+  }
+  .card h3 {
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    color: var(--muted);
+    font-weight: 600;
+    margin: 0 0 12px;
+  }
+  .card ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 9px; }
+  .card li {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 13.5px;
+  }
+  .card li .what { min-width: 0; }
+  .card li .note { color: var(--muted); font-size: 12px; }
+  .pill {
+    flex: none;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-radius: 999px;
+    padding: 2px 10px;
+    white-space: nowrap;
+  }
+  .pill.done { color: var(--done); background: var(--done-soft); }
+  .pill.prog { color: var(--accent); background: var(--accent-soft); }
+  .pill.todo { color: var(--muted); border: 1px solid var(--line); }
+
+  footer {
+    color: var(--muted);
+    font-size: 12px;
+    border-top: 1px solid var(--line);
+    padding-top: 16px;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .droplet { transform-origin: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <header class="masthead">
+    <span class="mark" aria-hidden="true">雫</span>
+    <div>
+      <h1>雫の道のり</h1>
+      <p>設計意図から実装までを一本の記述で貫く言語 — docs/PLAN.md の4フェーズと、2026-08-19 時点の現在地。</p>
+    </div>
+  </header>
+
+  <section>
+    <h2>フェーズと決定の地図</h2>
+    <p class="lead">各フェーズは「動く最小の成果物」で締める。未解決課題 U1〜U8 は、それぞれの決定フェーズの下に置いた。</p>
+    <figure>
+      <svg viewBox="0 0 980 404" role="img" aria-label="4つのフェーズ(言語仕様・最小の言語実装・最小の分散動作環境・可視化)を左から右へ並べ、現在地は Phase 0。各フェーズの下に決定すべき課題 U1〜U8 を配置した図">
+        <defs>
+          <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <polygon points="0,1 10,5 0,9" fill="currentColor"></polygon>
+          </marker>
+        </defs>
+
+        <!-- current position marker -->
+        <path class="droplet" d="M125 8 C120 17 112 24 112 32 a13 13 0 0 0 26 0 C138 24 130 17 125 8 Z"></path>
+        <text class="now-label" x="148" y="34" text-anchor="start">現在地</text>
+
+        <!-- phase boxes -->
+        <rect class="box-now" x="20"  y="56" width="210" height="76" rx="9"></rect>
+        <rect class="box"     x="265" y="56" width="210" height="76" rx="9"></rect>
+        <rect class="box"     x="510" y="56" width="210" height="76" rx="9"></rect>
+        <rect class="box"     x="755" y="56" width="210" height="76" rx="9"></rect>
+
+        <text class="eyebrow eyebrow-now" x="125" y="80" text-anchor="middle">PHASE 0</text>
+        <text class="name"  x="125" y="104" text-anchor="middle">言語仕様</text>
+        <text class="small" x="125" y="122" text-anchor="middle">第0〜3章+思考実験で検証</text>
+
+        <text class="eyebrow" x="370" y="80" text-anchor="middle">PHASE 1</text>
+        <text class="name"  x="370" y="104" text-anchor="middle">最小の言語実装</text>
+        <text class="small" x="370" y="122" text-anchor="middle">パーサ+検証器+トランスパイラ</text>
+
+        <text class="eyebrow" x="615" y="80" text-anchor="middle">PHASE 2</text>
+        <text class="name"  x="615" y="104" text-anchor="middle">最小の分散動作環境</text>
+        <text class="small" x="615" y="122" text-anchor="middle">Raft 合意・ログ規約</text>
+
+        <text class="eyebrow" x="860" y="80" text-anchor="middle">PHASE 3</text>
+        <text class="name"  x="860" y="104" text-anchor="middle">可視化</text>
+        <text class="small" x="860" y="122" text-anchor="middle">構造図・フロー図・障害境界図</text>
+
+        <!-- arrows between phases -->
+        <line class="arrow" x1="232" y1="94" x2="260" y2="94" marker-end="url(#arr)"></line>
+        <line class="arrow" x1="477" y1="94" x2="505" y2="94" marker-end="url(#arr)"></line>
+        <line class="arrow" x1="722" y1="94" x2="750" y2="94" marker-end="url(#arr)"></line>
+
+        <!-- deliverables -->
+        <text class="tiny" x="125" y="154" text-anchor="middle">成果物: 検証で裏付けた仕様</text>
+        <text class="tiny" x="370" y="154" text-anchor="middle">成果物: 三層記述の単位 2〜3個を</text>
+        <text class="tiny" x="370" y="169" text-anchor="middle">接続したプログラムが動く</text>
+        <text class="tiny" x="615" y="154" text-anchor="middle">成果物: 小さな KV ストアが静かに動き</text>
+        <text class="tiny" x="615" y="169" text-anchor="middle">ノード障害が伝播しない</text>
+        <text class="tiny" x="860" y="154" text-anchor="middle">成果物: コードから図を抽出</text>
+
+        <!-- issues lane -->
+        <text class="eyebrow" x="20" y="196" text-anchor="start">決定する課題(U1〜U8)</text>
+        <line class="sep" x1="180" y1="192" x2="960" y2="192"></line>
+
+        <!-- Phase 0 issues -->
+        <rect class="chip-adr" x="50" y="210" width="150" height="26" rx="13"></rect>
+        <text class="chip-text" x="125" y="227" text-anchor="middle">U1 意図の記述形式</text>
+        <rect class="chip" x="50" y="244" width="150" height="26" rx="13"></rect>
+        <text class="chip-text" x="125" y="261" text-anchor="middle">U2 通信モデル</text>
+        <rect class="chip" x="50" y="278" width="150" height="26" rx="13"></rect>
+        <text class="chip-text" x="125" y="295" text-anchor="middle">U3 内部階層の制約</text>
+        <rect class="chip" x="50" y="312" width="150" height="26" rx="13"></rect>
+        <text class="chip-text" x="125" y="329" text-anchor="middle">U7 単位の粒度</text>
+
+        <!-- U7 continues across phases -->
+        <line class="arrow dashed" x1="205" y1="325" x2="930" y2="325" marker-end="url(#arr)"></line>
+        <text class="tiny" x="565" y="318" text-anchor="middle">U7 はフェーズを跨いで継続判断</text>
+
+        <!-- before Phase 1 -->
+        <rect class="chip" x="295" y="210" width="150" height="26" rx="13"></rect>
+        <text class="chip-text" x="370" y="227" text-anchor="middle">U5 出力先の言語</text>
+        <text class="tiny" x="370" y="254" text-anchor="middle">(Phase 1 の前に決定)</text>
+
+        <!-- Phase 2 issues -->
+        <rect class="chip" x="540" y="210" width="150" height="26" rx="13"></rect>
+        <text class="chip-text" x="615" y="227" text-anchor="middle">U4 ログ規約</text>
+        <rect class="chip-rel" x="540" y="244" width="150" height="26" rx="13"></rect>
+        <text class="chip-text" x="615" y="261" text-anchor="middle">U6 Raft の適用範囲</text>
+
+        <!-- Phase 3 issue -->
+        <rect class="chip" x="785" y="210" width="150" height="26" rx="13"></rect>
+        <text class="chip-text" x="860" y="227" text-anchor="middle">U8 図と実装の一致</text>
+
+        <!-- legend -->
+        <rect class="chip-adr" x="20" y="366" width="26" height="16" rx="8"></rect>
+        <text class="tiny" x="54" y="378" text-anchor="start">ADR 提案あり(U1: ADR 0003)</text>
+        <rect class="chip-rel" x="280" y="366" width="26" height="16" rx="8"></rect>
+        <text class="tiny" x="314" y="378" text-anchor="start">関連 ADR のみ・本体は未決(U6: ADR 0001)</text>
+        <rect class="chip" x="640" y="366" width="26" height="16" rx="8"></rect>
+        <text class="tiny" x="674" y="378" text-anchor="start">未着手</text>
+      </svg>
+      <figcaption>docs/PLAN.md 第1・2節より。現在は Phase 0(言語仕様)。compiler/ と runtime/ への着手は、仕様の裏付けができてから。</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <h2>Phase 0 のいま</h2>
+    <p class="lead">仕様の章立ての進み具合と、決定の記録(ADR)・検証(思考実験)の状況。</p>
+    <div class="detail-grid">
+      <div class="card">
+        <h3>仕様の章立て(docs/spec/)</h3>
+        <ul>
+          <li><span class="what">第0章 ビジョン</span><span class="pill done">初稿 ✓</span></li>
+          <li><span class="what">第1章 基本単位の定義</span><span class="pill todo">未着手</span></li>
+          <li><span class="what">第2章 制約の体系</span><span class="pill todo">未着手</span></li>
+          <li><span class="what">第3章 通信モデル</span><span class="pill todo">未着手</span></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>決定と検証(docs/decisions/・experiments/)</h3>
+        <ul>
+          <li><span class="what">ADR 0001 分散環境の通信プロトコル <span class="note">U6 関連</span></span><span class="pill prog">提案</span></li>
+          <li><span class="what">ADR 0002 プロジェクト名の再考</span><span class="pill done">採用 ✓</span></li>
+          <li><span class="what">ADR 0003 検証不能な意図の記述形式 <span class="note">U1</span></span><span class="pill prog">提案</span></li>
+          <li><span class="what">思考実験 01 注文管理サービス <span class="note">U1 の実地検証</span></span><span class="pill prog">Draft</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Phase 0 の検証ループ</h2>
+    <p class="lead">仕様だけを先行させないための往復。いま思考実験 01 がこのループの中にある。</p>
+    <figure>
+      <svg viewBox="0 0 560 132" role="img" aria-label="仕様と思考実験のあいだを往復するループ。仕様を既存システムで記述してみて、書けない事があれば仕様に戻す">
+        <defs>
+          <marker id="arr2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <polygon points="0,1 10,5 0,9" fill="currentColor"></polygon>
+          </marker>
+        </defs>
+        <rect class="box" x="30" y="42" width="180" height="52" rx="9"></rect>
+        <text class="name"  x="120" y="64" text-anchor="middle" style="font-size:14px">仕様</text>
+        <text class="tiny"  x="120" y="82" text-anchor="middle">docs/spec/</text>
+        <rect class="box" x="350" y="42" width="180" height="52" rx="9"></rect>
+        <text class="name"  x="440" y="64" text-anchor="middle" style="font-size:14px">思考実験</text>
+        <text class="tiny"  x="440" y="82" text-anchor="middle">docs/experiments/</text>
+        <path class="arrow" d="M210 54 C 265 28, 295 28, 350 54" marker-end="url(#arr2)"></path>
+        <text class="small" x="280" y="28" text-anchor="middle">既存システムを記述してみる</text>
+        <path class="arrow" d="M350 82 C 295 108, 265 108, 210 82" marker-end="url(#arr2)"></path>
+        <text class="small" x="280" y="122" text-anchor="middle">書けない事があれば仕様に戻す</text>
+      </svg>
+      <figcaption>docs/PLAN.md「検証方法」と「進め方の原則」より。</figcaption>
+    </figure>
+  </section>
+
+  <footer>
+    出典: docs/PLAN.md(Draft, 2026-08-18)・docs/decisions/ 0001〜0003・docs/experiments/ 01。2026-08-19 時点の状態を反映。
+  </footer>
+
+</div>
+</body>
+</html>
