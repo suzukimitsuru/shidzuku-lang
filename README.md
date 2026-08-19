@@ -15,16 +15,16 @@ Shidzuku は、設計意図から制約・構造・実装までを一本の記�
 
 ## 文書
 
-| 文書                                                                            | 内容                                         |
-| ------------------------------------------------------------------------------- | -------------------------------------------- |
-| [docs/spec/00-vision.md](docs/spec/00-vision.md)                                | 第0章 ビジョン                               |
-| [docs/spec/01-unit.md](docs/spec/01-unit.md)                                    | 第1章 基本ユニットの定義                     |
-| [docs/spec/02-constraints.md](docs/spec/02-constraints.md)                      | 第2章 制約の体系                             |
-| [docs/spec/03-communication.md](docs/spec/03-communication.md)                  | 第3章 通信モデル                             |
-| [docs/PLAN.md](docs/PLAN.md)                                                    | フェーズ計画と未解決課題 (U1〜U14)           |
-| [docs/roadmap.html](https://suzukimitsuru.github.io/shidzuku-lang/roadmap.html) | 道のりと現在位置の図(クリックでブラウザ表示) |
-| docs/decisions/                                                                 | ADR — 課題の決定を記録する                   |
-| docs/experiments/                                                               | 思考実験 — 既存システムの Shidzuku 記述      |
+| 文書                                                                               | 内容                                         |
+| ---------------------------------------------------------------------------------- | -------------------------------------------- |
+| 📄 [docs/spec/00-vision.md](docs/spec/00-vision.md)                                | 第0章 ビジョン                               |
+| 📄 [docs/spec/01-unit.md](docs/spec/01-unit.md)                                    | 第1章 基本ユニットの定義                     |
+| 📄 [docs/spec/02-constraints.md](docs/spec/02-constraints.md)                      | 第2章 制約の体系                             |
+| 📄 [docs/spec/03-communication.md](docs/spec/03-communication.md)                  | 第3章 通信モデル                             |
+| 📄 [docs/PLAN.md](docs/PLAN.md)                                                    | フェーズ計画と未解決課題 (U1〜U14)           |
+| 🔗 [docs/roadmap.html](https://suzukimitsuru.github.io/shidzuku-lang/roadmap.html) | 道のりと現在位置の図(クリックでブラウザ表示) |
+| 🗂️ docs/decisions/                                                                 | ADR — 課題の決定を記録する                   |
+| 🗂️ docs/experiments/                                                               | 思考実験 — 既存システムの Shidzuku 記述      |
 
 ## 状態
 
@@ -41,8 +41,6 @@ Phase 0(言語仕様)を進行中。
     - 思考実験: 02〜04(01 は「次の行動」の消化を反映)
 - 配置・複製の記述を言語仕様に含めるか(思考実験04の核心)— 1つの設計単位を N 個の配置単位として複製すると、第0章の「設計=処理=障害=配置が同一」が緊張します。第4章(配置)を Phase 0 に立てるか、実行系の設定(Phase 2/U6)に置くかは骨格判断です。
 - U5(トランスパイル先の言語) — 「Phase 1 前」の決定期限が近づいています。比較検討の ADR 起案を指示いただければ着手します。
-
-![Phase 0(言語仕様) のロードマップ](docs/roadmap.html)
 
 ## License
 
