@@ -97,6 +97,7 @@
     color: var(--muted);
     font-size: 13.5px;
   }
+  .detail-grid + p.lead { margin-top: 28px; }
 
   figure {
     margin: 0;
@@ -155,6 +156,7 @@
     border-radius: 10px;
     padding: 18px 20px;
   }
+  .card.wide { grid-column: 1 / -1; }
   .card h3 {
     font-size: 13px;
     letter-spacing: 1.5px;
@@ -325,7 +327,7 @@
 
   <section>
     <h2>Phase 0 のいま</h2>
-    <p class="lead">仕様の章立ての進み具合と、決定の記録(ADR)・検証(思考実験)の状況。</p>
+    <p class="lead">仕様の章立て・検証(思考実験)・決定(ADR)の状況と、課題 U1〜U16 がどの ADR で決まったかの対応。</p>
     <div class="detail-grid">
       <div class="card">
         <h3>仕様の章立て(docs/spec/)</h3>
@@ -337,7 +339,18 @@
         </ul>
       </div>
       <div class="card">
-        <h3>決定と検証(docs/decisions/・experiments/)</h3>
+        <h3>思考実験(docs/experiments/)</h3>
+        <ul>
+          <li><span class="what">思考実験 01 注文管理サービス <span class="note">U1 の実地検証</span></span><span class="pill done">一巡 ✓</span></li>
+          <li><span class="what">思考実験 02 センサー収集パイプライン <span class="note">U2/U3/U7 の検証</span></span><span class="pill done">一巡 ✓</span></li>
+          <li><span class="what">思考実験 03 画像変換サービス <span class="note">ADR 0004〜0006 の検証</span></span><span class="pill done">一巡 ✓</span></li>
+          <li><span class="what">思考実験 04 分散 KV ストア <span class="note">第1〜3章の検証</span></span><span class="pill done">一巡 ✓</span></li>
+          <li><span class="what">思考実験 05 データの記述 <span class="note">01〜04 の横断検証</span></span><span class="pill done">一巡 ✓</span></li>
+          <li><span class="what">思考実験 06 数値と単位の記述 <span class="note">U15 の検証</span></span><span class="pill done">一巡 ✓</span></li>
+        </ul>
+      </div>
+      <div class="card wide">
+        <h3>決定 — ADR(docs/decisions/)</h3>
         <ul>
           <li><span class="what">ADR 0001 分散環境の通信プロトコル <span class="note">U6 関連</span></span><span class="pill done">採用 ✓</span></li>
           <li><span class="what">ADR 0002 プロジェクト名の再考</span><span class="pill done">採用 ✓</span></li>
@@ -349,22 +362,13 @@
           <li><span class="what">ADR 0008 省略の禁止 <span class="note">全体制約・0004/0005 を改訂</span></span><span class="pill done">採用 ✓</span></li>
           <li><span class="what">ADR 0009 データ型の記述 <span class="note">U9</span></span><span class="pill prog">提案</span></li>
           <li><span class="what">ADR 0010 数値の型と単位 <span class="note">U15</span></span><span class="pill prog">提案</span></li>
+          <li><span class="what">ADR 0011 (欠番) <span class="note">草稿2本を 0012 に統合した空き番</span></span><span class="pill todo">欠番</span></li>
           <li><span class="what">ADR 0012 動作環境の言語とトランスパイル先の言語 <span class="note">U5・U16 を新設</span></span><span class="pill prog">提案</span></li>
           <li><span class="what">ADR 0013 文字列型の廃止・テキスト型・層モデル <span class="note">U9/U3・0009 の基本型と 0005 の階層を改訂</span></span><span class="pill prog">提案</span></li>
-          <li><span class="what">思考実験 01 注文管理サービス <span class="note">U1 の実地検証</span></span><span class="pill done">一巡 ✓</span></li>
-          <li><span class="what">思考実験 02 センサー収集パイプライン <span class="note">U2/U3/U7 の検証</span></span><span class="pill done">一巡 ✓</span></li>
-          <li><span class="what">思考実験 03 画像変換サービス <span class="note">ADR 0004〜0006 の検証</span></span><span class="pill done">一巡 ✓</span></li>
-          <li><span class="what">思考実験 04 分散 KV ストア <span class="note">第1〜3章の検証</span></span><span class="pill done">一巡 ✓</span></li>
-          <li><span class="what">思考実験 05 データの記述 <span class="note">01〜04 の横断検証</span></span><span class="pill done">一巡 ✓</span></li>
-          <li><span class="what">思考実験 06 数値と単位の記述 <span class="note">U15 の検証</span></span><span class="pill done">一巡 ✓</span></li>
         </ul>
       </div>
     </div>
-  </section>
-
-  <section>
-    <h2>課題と決定の対応</h2>
-    <p class="lead">docs/PLAN.md 第2節の課題 U1〜U16 と、第3節の ADR 0001〜0013 の対応。実線はその課題を決めた ADR、破線は関連・先行・改訂の関係。線の無い課題はまだ ADR が無い。</p>
+    <p class="lead">左が課題(PLAN 第2節)、右が ADR(PLAN 第3節)。実線はその課題を決めた ADR、破線は関連・先行・改訂の関係。線の無い課題はまだ ADR が無い。</p>
     <figure>
       <svg viewBox="0 0 980 700" role="img" aria-label="左に未解決課題 U1〜U16、右に ADR 0001〜0013 を並べ、どの課題をどの ADR が決めたか(実線)と、関連・先行・改訂の関係(破線)を線で結んだ対応図">
         <defs>
