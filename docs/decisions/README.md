@@ -1,6 +1,6 @@
 # Architecture Decision Records / アーキテクチャ決定記録
 
-アーキテクチャ上の重要な未解決課題 (U1〜U8) の決定をここに記録する。
+アーキテクチャ上の重要な未解決課題(docs/PLAN.md の U1〜)の決定をここに記録する。
 「意図を残す」という Shidzuku の思想を、開発プロセス自身にも適用する。
 
 ファイル名: `NNNN-短い題名.md`(例: `0001-intent-format.md`)
