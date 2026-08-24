@@ -210,7 +210,7 @@
     <h2>フェーズと決定の地図</h2>
     <p class="lead">各フェーズは「動く最小の成果物」で締める。未解決課題 U1〜U15 は、それぞれの決定フェーズの下に置いた。</p>
     <figure>
-      <svg viewBox="0 0 980 588" role="img" aria-label="4つのフェーズ(言語仕様・最小の言語実装・最小の分散動作環境・可視化)を左から右へ並べ、現在地は Phase 0。各フェーズの下に決定すべき課題 U1〜U15 を配置した図">
+      <svg viewBox="0 0 980 624" role="img" aria-label="4つのフェーズ(言語仕様・最小の言語実装・最小の分散動作環境・可視化)を左から右へ並べ、現在地は Phase 0。各フェーズの下に決定すべき課題 U1〜U15 を配置した図">
         <defs>
           <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
             <polygon points="0,1 10,5 0,9" fill="currentColor"></polygon>
@@ -282,6 +282,8 @@
         <rect class="chip" x="50" y="516" width="150" height="26" rx="13"></rect>
         <text class="chip-text" x="125" y="533" text-anchor="middle">U14 プログラム宣言</text>
         <text class="tiny" x="215" y="533" text-anchor="start">(Phase 0〜1 で決定)</text>
+        <rect class="chip-adr" x="50" y="550" width="150" height="26" rx="13"></rect>
+        <text class="chip-text" x="125" y="567" text-anchor="middle">U15 数値の型と単位</text>
 
         <!-- U7 continues across phases -->
         <line class="arrow dashed" x1="205" y1="325" x2="930" y2="325" marker-end="url(#arr)"></line>
@@ -306,14 +308,14 @@
         <text class="chip-text" x="860" y="227" text-anchor="middle">U8 図と実装の一致</text>
 
         <!-- legend -->
-        <rect class="chip-done" x="20" y="556" width="26" height="16" rx="8"></rect>
-        <text class="tiny" x="54" y="568" text-anchor="start">ADR 採用済み(U1・U2)</text>
-        <rect class="chip-adr" x="230" y="556" width="26" height="16" rx="8"></rect>
-        <text class="tiny" x="264" y="568" text-anchor="start">ADR 提案あり(U3・U5・U7・U9)</text>
-        <rect class="chip-rel" x="460" y="556" width="26" height="16" rx="8"></rect>
-        <text class="tiny" x="494" y="568" text-anchor="start">関連/先行 ADR は採用・本体は未決(U6・U8)</text>
-        <rect class="chip" x="800" y="556" width="26" height="16" rx="8"></rect>
-        <text class="tiny" x="834" y="568" text-anchor="start">未着手(U4・U10〜U15)</text>
+        <rect class="chip-done" x="20" y="592" width="26" height="16" rx="8"></rect>
+        <text class="tiny" x="54" y="604" text-anchor="start">ADR 採用済み(U1・U2)</text>
+        <rect class="chip-adr" x="230" y="592" width="26" height="16" rx="8"></rect>
+        <text class="tiny" x="264" y="604" text-anchor="start">ADR 提案あり(U3・U7・U9・U15)</text>
+        <rect class="chip-rel" x="480" y="592" width="26" height="16" rx="8"></rect>
+        <text class="tiny" x="514" y="604" text-anchor="start">関連/先行 ADR は採用・本体は未決(U6・U8)</text>
+        <rect class="chip" x="812" y="592" width="26" height="16" rx="8"></rect>
+        <text class="tiny" x="846" y="604" text-anchor="start">未着手(U4・U5・U10〜U14)</text>
       </svg>
       <figcaption>docs/PLAN.md 第1・2節より。現在は Phase 0(言語仕様)。compiler/ と runtime/ への着手は、仕様の裏付けができてから。</figcaption>
     </figure>
@@ -345,11 +347,13 @@
           <li><span class="what">ADR 0008 省略の禁止 <span class="note">全体制約・0004/0005 を改訂</span></span><span class="pill done">採用 ✓</span></li>
           <li><span class="what">ADR 0009 データ型の記述 <span class="note">U9</span></span><span class="pill prog">提案</span></li>
           <li><span class="what">ADR 0012 動作環境の言語とトランスパイル先の言語 <span class="note">U5・U15 を新設</span></span><span class="pill prog">提案</span></li>
+          <li><span class="what">ADR 0010 数値の型と単位 <span class="note">U15</span></span><span class="pill prog">提案</span></li>
           <li><span class="what">思考実験 01 注文管理サービス <span class="note">U1 の実地検証</span></span><span class="pill done">一巡 ✓</span></li>
           <li><span class="what">思考実験 02 センサー収集パイプライン <span class="note">U2/U3/U7 の検証</span></span><span class="pill done">一巡 ✓</span></li>
           <li><span class="what">思考実験 03 画像変換サービス <span class="note">ADR 0004〜0006 の検証</span></span><span class="pill done">一巡 ✓</span></li>
           <li><span class="what">思考実験 04 分散 KV ストア <span class="note">第1〜3章の検証</span></span><span class="pill done">一巡 ✓</span></li>
           <li><span class="what">思考実験 05 データの記述 <span class="note">01〜04 の横断検証</span></span><span class="pill done">一巡 ✓</span></li>
+          <li><span class="what">思考実験 06 数値と単位の記述 <span class="note">U15 の検証</span></span><span class="pill done">一巡 ✓</span></li>
         </ul>
       </div>
     </div>
