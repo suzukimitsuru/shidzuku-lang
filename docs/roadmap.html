@@ -140,6 +140,8 @@
   .chip-done  { fill: var(--done-soft); stroke: var(--done); stroke-width: 1.4; }
   .chip-rel   { fill: var(--surface); stroke: var(--accent); stroke-width: 1.4; stroke-dasharray: 4 3; }
   .chip-text  { font-size: 12px; fill: var(--ink); }
+  .link       { stroke: var(--accent); stroke-width: 1.3; fill: none; opacity: 0.55; }
+  .link-rel   { stroke-dasharray: 4 4; opacity: 0.32; }
 
   /* Phase 0 detail */
   .detail-grid {
@@ -202,7 +204,7 @@
     <span class="mark" aria-hidden="true">雫</span>
     <div>
       <h1>雫の道のり</h1>
-      <p>設計意図から実装までを一本の記述で貫く言語 — docs/PLAN.md の4フェーズと、2026-08-24 時点の現在地。</p>
+      <p>設計意図から実装までを一本の記述で貫く言語 — docs/PLAN.md の4フェーズと、2026-08-25 時点の現在地。</p>
     </div>
   </header>
 
@@ -346,8 +348,8 @@
           <li><span class="what">ADR 0007 ADR と C4 の考え方の取り込み <span class="note">U8 先行</span></span><span class="pill done">採用 ✓</span></li>
           <li><span class="what">ADR 0008 省略の禁止 <span class="note">全体制約・0004/0005 を改訂</span></span><span class="pill done">採用 ✓</span></li>
           <li><span class="what">ADR 0009 データ型の記述 <span class="note">U9</span></span><span class="pill prog">提案</span></li>
-          <li><span class="what">ADR 0012 動作環境の言語とトランスパイル先の言語 <span class="note">U5・U16 を新設</span></span><span class="pill prog">提案</span></li>
           <li><span class="what">ADR 0010 数値の型と単位 <span class="note">U15</span></span><span class="pill prog">提案</span></li>
+          <li><span class="what">ADR 0012 動作環境の言語とトランスパイル先の言語 <span class="note">U5・U16 を新設</span></span><span class="pill prog">提案</span></li>
           <li><span class="what">ADR 0013 文字列型の廃止・テキスト型・層モデル <span class="note">U9/U3・0009 の基本型と 0005 の階層を改訂</span></span><span class="pill prog">提案</span></li>
           <li><span class="what">思考実験 01 注文管理サービス <span class="note">U1 の実地検証</span></span><span class="pill done">一巡 ✓</span></li>
           <li><span class="what">思考実験 02 センサー収集パイプライン <span class="note">U2/U3/U7 の検証</span></span><span class="pill done">一巡 ✓</span></li>
@@ -361,8 +363,147 @@
   </section>
 
   <section>
+    <h2>課題と決定の対応</h2>
+    <p class="lead">docs/PLAN.md 第2節の課題 U1〜U16 と、第3節の ADR 0001〜0013 の対応。実線はその課題を決めた ADR、破線は関連・先行・改訂の関係。線の無い課題はまだ ADR が無い。</p>
+    <figure>
+      <svg viewBox="0 0 980 700" role="img" aria-label="左に未解決課題 U1〜U16、右に ADR 0001〜0013 を並べ、どの課題をどの ADR が決めたか(実線)と、関連・先行・改訂の関係(破線)を線で結んだ対応図">
+        <defs>
+          <marker id="arr3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <polygon points="0,1 10,5 0,9" fill="currentColor"></polygon>
+          </marker>
+        </defs>
+
+        <text class="eyebrow" x="121" y="38" text-anchor="middle">課題(PLAN 第2節)</text>
+        <text class="eyebrow" x="612" y="38" text-anchor="start">決定 — ADR(PLAN 第3節)</text>
+
+        <!-- links: issue to ADR -->
+        <path class="link" d="M226 69 C390 69, 436 73, 600 73"></path>
+        <path class="link" d="M226 107 C390 107, 436 121, 600 121"></path>
+        <path class="link" d="M226 145 C390 145, 436 169, 600 169"></path>
+        <path class="link" d="M226 145 C390 145, 436 505, 600 505"></path>
+        <path class="link" d="M226 221 C390 221, 436 265, 600 265"></path>
+        <path class="link" d="M226 297 C390 297, 436 361, 600 361"></path>
+        <path class="link" d="M226 373 C390 373, 436 457, 600 457"></path>
+        <path class="link" d="M226 373 C390 373, 436 505, 600 505"></path>
+        <path class="link" d="M226 601 C390 601, 436 553, 600 553"></path>
+        <path class="link link-rel" d="M226 259 C390 259, 436 313, 600 313"></path>
+        <path class="link link-rel" d="M226 335 C390 335, 436 409, 600 409"></path>
+        <path class="link link-rel" d="M226 69 C390 69, 436 409, 600 409"></path>
+        <path class="link link-rel" d="M226 107 C390 107, 436 217, 600 217"></path>
+        <path class="link link-rel" d="M226 145 C390 145, 436 217, 600 217"></path>
+        <path class="link link-rel" d="M226 373 C390 373, 436 553, 600 553"></path>
+        <path class="link link-rel" d="M226 487 C390 487, 436 553, 600 553"></path>
+        <path class="link link-rel" d="M226 525 C390 525, 436 553, 600 553"></path>
+        <path class="link link-rel" d="M226 487 C390 487, 436 505, 600 505"></path>
+        <path class="link link-rel" d="M226 525 C390 525, 436 505, 600 505"></path>
+        <path class="link link-rel" d="M226 297 C390 297, 436 505, 600 505"></path>
+        <path class="link link-rel" d="M226 639 C390 639, 436 265, 600 265"></path>
+
+        <!-- issues -->
+        <rect class="chip-done" x="16" y="56" width="210" height="26" rx="13"></rect>
+        <text class="chip-text" x="121" y="73" text-anchor="middle">U1 意図の記述形式</text>
+        <rect class="chip-done" x="16" y="94" width="210" height="26" rx="13"></rect>
+        <text class="chip-text" x="121" y="111" text-anchor="middle">U2 通信モデル</text>
+        <rect class="chip-adr" x="16" y="132" width="210" height="26" rx="13"></rect>
+        <text class="chip-text" x="121" y="149" text-anchor="middle">U3 内部階層の制約</text>
+        <rect class="chip" x="16" y="170" width="210" height="26" rx="13"></rect>
+        <text class="chip-text" x="121" y="187" text-anchor="middle">U4 ログ規約</text>
+        <rect class="chip-adr" x="16" y="208" width="210" height="26" rx="13"></rect>
+        <text class="chip-text" x="121" y="225" text-anchor="middle">U5 トランスパイル先</text>
+        <rect class="chip-rel" x="16" y="246" width="210" height="26" rx="13"></rect>
+        <text class="chip-text" x="121" y="263" text-anchor="middle">U6 Raft の適用範囲</text>
+        <rect class="chip-adr" x="16" y="284" width="210" height="26" rx="13"></rect>
+        <text class="chip-text" x="121" y="301" text-anchor="middle">U7 ユニットの粒度</text>
+        <rect class="chip-rel" x="16" y="322" width="210" height="26" rx="13"></rect>
+        <text class="chip-text" x="121" y="339" text-anchor="middle">U8 図と実装の一致</text>
+        <rect class="chip-adr" x="16" y="360" width="210" height="26" rx="13"></rect>
+        <text class="chip-text" x="121" y="377" text-anchor="middle">U9 データ型の記述</text>
+        <rect class="chip" x="16" y="398" width="210" height="26" rx="13"></rect>
+        <text class="chip-text" x="121" y="415" text-anchor="middle">U10 実行モデル</text>
+        <rect class="chip" x="16" y="436" width="210" height="26" rx="13"></rect>
+        <text class="chip-text" x="121" y="453" text-anchor="middle">U11 順序保証</text>
+        <rect class="chip" x="16" y="474" width="210" height="26" rx="13"></rect>
+        <text class="chip-text" x="121" y="491" text-anchor="middle">U12 外部との境界</text>
+        <rect class="chip" x="16" y="512" width="210" height="26" rx="13"></rect>
+        <text class="chip-text" x="121" y="529" text-anchor="middle">U13 失敗の体系</text>
+        <rect class="chip" x="16" y="550" width="210" height="26" rx="13"></rect>
+        <text class="chip-text" x="121" y="567" text-anchor="middle">U14 プログラム宣言</text>
+        <rect class="chip-adr" x="16" y="588" width="210" height="26" rx="13"></rect>
+        <text class="chip-text" x="121" y="605" text-anchor="middle">U15 数値の型と単位</text>
+        <rect class="chip" x="16" y="626" width="210" height="26" rx="13"></rect>
+        <text class="chip-text" x="121" y="643" text-anchor="middle">U16 版の混在と移行</text>
+
+        <!-- ADRs -->
+        <rect class="chip-done" x="600" y="60" width="330" height="26" rx="13"></rect>
+        <text class="chip-text" x="612" y="77" text-anchor="start">0003 検証不能な意図の記述形式</text>
+        <text class="tiny" x="920" y="77" text-anchor="end">採用</text>
+        <rect class="chip-done" x="600" y="108" width="330" height="26" rx="13"></rect>
+        <text class="chip-text" x="612" y="125" text-anchor="start">0004 ユニット間の通信モデル</text>
+        <text class="tiny" x="920" y="125" text-anchor="end">採用</text>
+        <rect class="chip-adr" x="600" y="156" width="330" height="26" rx="13"></rect>
+        <text class="chip-text" x="612" y="173" text-anchor="start">0005 内部階層の制約宣言</text>
+        <text class="tiny" x="920" y="173" text-anchor="end">提案</text>
+        <rect class="chip-done" x="600" y="204" width="330" height="26" rx="13"></rect>
+        <text class="chip-text" x="612" y="221" text-anchor="start">0008 省略の禁止(全体制約)</text>
+        <text class="tiny" x="920" y="221" text-anchor="end">採用</text>
+        <rect class="chip-adr" x="600" y="252" width="330" height="26" rx="13"></rect>
+        <text class="chip-text" x="612" y="269" text-anchor="start">0012 動作環境の言語とトランスパイル先</text>
+        <text class="tiny" x="920" y="269" text-anchor="end">提案</text>
+        <rect class="chip-done" x="600" y="300" width="330" height="26" rx="13"></rect>
+        <text class="chip-text" x="612" y="317" text-anchor="start">0001 分散環境の通信プロトコル</text>
+        <text class="tiny" x="920" y="317" text-anchor="end">採用</text>
+        <rect class="chip-adr" x="600" y="348" width="330" height="26" rx="13"></rect>
+        <text class="chip-text" x="612" y="365" text-anchor="start">0006 ユニットの粒度の指針</text>
+        <text class="tiny" x="920" y="365" text-anchor="end">提案</text>
+        <rect class="chip-done" x="600" y="396" width="330" height="26" rx="13"></rect>
+        <text class="chip-text" x="612" y="413" text-anchor="start">0007 ADR と C4 の考え方の取り込み</text>
+        <text class="tiny" x="920" y="413" text-anchor="end">採用</text>
+        <rect class="chip-adr" x="600" y="444" width="330" height="26" rx="13"></rect>
+        <text class="chip-text" x="612" y="461" text-anchor="start">0009 データ型の記述</text>
+        <text class="tiny" x="920" y="461" text-anchor="end">提案</text>
+        <rect class="chip-adr" x="600" y="492" width="330" height="26" rx="13"></rect>
+        <text class="chip-text" x="612" y="509" text-anchor="start">0013 文字列型の廃止・テキスト型・層</text>
+        <text class="tiny" x="920" y="509" text-anchor="end">提案</text>
+        <rect class="chip-adr" x="600" y="540" width="330" height="26" rx="13"></rect>
+        <text class="chip-text" x="612" y="557" text-anchor="start">0010 数値の型と単位</text>
+        <text class="tiny" x="920" y="557" text-anchor="end">提案</text>
+        <rect class="chip-done" x="600" y="600" width="330" height="26" rx="13"></rect>
+        <text class="chip-text" x="612" y="617" text-anchor="start">0002 プロジェクト名の再考</text>
+        <text class="tiny" x="920" y="617" text-anchor="end">採用</text>
+
+        <!-- ADR revises ADR -->
+        <path class="arrow dashed" d="M932 217 C968 208, 968 130, 932 121" marker-end="url(#arr3)"></path>
+        <path class="arrow dashed" d="M932 217 C954 208, 954 178, 932 169" marker-end="url(#arr3)"></path>
+        <path class="arrow dashed" d="M932 505 C954 496, 954 466, 932 457" marker-end="url(#arr3)"></path>
+        <path class="arrow dashed" d="M932 505 C976 496, 976 178, 932 169" marker-end="url(#arr3)"></path>
+        <path class="arrow dashed" d="M932 553 C966 544, 966 466, 932 457" marker-end="url(#arr3)"></path>
+        <text class="tiny" x="944" y="330" text-anchor="middle" transform="rotate(90 944 330)">ADR が ADR を改訂</text>
+
+        <!-- bundled decision -->
+        <path class="arrow" d="M596 440 L588 440 L588 566 L596 566"></path>
+        <text class="tiny" x="612" y="582" text-anchor="start">この3件は基本型を共に改訂するため、揃えて採否を判断する</text>
+
+        <!-- legend -->
+        <rect class="chip-done" x="16" y="664" width="24" height="15" rx="7"></rect>
+        <text class="tiny" x="46" y="676" text-anchor="start">採用・決定済み</text>
+        <rect class="chip-adr" x="160" y="664" width="24" height="15" rx="7"></rect>
+        <text class="tiny" x="190" y="676" text-anchor="start">提案・判断待ち</text>
+        <rect class="chip-rel" x="304" y="664" width="24" height="15" rx="7"></rect>
+        <text class="tiny" x="334" y="676" text-anchor="start">一部・先行のみ決定済み</text>
+        <rect class="chip" x="484" y="664" width="24" height="15" rx="7"></rect>
+        <text class="tiny" x="514" y="676" text-anchor="start">未着手</text>
+        <path class="link" d="M576 672 L616 672"></path>
+        <text class="tiny" x="622" y="676" text-anchor="start">課題を決める ADR</text>
+        <path class="link link-rel" d="M754 672 L794 672"></path>
+        <text class="tiny" x="800" y="676" text-anchor="start">関連・先行・改訂の関係</text>
+      </svg>
+      <figcaption>docs/PLAN.md 第2・3節より。ADR 0002(命名)は課題の外にあるため線を持たない。ADR 0011 は欠番(草稿2本を 0012 に統合した空き番)。ADR 0012 は U5 を決める過程で U16 を新設した。</figcaption>
+    </figure>
+  </section>
+
+  <section>
     <h2>Phase 0 の検証ループ</h2>
-    <p class="lead">仕様だけを先行させないための往復。U1(意図)・U2(通信)・省略の禁止(ADR 0008)は採用され、仕様の背骨が固まった。判断待ちは U3(ADR 0005・0013)・U5(ADR 0012)・U7(ADR 0006)・U9(ADR 0009・0013)と、配置の記述(思考実験 04 の論点)。U10〜U15 はこのループで順次検討する。</p>
+    <p class="lead">仕様だけを先行させないための往復。U1(意図)・U2(通信)・省略の禁止(ADR 0008)は採用され、仕様の背骨が固まった。判断待ちは U3(ADR 0005・0013)・U5(ADR 0012)・U7(ADR 0006)・U9(ADR 0009・0013)・U15(ADR 0010)と、配置の記述(思考実験 04 の論点)。U4・U10〜U14・U16 はこのループで順次検討する。</p>
     <figure>
       <svg viewBox="0 0 560 132" role="img" aria-label="仕様と思考実験のあいだを往復するループ。仕様を既存システムで記述してみて、書けない事があれば仕様に戻す">
         <defs>
@@ -386,7 +527,7 @@
   </section>
 
   <footer>
-    出典: docs/PLAN.md(Draft, 2026-08-18)・docs/spec/ 第0〜3章・docs/decisions/ 0001〜0009・0012・docs/experiments/ 01〜05。2026-08-24 時点の状態を反映。
+    出典: docs/PLAN.md(Draft, 2026-08-18)・docs/spec/ 第0〜3章・docs/decisions/ 0001〜0013(0011 は欠番)・docs/experiments/ 01〜06。2026-08-25 時点の状態を反映。
   </footer>
 
 </div>
