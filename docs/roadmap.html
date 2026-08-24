@@ -202,7 +202,7 @@
     <span class="mark" aria-hidden="true">雫</span>
     <div>
       <h1>雫の道のり</h1>
-      <p>設計意図から実装までを一本の記述で貫く言語 — docs/PLAN.md の4フェーズと、2026-08-23 時点の現在地。</p>
+      <p>設計意図から実装までを一本の記述で貫く言語 — docs/PLAN.md の4フェーズと、2026-08-24 時点の現在地。</p>
     </div>
   </header>
 
@@ -290,9 +290,12 @@
         <text class="tiny" x="565" y="318" text-anchor="middle">U7 はフェーズを跨いで継続判断</text>
 
         <!-- before Phase 1 -->
-        <rect class="chip" x="295" y="210" width="150" height="26" rx="13"></rect>
-        <text class="chip-text" x="370" y="227" text-anchor="middle">U5 出力先の言語</text>
+        <rect class="chip-adr" x="295" y="210" width="150" height="26" rx="13"></rect>
+        <text class="chip-text" x="370" y="227" text-anchor="middle">U5 トランスパイル先</text>
         <text class="tiny" x="370" y="254" text-anchor="middle">(Phase 1 の前に決定)</text>
+        <rect class="chip" x="295" y="278" width="150" height="26" rx="13"></rect>
+        <text class="chip-text" x="370" y="295" text-anchor="middle">U15 版の混在と移行</text>
+        <text class="tiny" x="460" y="295" text-anchor="start">(Phase 1 で決定)</text>
 
         <!-- Phase 2 issues -->
         <rect class="chip" x="540" y="210" width="150" height="26" rx="13"></rect>
@@ -343,6 +346,7 @@
           <li><span class="what">ADR 0007 ADR と C4 の考え方の取り込み <span class="note">U8 先行</span></span><span class="pill done">採用 ✓</span></li>
           <li><span class="what">ADR 0008 省略の禁止 <span class="note">全体制約・0004/0005 を改訂</span></span><span class="pill done">採用 ✓</span></li>
           <li><span class="what">ADR 0009 データ型の記述 <span class="note">U9</span></span><span class="pill prog">提案</span></li>
+          <li><span class="what">ADR 0012 動作環境の言語とトランスパイル先の言語 <span class="note">U5・U15 を新設</span></span><span class="pill prog">提案</span></li>
           <li><span class="what">ADR 0010 数値の型と単位 <span class="note">U15</span></span><span class="pill prog">提案</span></li>
           <li><span class="what">思考実験 01 注文管理サービス <span class="note">U1 の実地検証</span></span><span class="pill done">一巡 ✓</span></li>
           <li><span class="what">思考実験 02 センサー収集パイプライン <span class="note">U2/U3/U7 の検証</span></span><span class="pill done">一巡 ✓</span></li>
@@ -357,7 +361,7 @@
 
   <section>
     <h2>Phase 0 の検証ループ</h2>
-    <p class="lead">仕様だけを先行させないための往復。U1(意図)・U2(通信)・省略の禁止(ADR 0008)は採用され、仕様の背骨が固まった。判断待ちは U3(ADR 0005)・U7(ADR 0006)・U9(ADR 0009)・U15(ADR 0010)と、配置の記述(思考実験 04 の論点)。U10〜U14 はこのループで順次検討する。</p>
+    <p class="lead">仕様だけを先行させないための往復。U1(意図)・U2(通信)・省略の禁止(ADR 0008)は採用され、仕様の背骨が固まった。判断待ちは U3(ADR 0005)・U5(ADR 0012)・U7(ADR 0006)・U9(ADR 0009)と、配置の記述(思考実験 04 の論点)。U10〜U15 はこのループで順次検討する。</p>
     <figure>
       <svg viewBox="0 0 560 132" role="img" aria-label="仕様と思考実験のあいだを往復するループ。仕様を既存システムで記述してみて、書けない事があれば仕様に戻す">
         <defs>
@@ -381,7 +385,7 @@
   </section>
 
   <footer>
-    出典: docs/PLAN.md(Draft, 2026-08-18)・docs/spec/ 第0〜3章・docs/decisions/ 0001〜0010・docs/experiments/ 01〜06。2026-08-23 時点の状態を反映。
+    出典: docs/PLAN.md(Draft, 2026-08-18)・docs/spec/ 第0〜3章・docs/decisions/ 0001〜0009・0012・docs/experiments/ 01〜05。2026-08-24 時点の状態を反映。
   </footer>
 
 </div>
