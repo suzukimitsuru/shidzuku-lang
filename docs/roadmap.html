@@ -315,23 +315,24 @@
         <text class="chip-text" x="860" y="227" text-anchor="middle">U8 図と実装の一致</text>
 
         <!-- 2026-08-28 の採用で新設した課題 -->
-        <rect class="chip" x="50" y="652" width="150" height="26" rx="13"></rect>
+        <rect class="chip-done" x="50" y="652" width="150" height="26" rx="13"></rect>
         <text class="chip-text" x="125" y="669" text-anchor="middle">U19 検証番号の採番</text>
         <rect class="chip" x="50" y="686" width="150" height="26" rx="13"></rect>
         <text class="chip-text" x="125" y="703" text-anchor="middle">U20 役割の向きと通信</text>
         <rect class="chip" x="50" y="720" width="150" height="26" rx="13"></rect>
         <text class="chip-text" x="125" y="737" text-anchor="middle">U21 全文検索と照合キー</text>
-        <text class="tiny" x="215" y="703" text-anchor="start">(思考実験 08 で発見)</text>
+        <text class="tiny" x="215" y="669" text-anchor="start">(ADR 0016 で即日決着)</text>
+        <text class="tiny" x="215" y="703" text-anchor="start">(思考実験 08 で発見。U20・U21 は未着手)</text>
 
         <!-- legend -->
         <rect class="chip-done" x="20" y="754" width="26" height="16" rx="8"></rect>
-        <text class="tiny" x="54" y="766" text-anchor="start">ADR 採用済み(U1・U2・U3・U18)</text>
+        <text class="tiny" x="54" y="766" text-anchor="start">ADR 採用済み(U1・U2・U3・U18・U19)</text>
         <rect class="chip-adr" x="290" y="754" width="26" height="16" rx="8"></rect>
         <text class="tiny" x="324" y="766" text-anchor="start">ADR 提案あり(U5・U7・U9・U15・U17)</text>
         <rect class="chip-rel" x="20" y="782" width="26" height="16" rx="8"></rect>
         <text class="tiny" x="54" y="794" text-anchor="start">関連/一部の ADR は採用・本体は未決(U6・U8・U12)</text>
         <rect class="chip" x="380" y="782" width="26" height="16" rx="8"></rect>
-        <text class="tiny" x="414" y="794" text-anchor="start">未着手(U4・U10・U11・U13・U14・U16・U19〜U21)</text>
+        <text class="tiny" x="414" y="794" text-anchor="start">未着手(U4・U10・U11・U13・U14・U16・U20・U21)</text>
       </svg>
       <figcaption>docs/PLAN.md 第1・2節より。現在は Phase 0(言語仕様)。compiler/ と runtime/ への着手は、仕様の裏付けができてから。</figcaption>
     </figure>
@@ -343,7 +344,7 @@
     <h3 class="sub">2-1. 言語仕様の文書構成図</h3>
     <p class="lead">左から、仕様の章(docs/spec/)・課題(PLAN 第2節)・決定 ADR(PLAN 第3節)。</p>
     <figure>
-      <svg viewBox="0 0 1000 904" role="img" aria-label="左から順に、仕様の第0〜4章、未解決課題 U1〜U21、決定 ADR 0001〜0015 を3つの列に並べ、課題を決めた ADR と、その決定が書かれた章を線で結んだ文書構成図">
+      <svg viewBox="0 0 1000 904" role="img" aria-label="左から順に、仕様の第0〜4章、未解決課題 U1〜U21、決定 ADR 0001〜0016 を3つの列に並べ、課題を決めた ADR と、その決定が書かれた章を線で結んだ文書構成図">
         <defs>
           <marker id="arr4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
             <polygon points="0,1 10,5 0,9" fill="var(--accent)"></polygon>
@@ -456,7 +457,7 @@
         <text class="chip-text" x="454" y="681" text-anchor="middle">U17 識別子と語彙の表記</text>
         <rect class="chip-done" x="356" y="702" width="196" height="26" rx="13"></rect>
         <text class="chip-text" x="454" y="719" text-anchor="middle">U18 システムコンテキスト</text>
-        <rect class="chip" x="356" y="740" width="196" height="26" rx="13"></rect>
+        <rect class="chip-done" x="356" y="740" width="196" height="26" rx="13"></rect>
         <text class="chip-text" x="454" y="757" text-anchor="middle">U19 検証番号の採番</text>
         <rect class="chip" x="356" y="778" width="196" height="26" rx="13"></rect>
         <text class="chip-text" x="454" y="795" text-anchor="middle">U20 役割の向きと通信</text>
@@ -510,6 +511,9 @@
         <text class="chip-text" x="702" y="713" text-anchor="start">0015 C4 モデルの命名の取り込み</text>
         <text class="tiny" x="982" y="713" text-anchor="end">採用</text>
         <text class="tiny" x="710" y="735" text-anchor="start">改訂 → 0007 の対応表・0014 の語彙表を改訂</text>
+        <rect class="chip-done" x="692" y="744" width="300" height="26" rx="13"></rect>
+        <text class="chip-text" x="702" y="761" text-anchor="start">0016 検証番号の採番規則</text>
+        <text class="tiny" x="982" y="761" text-anchor="end">採用</text>
 
         <!-- 凡例 -->
         <rect class="chip-done" x="8" y="868" width="24" height="15" rx="7"></rect>
@@ -525,7 +529,7 @@
         <path class="link link-rel" d="M742 876 L782 876"></path>
         <text class="tiny" x="788" y="880" text-anchor="start">関連・先行・言及</text>
       </svg>
-      <figcaption>docs/PLAN.md 第2・3節と、各章の「依拠」行より。章と課題の線は、その章が依拠と宣言している ADR と、その ADR が決める課題を繋いだもの。第0章は依拠行を持たないため、本文(0.3 四つの段・0.5 省略の禁止・0.9 参照する系譜)に反映されている ADR から引き、破線とした。ADR 0009・0010・0013 は基本型を共に改訂するが、2026-08-28 に 0013 だけが先に採用された。このため層(役割・照合器)は仕様書に入り、基本型(テキスト・バイト列)は 0009 の採否待ちである。ADR 0014 は表記の基準であり、採用時に日本語の語彙を英字へ読み替える。ADR 0015 は四段の命名を C4 に揃え、0014 の語彙表から `measure` を外して `unit` に戻す。ADR 0011 は欠番。</figcaption>
+      <figcaption>docs/PLAN.md 第2・3節と、各章の「依拠」行より。章と課題の線は、その章が依拠と宣言している ADR と、その ADR が決める課題を繋いだもの。第0章は依拠行を持たないため、本文(0.3 四つの段・0.5 省略の禁止・0.9 参照する系譜)に反映されている ADR から引き、破線とした。ADR 0009・0010・0013 は基本型を共に改訂するが、2026-08-28 に 0013 だけが先に採用された。このため層(役割・照合器)は仕様書に入り、基本型(テキスト・バイト列)は 0009 の採否待ちである。ADR 0014 は表記の基準であり、採用時に日本語の語彙を英字へ読み替える。ADR 0015 は四段の命名を C4 に揃え、0014 の語彙表から `measure` を外して `unit` に戻す。ADR 0011 は欠番。検証番号は ADR 0016 により `E&lt;出自&gt;-&lt;連番&gt;` 形式で、出自はその検査を定めた ADR の番号(`0000` は仕様書本体)。</figcaption>
     </figure>
     <div class="detail-grid">
       <div class="card">
@@ -569,6 +573,7 @@
           <li><span class="what">ADR 0013 文字列型の廃止・テキスト型・層モデル <span class="note">U9/U3・層は反映済み、基本型は 0009 待ち</span></span><span class="pill done">採用 ✓</span></li>
           <li><span class="what">ADR 0014 識別子と言語語彙の表記 <span class="note">U17・語彙は ASCII、名前は UTF-8</span></span><span class="pill prog">提案</span></li>
           <li><span class="what">ADR 0015 C4 モデルの命名の取り込み <span class="note">U18・0007 の対応表と 0014 の語彙表を改訂</span></span><span class="pill done">採用 ✓</span></li>
+          <li><span class="what">ADR 0016 検証番号の採番規則 <span class="note">U19・番号は E&lt;出自&gt;-&lt;連番&gt;</span></span><span class="pill done">採用 ✓</span></li>
         </ul>
       </div>
     </div>
@@ -576,7 +581,7 @@
 
   <section>
     <h2>3. Phase 0 の検証ループ</h2>
-    <p class="lead">仕様だけを先行させないための往復。U1(意図)・U2(通信)・省略の禁止(ADR 0008)に続き、2026-08-28 に U3(ADR 0005・0013)・U18(ADR 0015)が採用され、内部階層(強度と役割)とシステムコンテキストが確定した。判断待ちは U5(ADR 0012)・U7(ADR 0006)・U9(ADR 0009)・U15(ADR 0010)・U17(ADR 0014)。配置の記述は ADR 0015 が「動作環境の設定として Phase 2 で決める」と答えた。採用の検証(思考実験 08)で U19〜U21 を新設した。U4・U10〜U14・U16 と併せてこのループで順次検討する。</p>
+    <p class="lead">仕様だけを先行させないための往復。U1(意図)・U2(通信)・省略の禁止(ADR 0008)に続き、2026-08-28 に U3(ADR 0005・0013)・U18(ADR 0015)が採用され、内部階層(強度と役割)とシステムコンテキストが確定した。判断待ちは U5(ADR 0012)・U7(ADR 0006)・U9(ADR 0009)・U15(ADR 0010)・U17(ADR 0014)。配置の記述は ADR 0015 が「動作環境の設定として Phase 2 で決める」と答えた。採用の検証(思考実験 08)で U19〜U21 を新設し、U19(検証番号の採番)は ADR 0016 で即日決着した。残る U20・U21 は U4・U10〜U14・U16 と併せてこのループで順次検討する。</p>
     <figure>
       <svg viewBox="0 0 560 132" role="img" aria-label="仕様と思考実験のあいだを往復するループ。仕様を既存システムで記述してみて、書けない事があれば仕様に戻す">
         <defs>
@@ -600,7 +605,7 @@
   </section>
 
   <footer>
-    出典: docs/PLAN.md(Draft, 2026-08-18)・docs/spec/ 第0〜4章・docs/decisions/ 0001〜0015(0011 は欠番)・docs/experiments/ 01〜08。2026-08-28 時点の状態を反映。
+    出典: docs/PLAN.md(Draft, 2026-08-18)・docs/spec/ 第0〜4章・docs/decisions/ 0001〜0016(0011 は欠番)・docs/experiments/ 01〜08。2026-08-28 時点の状態を反映。
   </footer>
 
 </div>
