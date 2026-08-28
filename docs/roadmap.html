@@ -334,7 +334,7 @@
     <h3 class="sub">2-1. 言語仕様の文書構成図</h3>
     <p class="lead">左から、仕様の章(docs/spec/)・課題(PLAN 第2節)・決定 ADR(PLAN 第3節)。</p>
     <figure>
-      <svg viewBox="0 0 1000 790" role="img" aria-label="左から順に、仕様の第0〜4章、未解決課題 U1〜U18、決定 ADR 0001〜0015 を3つの列に並べ、課題を決めた ADR と、その決定が書かれた章を線で結んだ文書構成図">
+      <svg viewBox="0 0 1000 838" role="img" aria-label="左から順に、仕様の第0〜4章、未解決課題 U1〜U18、決定 ADR 0001〜0016 を3つの列に並べ、課題を決めた ADR と、その決定が書かれた章を線で結んだ文書構成図">
         <defs>
           <marker id="arr4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
             <polygon points="0,1 10,5 0,9" fill="var(--accent)"></polygon>
@@ -393,6 +393,9 @@
         <path class="link link-rel" d="M692 709 C640 709, 616 335, 552 335"></path>
         <path class="link link-rel" d="M692 709 C640 709, 616 487, 552 487"></path>
         <path class="link link-rel" d="M692 709 C640 709, 616 563, 552 563"></path>
+        <path class="link" d="M692 757 C640 757, 616 601, 552 601"></path>
+        <path class="link link-rel" d="M692 757 C640 757, 616 373, 552 373"></path>
+        <path class="link link-rel" d="M692 757 C640 757, 616 525, 552 525"></path>
 
         <!-- 仕様の章 -->
         <rect class="chip-done" x="8" y="110" width="202" height="26" rx="13"></rect>
@@ -495,22 +498,26 @@
         <text class="chip-text" x="702" y="713" text-anchor="start">0015 C4 モデルの命名の取り込み</text>
         <text class="tiny" x="982" y="713" text-anchor="end">提案</text>
         <text class="tiny" x="710" y="735" text-anchor="start">改訂 → 0007 の対応表・0014 の語彙表を改訂</text>
+        <rect class="chip-adr" x="692" y="744" width="300" height="26" rx="13"></rect>
+        <text class="chip-text" x="702" y="761" text-anchor="start">0016 数値型の体系</text>
+        <text class="tiny" x="982" y="761" text-anchor="end">提案</text>
+        <text class="tiny" x="710" y="783" text-anchor="start">改訂 → 0010 の数値型・0014 の語彙表を改訂</text>
 
         <!-- 凡例 -->
-        <rect class="chip-done" x="8" y="754" width="24" height="15" rx="7"></rect>
-        <text class="tiny" x="38" y="766" text-anchor="start">採用・執筆済み</text>
-        <rect class="chip-adr" x="152" y="754" width="24" height="15" rx="7"></rect>
-        <text class="tiny" x="182" y="766" text-anchor="start">提案・判断待ち</text>
-        <rect class="chip-rel" x="296" y="754" width="24" height="15" rx="7"></rect>
-        <text class="tiny" x="326" y="766" text-anchor="start">一部・先行のみ決定済み</text>
-        <rect class="chip" x="476" y="754" width="24" height="15" rx="7"></rect>
-        <text class="tiny" x="506" y="766" text-anchor="start">未着手</text>
-        <path class="link" d="M568 762 L608 762"></path>
-        <text class="tiny" x="614" y="766" text-anchor="start">決めた・依拠する関係</text>
-        <path class="link link-rel" d="M742 762 L782 762"></path>
-        <text class="tiny" x="788" y="766" text-anchor="start">関連・先行・言及</text>
+        <rect class="chip-done" x="8" y="802" width="24" height="15" rx="7"></rect>
+        <text class="tiny" x="38" y="814" text-anchor="start">採用・執筆済み</text>
+        <rect class="chip-adr" x="152" y="802" width="24" height="15" rx="7"></rect>
+        <text class="tiny" x="182" y="814" text-anchor="start">提案・判断待ち</text>
+        <rect class="chip-rel" x="296" y="802" width="24" height="15" rx="7"></rect>
+        <text class="tiny" x="326" y="814" text-anchor="start">一部・先行のみ決定済み</text>
+        <rect class="chip" x="476" y="802" width="24" height="15" rx="7"></rect>
+        <text class="tiny" x="506" y="814" text-anchor="start">未着手</text>
+        <path class="link" d="M568 810 L608 810"></path>
+        <text class="tiny" x="614" y="814" text-anchor="start">決めた・依拠する関係</text>
+        <path class="link link-rel" d="M742 810 L782 810"></path>
+        <text class="tiny" x="788" y="814" text-anchor="start">関連・先行・言及</text>
       </svg>
-      <figcaption>docs/PLAN.md 第2・3節と、各章の「依拠」行より。章と課題の線は、その章が依拠と宣言している ADR と、その ADR が決める課題を繋いだもの。第0章は依拠行を持たないため、本文(0.3 四つの段・0.5 省略の禁止・0.9 参照する系譜)に反映されている ADR から引き、破線とした。ADR 0009・0010・0013 は基本型を共に改訂するため、揃えて採否を判断する。ADR 0014 は表記の基準であり、採用時にこの3件の日本語の語彙を英字へ読み替える。ADR 0015 は四段の命名を C4 に揃え、0014 の語彙表から `measure` を外して `unit` に戻す。ADR 0011 は欠番。</figcaption>
+      <figcaption>docs/PLAN.md 第2・3節と、各章の「依拠」行より。章と課題の線は、その章が依拠と宣言している ADR と、その ADR が決める課題を繋いだもの。第0章は依拠行を持たないため、本文(0.3 四つの段・0.5 省略の禁止・0.9 参照する系譜)に反映されている ADR から引き、破線とした。ADR 0009・0010・0013・0016 は基本型を共に改訂するため、揃えて採否を判断する。ADR 0014 は表記の基準であり、採用時にこの4件の日本語の語彙を英字へ読み替える。ADR 0016 は数値型を `実数`(二進浮動小数点)と `十進数`(ADR 0010 の型)の2つにし、主に使う型を前者とする。ADR 0015 は四段の命名を C4 に揃え、0014 の語彙表から `measure` を外して `unit` に戻す。ADR 0011 は欠番。</figcaption>
     </figure>
     <div class="detail-grid">
       <div class="card">
@@ -553,6 +560,7 @@
           <li><span class="what">ADR 0013 文字列型の廃止・テキスト型・層モデル <span class="note">U9/U3・0009 の基本型と 0005 の階層を改訂</span></span><span class="pill prog">提案</span></li>
           <li><span class="what">ADR 0014 識別子と言語語彙の表記 <span class="note">U17・語彙は ASCII、名前は UTF-8</span></span><span class="pill prog">提案</span></li>
           <li><span class="what">ADR 0015 C4 モデルの命名の取り込み <span class="note">U18・0007 の対応表と 0014 の語彙表を改訂</span></span><span class="pill prog">提案</span></li>
+          <li><span class="what">ADR 0016 数値型の体系 <span class="note">U15・主に使うのは二進浮動小数点・0010 を改訂</span></span><span class="pill prog">提案</span></li>
         </ul>
       </div>
     </div>
@@ -560,7 +568,7 @@
 
   <section>
     <h2>3. Phase 0 の検証ループ</h2>
-    <p class="lead">仕様だけを先行させないための往復。U1(意図)・U2(通信)・省略の禁止(ADR 0008)は採用され、仕様の背骨が固まった。判断待ちは U3(ADR 0005・0013)・U5(ADR 0012)・U7(ADR 0006)・U9(ADR 0009・0013)・U15(ADR 0010)・U17(ADR 0014)・U18(ADR 0015)。配置の記述は ADR 0015 が「動作環境の設定として Phase 2 で決める」と答えた(提案)。U4・U10〜U14・U16 はこのループで順次検討する。</p>
+    <p class="lead">仕様だけを先行させないための往復。U1(意図)・U2(通信)・省略の禁止(ADR 0008)は採用され、仕様の背骨が固まった。判断待ちは U3(ADR 0005・0013)・U5(ADR 0012)・U7(ADR 0006)・U9(ADR 0009・0013)・U15(ADR 0010・0016)・U17(ADR 0014)・U18(ADR 0015)。配置の記述は ADR 0015 が「動作環境の設定として Phase 2 で決める」と答えた(提案)。U4・U10〜U14・U16 はこのループで順次検討する。</p>
     <figure>
       <svg viewBox="0 0 560 132" role="img" aria-label="仕様と思考実験のあいだを往復するループ。仕様を既存システムで記述してみて、書けない事があれば仕様に戻す">
         <defs>
@@ -584,7 +592,7 @@
   </section>
 
   <footer>
-    出典: docs/PLAN.md(Draft, 2026-08-18)・docs/spec/ 第0〜4章・docs/decisions/ 0001〜0015(0011 は欠番)・docs/experiments/ 01〜07。2026-08-26 時点の状態を反映。
+    出典: docs/PLAN.md(Draft, 2026-08-18)・docs/spec/ 第0〜4章・docs/decisions/ 0001〜0016(0011 は欠番)・docs/experiments/ 01〜07。2026-08-28 時点の状態を反映。
   </footer>
 
 </div>
