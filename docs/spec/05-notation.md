@@ -1,8 +1,8 @@
 # Shidzuku 言語仕様書 — 第5章 記述の表記
 
 - 状態: Draft
-- 日付: 2026-08-29(ADR 0014 の採用に伴い新設)
-- 依拠: 第0章 0.5、ADR 0008・0014・0015・0016(いずれも採用)、ADR 0012(提案)。未採用 ADR の採否により本章も改訂される
+- 日付: 2026-08-29(ADR 0014 の採用に伴い新設。同日 ADR 0009・0010・0017・0019・0020 の採用で型の語彙を 5.3 に加えた)
+- 依拠: 第0章 0.5、第6章、ADR 0008・0009・0010・0014・0015・0016・0017・0019・0020(いずれも採用)、ADR 0012(提案)。未採用 ADR の採否により本章も改訂される
 
 ## 5.1 二つの語 — 言語が定める語と、書き手が定める名前
 
@@ -36,22 +36,31 @@ Shidzuku の記述に現れる語は二種類しかない(ADR 0014)。
 キーワード・基本型の名前・属性の値・演算子・区切り・組み込みの操作名は、US-ASCII の図形文字(U+0020〜U+007E)だけで綴る。
 別名は与えない。`depends` を別の綴りで書く事はできず、`none` を `なし` と書く事もできない。
 
-現在の語彙は次の通りである。基本型の語彙は U9・U15(ADR 0009・0010・0017)の採否を待つ。
+現在の語彙は次の通りである(型の語彙は第6章が定める)。
 
-| 区分                 | 語                                                                                            | 定める所             |
-| -------------------- | --------------------------------------------------------------------------------------------- | -------------------- |
-| 段の宣言             | `system` `component` `flow`                                                                   | 第1・2・4章          |
-| 三層                 | `intent` `constraint` `body`                                                                  | 第1章 1.2・第2章 2.1 |
-| 意図                 | `why` `rejected` `option` `reason` `change` `refs`                                            | 第2章 2.2            |
-| システムの制約       | `actor` `external` `depends` `expose` `contains` `by`                                         | 第1章 1.4            |
-| コンポーネントの制約 | `depends` `expose` `idempotent` `state` `collator` `layers`                                   | 第3章 3.2            |
-| 公開面の形           | `->` `\|` `flow out` `flow in`                                                                | 第3章 3.2            |
-| 状態                 | `volatile` `recoverable`                                                                      | 第3章 3.2            |
-| 層の制約強度         | `pure` `io`                                                                                   | 第2章 2.4            |
-| 層の役割             | `boundary` `parse` `domain` `format`                                                          | 第2章 2.4            |
-| 照合器               | `locale` `strength` `primary` `secondary` `tertiary`                                          | 第3章 3.2            |
-| 通信                 | `ask` `flow` `deadline` `pressure` `block` `latest` `drop` `transient` `durable` `on failure` | 第4章                |
-| 共通                 | `none`                                                                                        | 全章                 |
+| 区分                 | 語                                                                                                                     | 定める所             |
+| -------------------- | ---------------------------------------------------------------------------------------------------------------------- | -------------------- |
+| 段の宣言             | `system` `component` `flow`                                                                                            | 第1・2・4章          |
+| 三層                 | `intent` `constraint` `body`                                                                                           | 第1章 1.2・第2章 2.1 |
+| 意図                 | `why` `rejected` `option` `reason` `change` `refs`                                                                     | 第2章 2.2            |
+| システムの制約       | `actor` `external` `depends` `expose` `contains` `by`                                                                  | 第1章 1.4            |
+| コンポーネントの制約 | `depends` `expose` `idempotent` `state` `collator` `layers`                                                            | 第3章 3.2            |
+| 公開面の形           | `->` `\|` `flow out` `flow in`                                                                                         | 第3章 3.2            |
+| 状態                 | `volatile` `recoverable`                                                                                               | 第3章 3.2            |
+| 層の制約強度         | `pure` `io`                                                                                                            | 第2章 2.4            |
+| 層の役割             | `boundary` `parse` `domain` `format`                                                                                   | 第2章 2.4            |
+| 照合器               | `locale` `strength` `primary` `secondary` `tertiary`                                                                   | 第3章 3.2            |
+| 通信                 | `ask` `flow` `deadline` `pressure` `block` `latest` `drop` `transient` `durable` `on failure`                          | 第4章                |
+| データの宣言         | `data` `id` `list`                                                                                                     | 第6章 6.1            |
+| 基本型               | `bool` `int` `real` `decimal` `text` `bytes` `instant` `date` `clock` `zone`                                           | 第6章 6.2            |
+| 論理                 | `true` `false` `and` `or` `not`                                                                                        | 第6章 6.2            |
+| 数値の量と単位       | `quantity` `unit` `unitless` `base` `exp` `convert`                                                                    | 第6章 6.3            |
+| 数値の操作           | `divide` `divmod` `round` `fit` `pow` `sqrt` `sum` `strip_measure` `apply_measure` `overflow` `approximate` `exact`    | 第6章 6.3            |
+| 丸め                 | `rounding` `truncate` `away` `floor` `ceil` `half_up` `half_even`                                                      | 第6章 6.3            |
+| 時間の操作           | `between` `backwards` `advance_clock` `weekday` `add_days` `days` `to_calendar` `to_instant` `nonexistent` `ambiguous` | 第6章 6.4            |
+| 曜日                 | `mon` `tue` `wed` `thu` `fri` `sat` `sun`                                                                              | 第6章 6.4            |
+| 暦                   | `calendar` `gregorian` `julian` `eras` `era` `from` `outside_eras`                                                     | 第6章 6.4            |
+| 共通                 | `none`                                                                                                                 | 全章                 |
 
 - `none` は「該当なし」を表す唯一の語である。`depends none`・`state none`・`external none`・`collator none`・
   `deadline none` はいずれも同じ語であり、省略の禁止(第0章 0.5)が要求する明示の形はこの一語に揃う。
@@ -149,7 +158,8 @@ data ID  { … }          # E0014-3: 全角と半角が同じ名前空間で見�
   システムの入れ子(第1章 1.5、ADR 0018)を許すなら system 単位が第一候補になる。
 - **Unicode の版**。E0014-3 の判定は版に依存する。判定結果を永続化しない事で版の更新が過去の成果物を壊さないようにしてあるが、
   検査に使う版をプログラムの宣言に含める必要が出るかもしれない。全文検索の索引(U21)と一貫した答えを取る。
-- **基本型と数値の語彙**(U9・U15)。ADR 0009・0010・0017 の採否で 5.3 の表に区分が1つ増える。
+- **型の語彙の綴りの確定**。5.3 に区分を8つ足したが(データの宣言・基本型・論理・量と単位・数値の操作・丸め・時間の操作・暦)、
+  語ごとの綴りは Phase 1 のパーサ実装で再検討する。`unit` は度量衡の単位を指し、コンポーネントの旧称とは衝突しない(ADR 0015)。
 - **正規化の要求の緩和**。NFD で書きたい環境が現れた場合、5.5 を「入力時に NFC へ正規化して保存する道具の仕事」として
   整理し直す余地がある。言語の側は NFC のみを受ける立場を動かさない。
 
