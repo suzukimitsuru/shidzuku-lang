@@ -27,7 +27,7 @@ Shidzuku は、設計意図から制約・構造・実装までを一本の記�
 | 📄 [docs/spec/04-communication.md](docs/spec/04-communication.md)                  | 第4章 通信モデル                             |
 | 📄 [docs/spec/05-notation.md](docs/spec/05-notation.md)                            | 第5章 記述の表記                             |
 | 📄 [docs/spec/06-data.md](docs/spec/06-data.md)                                    | 第6章 データと型                             |
-| 📄 [docs/PLAN.md](docs/PLAN.md)                                                    | フェーズ計画・未解決課題 (U1〜U23)・ADR 一覧 |
+| 📄 [docs/PLAN.md](docs/PLAN.md)                                                    | フェーズ計画・未解決課題 (U1〜U24)・ADR 一覧 |
 | 🔗 [docs/roadmap.html](https://suzukimitsuru.github.io/shidzuku-lang/roadmap.html) | 道のりと現在位置の図(クリックでブラウザ表示) |
 | 🗂️ docs/decisions/                                                                 | ADR — 課題の決定を記録する                   |
 | 🗂️ docs/experiments/                                                               | 思考実験 — 既存システムの Shidzuku 記述      |
@@ -36,7 +36,7 @@ Shidzuku は、設計意図から制約・構造・実装までを一本の記�
 
 Phase 0(言語仕様)を進行中。
 
-課題(U1〜U23)は [docs/PLAN.md](docs/PLAN.md) 第2節に、
+課題(U1〜U24)は [docs/PLAN.md](docs/PLAN.md) 第2節に、
 それに対する決定(ADR 0001〜0020、0011 は欠番)の状態は同じく第3節にまとめてあります。
 ADR 0005・0013・0015・0016 は 2026-08-28 に、ADR 0014・0009・0010・0017・0019・0020 は 2026-08-29 に採用しました。
 **型の体系(束 B)が確定し、第6章「データと型」を新設しました。**
