@@ -25,7 +25,7 @@ Shidzuku は、設計意図から制約・構造・実装までを一本の記�
 | 📄 [docs/spec/03-constraints.md](docs/spec/03-constraints.md)                      | 第3章 制約の体系                             |
 | 📄 [docs/spec/04-communication.md](docs/spec/04-communication.md)                  | 第4章 通信モデル                             |
 | 📄 [docs/spec/05-notation.md](docs/spec/05-notation.md)                            | 第5章 記述の表記                             |
-| 📄 [docs/PLAN.md](docs/PLAN.md)                                                    | フェーズ計画・未解決課題 (U1〜U21)・ADR 一覧 |
+| 📄 [docs/PLAN.md](docs/PLAN.md)                                                    | フェーズ計画・未解決課題 (U1〜U22)・ADR 一覧 |
 | 🔗 [docs/roadmap.html](https://suzukimitsuru.github.io/shidzuku-lang/roadmap.html) | 道のりと現在位置の図(クリックでブラウザ表示) |
 | 🗂️ docs/decisions/                                                                 | ADR — 課題の決定を記録する                   |
 | 🗂️ docs/experiments/                                                               | 思考実験 — 既存システムの Shidzuku 記述      |
@@ -34,10 +34,11 @@ Shidzuku は、設計意図から制約・構造・実装までを一本の記�
 
 Phase 0(言語仕様)を進行中。
 
-課題(U1〜U21)は [docs/PLAN.md](docs/PLAN.md) 第2節に、
-それに対する決定(ADR 0001〜0018、0011 は欠番)の状態は同じく第3節にまとめてあります。
+課題(U1〜U22)は [docs/PLAN.md](docs/PLAN.md) 第2節に、
+それに対する決定(ADR 0001〜0019、0011 は欠番)の状態は同じく第3節にまとめてあります。
 ADR 0005・0013・0015・0016 は 2026-08-28 に、ADR 0014 は 2026-08-29 に採用しました。
-判断待ちは ADR 0006・0009・0010・0012・0017・0018 の6本で、どの順に、どれと束にして採否を判断するかは第4節にあります。
+判断待ちは ADR 0006・0009・0010・0012・0017・0018・0019 の7本で、どの順に、どれと束にして採否を判断するかは第4節にあります。
+基本型の一覧は ADR 0009・0010・0017・0019 の4本(束 B)が揃って確定します。
 
 ## License
 
