@@ -245,7 +245,7 @@
 
         <text class="eyebrow eyebrow-now" x="125" y="80" text-anchor="middle">PHASE 0</text>
         <text class="name"  x="125" y="104" text-anchor="middle">言語仕様</text>
-        <text class="small" x="125" y="122" text-anchor="middle">第0〜5章+思考実験で検証</text>
+        <text class="small" x="125" y="122" text-anchor="middle">第0〜6章+思考実験で検証</text>
 
         <text class="eyebrow" x="370" y="80" text-anchor="middle">PHASE 1</text>
         <text class="name"  x="370" y="104" text-anchor="middle">最小の言語実装</text>
@@ -361,7 +361,7 @@
     <h3 class="sub">2-1. 言語仕様の文書構成図</h3>
     <p class="lead">左から、仕様の章(<a href="spec/">docs/spec/</a>)・課題(PLAN 第2節)・決定 ADR(PLAN 第3節)。</p>
     <figure>
-      <svg viewBox="0 0 1000 1000" role="img" aria-label="左から順に、仕様の第0〜5章、未解決課題 U1〜U22、決定 ADR 0001〜0019 を3つの列に並べ、課題を決めた ADR と、その決定が書かれた章を線で結んだ文書構成図">
+      <svg viewBox="0 0 1000 1000" role="img" aria-label="左から順に、仕様の第0〜6章、未解決課題 U1〜U22、決定 ADR 0001〜0019 を3つの列に並べ、課題を決めた ADR と、その決定が書かれた章を線で結んだ文書構成図">
         <defs>
           <marker id="arr4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
             <polygon points="0,1 10,5 0,9" fill="var(--accent)"></polygon>
@@ -391,6 +391,10 @@
         <path class="link link-rel" d="M356 487 C312 487, 268 213, 210 213" marker-end="url(#arr4)"></path>
         <path class="link link-rel" d="M356 567 C312 567, 268 213, 210 213" marker-end="url(#arr4)"></path>
         <path class="link" d="M356 681 C312 681, 268 573, 210 573" marker-end="url(#arr4)"></path>
+        <path class="link" d="M356 145 C312 145, 268 663, 210 663" marker-end="url(#arr4)"></path>
+        <path class="link" d="M356 373 C312 373, 268 663, 210 663" marker-end="url(#arr4)"></path>
+        <path class="link" d="M356 677 C312 677, 268 663, 210 663" marker-end="url(#arr4)"></path>
+        <path class="link" d="M356 867 C312 867, 268 663, 210 663" marker-end="url(#arr4)"></path>
 
         <!-- 決定 → 課題 -->
         <path class="link" d="M692 73 C640 73, 616 69, 552 69"></path>
@@ -460,12 +464,16 @@
           <rect class="chip-done" x="8" y="560" width="202" height="26" rx="13"></rect>
           <text class="chip-text" x="109" y="577" text-anchor="middle">第5章 記述の表記</text>
         </a>
-        <text class="tiny" x="109" y="608" text-anchor="middle">第0〜5章はいずれも初稿</text>
-        <text class="tiny" x="109" y="624" text-anchor="middle">未採用 ADR の採否で改訂される</text>
-        <text class="tiny" x="109" y="646" text-anchor="middle">章の順序は C4 の4段に対応</text>
-        <text class="tiny" x="109" y="662" text-anchor="middle">Container は言語の記述対象外</text>
-        <text class="tiny" x="109" y="684" text-anchor="middle">第4章(通信)と第5章(表記)は</text>
-        <text class="tiny" x="109" y="700" text-anchor="middle">段に属さず段を跨ぐ</text>
+        <a class="node" href="spec/06-data.md">
+          <rect class="chip-done" x="8" y="650" width="202" height="26" rx="13"></rect>
+          <text class="chip-text" x="109" y="667" text-anchor="middle">第6章 データと型</text>
+        </a>
+        <text class="tiny" x="109" y="698" text-anchor="middle">第0〜6章はいずれも初稿</text>
+        <text class="tiny" x="109" y="714" text-anchor="middle">未採用 ADR の採否で改訂される</text>
+        <text class="tiny" x="109" y="736" text-anchor="middle">章の順序は C4 の4段に対応</text>
+        <text class="tiny" x="109" y="752" text-anchor="middle">Container は言語の記述対象外</text>
+        <text class="tiny" x="109" y="774" text-anchor="middle">第4章(通信)・第5章(表記)・</text>
+        <text class="tiny" x="109" y="790" text-anchor="middle">第6章(データ)は段に属さず段を跨ぐ</text>
 
         <!-- 課題 -->
         <rect class="chip-done" x="356" y="56" width="196" height="26" rx="13"></rect>
@@ -627,7 +635,7 @@
         <path class="link link-rel" d="M742 966 L782 966"></path>
         <text class="tiny" x="788" y="970" text-anchor="start">関連・先行・言及</text>
       </svg>
-      <figcaption><a href="PLAN.md">docs/PLAN.md</a> 第2・3節と、各章の「依拠」行より。章と課題の線は、その章が依拠と宣言している ADR と、その ADR が決める課題を繋いだもの。第0章は依拠行を持たないため、本文(0.3 四つの段・0.5 省略の禁止・0.9 参照する系譜)に反映されている ADR から引き、破線とした。ADR 0009・0010・0013・0017・0019 は基本型を共に改訂する束であり、2026-09-03 時点で 0009・0013・0019(決定2・7 を除く)・0020 は採用済み、**0010・0017 は破棄され数値型は思考実験 14 から再検討中**である。ADR 0014 は表記の基準であり、2026-08-29 の採用で日本語の語彙を英字へ読み替え、識別子の規則を置く第5章を新設した。ADR 0015 は四段の命名を C4 に揃え、0014 の語彙表から `measure` を外して `unit` に戻す。ADR 0018 は 0015 の「1プログラム = 1システム」と外部システムの判定基準を外し、`contains` にシステムを書けるようにする(提案)。ADR 0017 は 0010 を改訂し、数値型を `実数`(IEEE 754 binary64)と `十進数` の2つにする。ADR 0019(採用)は 0009 の基本型の一覧を10(論理・整数・実数・十進数・テキスト・バイト列・時点・日付・時刻・時間帯)に確定し、`期間` と `時間量` を外した。暦は `日付` の型の欄(単位と同じ形)、日時は直積で書き、`日付` は紀元前まで表す。ADR 0020(採用)は 0019 の暦を改訂し、書き手が紀年法(和暦・仏暦)を宣言できるようにする。ADR 0011 は欠番。検証番号は ADR 0016 により `E&lt;出自&gt;-&lt;連番&gt;` 形式で、出自はその検査を定めた ADR の番号(`0000` は仕様書本体)。</figcaption>
+      <figcaption><a href="PLAN.md">docs/PLAN.md</a> 第2・3節と、各章の「依拠」行より。章と課題の線は、その章が依拠と宣言している ADR と、その ADR が決める課題を繋いだもの。第0章は依拠行を持たないため、本文(0.3 四つの段・0.5 省略の禁止・0.9 参照する系譜)に反映されている ADR から引き、破線とした。ADR 0009・0010・0013・0017・0019 は基本型を共に改訂する束であり、2026-09-03 時点で 0009・0013・0019(決定2・7 を除く)・0020 は採用済み、**0010・0017 は破棄され数値型は思考実験 14 から再検討中**である。ADR 0014 は表記の基準であり、2026-08-29 の採用で日本語の語彙を英字へ読み替え、識別子の規則を置く第5章を新設した。束 B(0009・0013・0019・0020)の採用では第6章「データと型」を新設した。第6章は第4章・第5章と同じく段に属さず段を跨ぐため、段の順の後ろに置く。ADR 0015 は四段の命名を C4 に揃え、0014 の語彙表から `measure` を外して `unit` に戻す。ADR 0018 は 0015 の「1プログラム = 1システム」と外部システムの判定基準を外し、`contains` にシステムを書けるようにする(提案)。ADR 0017 は 0010 を改訂し、数値型を `実数`(IEEE 754 binary64)と `十進数` の2つにする。ADR 0019(採用)は 0009 の基本型の一覧を10(論理・整数・実数・十進数・テキスト・バイト列・時点・日付・時刻・時間帯)に確定し、`期間` と `時間量` を外した。暦は `日付` の型の欄(単位と同じ形)、日時は直積で書き、`日付` は紀元前まで表す。ADR 0020(採用)は 0019 の暦を改訂し、書き手が紀年法(和暦・仏暦)を宣言できるようにする。ADR 0011 は欠番。検証番号は ADR 0016 により `E&lt;出自&gt;-&lt;連番&gt;` 形式で、出自はその検査を定めた ADR の番号(`0000` は仕様書本体)。</figcaption>
     </figure>
     <div class="detail-grid">
       <div class="card">
@@ -639,6 +647,7 @@
           <li><span class="what"><a href="spec/03-constraints.md">第3章 制約の体系</a></span><span class="pill done">初稿 ✓</span></li>
           <li><span class="what"><a href="spec/04-communication.md">第4章 通信モデル</a> <span class="note">段を跨ぐ関係</span></span><span class="pill done">初稿 ✓</span></li>
           <li><span class="what"><a href="spec/05-notation.md">第5章 記述の表記</a> <span class="note">段に属さない・ADR 0014</span></span><span class="pill done">初稿 ✓</span></li>
+          <li><span class="what"><a href="spec/06-data.md">第6章 データと型</a> <span class="note">段に属さない・数値型は再検討中</span></span><span class="pill done">初稿 ✓</span></li>
         </ul>
       </div>
       <div class="card">

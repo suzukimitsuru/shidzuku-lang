@@ -12,6 +12,7 @@ Shidzuku(雫)— 設計意図から実装までを一本の記述で貫く言語
 - 仕様に迷ったら docs/experiments/ の思考実験(既存システムを Shidzuku で記述してみる)に戻る
 - 道のりと現在位置の図は docs/roadmap.html に置く。進捗(章の執筆、ADR の状態変化、思考実験の追加・更新、フェーズ移行)があったら、docs/PLAN.md と docs/roadmap.html を同時に更新する
 - 文書ファイルを追加・削除・移動したら、README.md の「文書」一覧も同時に更新する
+- `docs/dev-memo.md` は書き手の覚え書きであり、纏まっていない状態のまま書き足す場所とする。AI は参照せず、README.md の「文書」一覧にも載せず、markdownlint の対象からも外す(`.markdownlint-cli2.jsonc` の `ignores`)
 - 会話・文書は日本語を基本とする
 
 ## 制約

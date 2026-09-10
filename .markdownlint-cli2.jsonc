@@ -1,0 +1,8 @@
+{
+  // 検査から外すもの(規則そのものは .markdownlint.json に置く)
+  "ignores": [
+    "node_modules/**",
+    // 書き手の覚え書き。纏まっていない状態のまま書き足す場所なので検査しない
+    "docs/dev-memo.md"
+  ]
+}
