@@ -373,7 +373,7 @@
         <text class="tiny" x="215" y="703" text-anchor="start">(思考実験 08 で発見。U20・U21 は未着手)</text>
         <rect class="chip-adr" x="50" y="754" width="150" height="26" rx="13"></rect>
         <text class="chip-text" x="125" y="771" text-anchor="middle">U22 基本型の体系</text>
-        <text class="tiny" x="215" y="771" text-anchor="start">(束 B の検討で発見。思考実験 09 → ADR 0019 提案)</text>
+        <text class="tiny" x="215" y="771" text-anchor="start">(ステップ2 の検討で発見。思考実験 09 → ADR 0019 提案)</text>
 
         <!-- legend -->
         <rect class="chip-done" x="20" y="788" width="26" height="16" rx="8"></rect>
@@ -585,7 +585,7 @@
           <rect class="chip-adr" x="692" y="252" width="300" height="26" rx="13"></rect>
           <text class="chip-text" x="702" y="269" text-anchor="start">0012 動作環境とトランスパイル先</text>
         </a>
-        <text class="tiny" x="982" y="269" text-anchor="end">提案 · 段5</text>
+        <text class="tiny" x="982" y="269" text-anchor="end">提案 · ステップ5</text>
         <a class="node" href="decisions/0001-分散環境の通信プロトコル.md">
           <rect class="chip-done" x="692" y="300" width="300" height="26" rx="13"></rect>
           <text class="chip-text" x="702" y="317" text-anchor="start">0001 分散環境の通信プロトコル</text>
@@ -595,7 +595,7 @@
           <rect class="chip-adr" x="692" y="348" width="300" height="26" rx="13"></rect>
           <text class="chip-text" x="702" y="365" text-anchor="start">0006 ユニットの粒度の指針</text>
         </a>
-        <text class="tiny" x="982" y="365" text-anchor="end">提案 · 段3</text>
+        <text class="tiny" x="982" y="365" text-anchor="end">提案 · ステップ3</text>
         <a class="node" href="decisions/0007-ADRとC4モデルの考え方の取り込み.md">
           <rect class="chip-done" x="692" y="396" width="300" height="26" rx="13"></rect>
           <text class="chip-text" x="702" y="413" text-anchor="start">0007 ADR と C4 の考え方の取り込み</text>
@@ -650,7 +650,7 @@
           <rect class="chip-adr" x="692" y="856" width="300" height="26" rx="13"></rect>
           <text class="chip-text" x="702" y="873" text-anchor="start">0018 システムの入れ子</text>
         </a>
-        <text class="tiny" x="982" y="873" text-anchor="end">提案 · 段4</text>
+        <text class="tiny" x="982" y="873" text-anchor="end">提案 · ステップ4</text>
         <text class="tiny" x="710" y="895" text-anchor="start">改訂 → 0015 の「1プログラム = 1システム」と判定基準を外す</text>
         <a class="node" href="decisions/0019-基本型の体系.md">
           <rect class="chip-done" x="692" y="904" width="300" height="26" rx="13"></rect>
@@ -687,9 +687,9 @@
         <p><a href="PLAN.md">docs/PLAN.md</a> 第2・3節と、各章の「依拠」行より。</p>
         <ul>
           <li><b>線の引き方</b> — 章と課題の線は、その章が依拠と宣言している ADR と、その ADR が決める課題を繋いだもの。第0章は依拠行を持たないため、本文(0.3 四つの段・0.5 省略の禁止・0.9 参照する系譜)に反映されている ADR から引き、破線とした。</li>
-          <li><b>基本型の束</b>(0009・0010・0013・0017・0019・0020)— 2026-09-03 時点で 0009・0013・0019(決定2・7 を除く)・0020 は採用済み。<b>0010・0017 は破棄</b>され、数値型は思考実験 14 から再検討中。</li>
+          <li><b>基本型の ADR</b>(0009・0010・0013・0017・0019・0020)— 2026-09-03 時点で 0009・0013・0019(決定2・7 を除く)・0020 は採用済み。<b>0010・0017 は破棄</b>され、数値型は思考実験 14 から再検討中。</li>
           <li><b>第5章の新設</b> — ADR 0014 は表記の基準であり、2026-08-29 の採用で日本語の語彙を英字へ読み替え、識別子の規則を置く第5章を新設した。</li>
-          <li><b>第6章の新設</b> — 束 B(0009・0013・0019・0020)の採用による。第4章・第5章と同じく段に属さず段を跨ぐため、段の順の後ろに置く。</li>
+          <li><b>第6章の新設</b> — ステップ2(0009・0013・0019・0020)の採用による。第4章・第5章と同じく段に属さず段を跨ぐため、段の順の後ろに置く。</li>
           <li><b>ADR 0015</b>(採用)— 四段の命名を C4 に揃え、0014 の語彙表から <code>measure</code> を外して <code>unit</code> に戻す。</li>
           <li><b>ADR 0018</b>(提案)— 0015 の「1プログラム = 1システム」と外部システムの判定基準を外し、<code>contains</code> にシステムを書けるようにする。</li>
           <li><b>ADR 0017</b>(破棄)— 0010 を改訂し、数値型を <code>実数</code>(IEEE 754 binary64)と <code>十進数</code> の2つにするものだった。</li>
@@ -726,7 +726,7 @@
           <li><span class="what"><a href="experiments/09-数値以外の基本型の棚卸し.md">思考実験 09 数値以外の基本型の棚卸し</a> <span class="note">ADR 0009 の裏付け試験・instant と暦の調査</span></span><span class="pill done">一巡 ✓</span></li>
           <li><span class="what"><a href="experiments/10-多地域シフト勤怠.md">思考実験 10 多地域シフト勤怠</a> <span class="note">ADR 0019 の反証試験・時間軸/暦/時間帯</span></span><span class="pill done">一巡 ✓</span></li>
           <li><span class="what"><a href="experiments/11-暦の拡張.md">思考実験 11 暦の拡張</a> <span class="note">和暦とイスラム暦は書けるか</span></span><span class="pill done">一巡 ✓</span></li>
-          <li><span class="what"><a href="experiments/12-採用後の全データ.md">思考実験 12 採用後の全データ</a> <span class="note">束 B の採用の検証・U23 を新設</span></span><span class="pill done">一巡 ✓</span></li>
+          <li><span class="what"><a href="experiments/12-採用後の全データ.md">思考実験 12 採用後の全データ</a> <span class="note">ステップ2 の採用の検証・U23 を新設</span></span><span class="pill done">一巡 ✓</span></li>
           <li><span class="what"><a href="experiments/13-数える単位.md">思考実験 13 数える単位</a> <span class="note">U23 の制限案の検証・U24 を新設</span></span><span class="pill done">一巡 ✓</span></li>
           <li><span class="what"><a href="experiments/14-数値型の再検討.md">思考実験 14 数値型の再検討</a> <span class="note">ADR 0010・0017 破棄後・他言語の比較</span></span><span class="pill done">一巡 ✓</span></li>
           <li><span class="what"><a href="experiments/15-名前空間の再検討.md">思考実験 15 名前空間の再検討</a> <span class="note">逆ドメイン名を撤回・他言語の比較</span></span><span class="pill done">一巡 ✓</span></li>
@@ -740,19 +740,19 @@
           <li><span class="what"><a href="decisions/0003-検証不能な意図の記述形式.md">ADR 0003 検証不能な意図の記述形式</a> <span class="note">U1</span></span><span class="pill done">採用 ✓</span></li>
           <li><span class="what"><a href="decisions/0004-ユニット間の通信モデル.md">ADR 0004 ユニット間の通信モデル</a> <span class="note">U2</span></span><span class="pill done">採用 ✓</span></li>
           <li><span class="what"><a href="decisions/0005-内部階層の制約宣言.md">ADR 0005 内部階層の制約宣言</a> <span class="note">U3・0008/0013 が改訂</span></span><span class="pill done">採用 ✓</span></li>
-          <li><span class="what"><a href="decisions/0006-ユニットの粒度の指針.md">ADR 0006 ユニットの粒度の指針</a> <span class="note">U7・継続検証・段3</span></span><span class="pill prog">提案</span></li>
+          <li><span class="what"><a href="decisions/0006-ユニットの粒度の指針.md">ADR 0006 ユニットの粒度の指針</a> <span class="note">U7・継続検証・ステップ3</span></span><span class="pill prog">提案</span></li>
           <li><span class="what"><a href="decisions/0007-ADRとC4モデルの考え方の取り込み.md">ADR 0007 ADR と C4 の考え方の取り込み</a> <span class="note">U8 先行</span></span><span class="pill done">採用 ✓</span></li>
           <li><span class="what"><a href="decisions/0008-省略の禁止.md">ADR 0008 省略の禁止</a> <span class="note">全体制約・0004/0005 を改訂</span></span><span class="pill done">採用 ✓</span></li>
           <li><span class="what"><a href="decisions/0009-データ型の記述.md">ADR 0009 データ型の記述</a> <span class="note">U9・構成子は採用。基本型の一覧のみ再検討中</span></span><span class="pill done">採用 ✓</span></li>
           <li><span class="what"><a href="decisions/0010-数値の型と単位.md">ADR 0010 数値の型と単位</a> <span class="note">U15・思考実験 14 から再検討中</span></span><span class="pill todo">破棄</span></li>
           <li><span class="what">ADR 0011 (欠番) <span class="note">草稿2本を 0012 に統合した空き番</span></span><span class="pill todo">欠番</span></li>
-          <li><span class="what"><a href="decisions/0012-動作環境の言語とトランスパイル先の言語.md">ADR 0012 動作環境の言語とトランスパイル先の言語</a> <span class="note">U5・U16 を新設・段5(束 D)</span></span><span class="pill prog">提案</span></li>
+          <li><span class="what"><a href="decisions/0012-動作環境の言語とトランスパイル先の言語.md">ADR 0012 動作環境の言語とトランスパイル先の言語</a> <span class="note">U5・U16 を新設・ステップ5</span></span><span class="pill prog">提案</span></li>
           <li><span class="what"><a href="decisions/0013-文字列型の廃止、text%20型の導入、および層モデル.md">ADR 0013 文字列型の廃止・テキスト型・層モデル</a> <span class="note">U9/U3・層も基本型も反映済み(第6章)</span></span><span class="pill done">採用 ✓</span></li>
           <li><span class="what"><a href="decisions/0014-識別子と言語語彙の表記.md">ADR 0014 識別子と言語語彙の表記</a> <span class="note">U17・語彙は ASCII、名前は UTF-8・第5章を新設</span></span><span class="pill done">採用 ✓</span></li>
           <li><span class="what"><a href="decisions/0015-C4モデルの命名の取り込み.md">ADR 0015 C4 モデルの命名の取り込み</a> <span class="note">U18・0007 の対応表と 0014 の語彙表を改訂</span></span><span class="pill done">採用 ✓</span></li>
           <li><span class="what"><a href="decisions/0016-検証番号の採番規則.md">ADR 0016 検証番号の採番規則</a> <span class="note">U19・番号は E&lt;出自&gt;-&lt;連番&gt;</span></span><span class="pill done">採用 ✓</span></li>
           <li><span class="what"><a href="decisions/0017-数値型の体系.md">ADR 0017 数値型の体系</a> <span class="note">U15・思考実験 14 から再検討中</span></span><span class="pill todo">破棄</span></li>
-          <li><span class="what"><a href="decisions/0018-システムの入れ子.md">ADR 0018 システムの入れ子</a> <span class="note">U14 一部/U18・0015 を改訂・System Landscape・段4(束 E)</span></span><span class="pill prog">提案</span></li>
+          <li><span class="what"><a href="decisions/0018-システムの入れ子.md">ADR 0018 システムの入れ子</a> <span class="note">U14 一部/U18・0015 を改訂・System Landscape・ステップ4</span></span><span class="pill prog">提案</span></li>
           <li><span class="what"><a href="decisions/0019-基本型の体系.md">ADR 0019 基本型の体系</a> <span class="note">U22・整数/時点/日付(暦の欄)/時刻/時間帯。決定2・7(数値変換)は凍結</span></span><span class="pill done">採用 ✓</span></li>
           <li><span class="what"><a href="decisions/0020-暦の拡張.md">ADR 0020 暦の拡張</a> <span class="note">U22・0019 の暦を改訂・紀年法を書き手が宣言</span></span><span class="pill done">採用 ✓</span></li>
         </ul>
@@ -764,30 +764,30 @@
     <h2>3. ADR の検討順</h2>
     <p class="lead">ADR は互いを改訂する。改訂される側を先に採ると採用の直後に書き直しが要り、改訂する側を先に採ると依拠先が提案のままで宙に浮く。</p>
     <ul class="points">
-      <li><b>束にする</b> — 改訂の関係にある ADR をまとめ、同時に採否を判断する。</li>
-      <li><b>束を並べる</b> — 依拠の向き(名前 → 型 → 指針 → 接合面)に並べる。</li>
-      <li><b>いまの状態</b> — 2026-08-28 の採用(0005・0013・0015)と 2026-08-29 の採用(0014)で束 A は空になり、束 B の一部も先に抜けた。残りだけを判断待ちとして示す。</li>
-      <li><b>段の番号は動かさない</b> — 採用の記録と対応が付くようにするため。</li>
+      <li><b>ステップにまとめる</b> — 改訂の関係にある ADR をまとめ、同時に採否を判断する。</li>
+      <li><b>ステップを並べる</b> — 依拠の向き(名前 → 型 → 指針 → 接合面)に並べる。</li>
+      <li><b>いまの状態</b> — 2026-08-28 の採用(0005・0013・0015)と 2026-08-29 の採用(0014)でステップ1 は空になり、ステップ2 の一部も先に抜けた。残りだけを判断待ちとして示す。</li>
+      <li><b>ステップの番号は動かさない</b> — 採用の記録と対応が付くようにするため。</li>
     </ul>
     <figure>
-      <svg viewBox="0 0 980 784" role="img" aria-label="判断待ちの ADR の採否の順序を5つの段に並べた図。段1 は表記と命名の束(0014・0015 とも採用済み)、段2 は基本型と層の束(0009・0010・0017・0019・0020・0005・0013 とも採用済み)、段3 は粒度(0006)、段4 は新規 ADR(0018 と未着手課題)、段5 は接合面(0012)。段を跨いで上から下へ進み、その先が Phase 1 である">
+      <svg viewBox="0 0 980 784" role="img" aria-label="判断待ちの ADR の採否の順序を5つのステップに並べた図。ステップ1 は表記と命名(0014・0015 とも採用済み)、ステップ2 は基本型と層(0009・0010・0017・0019・0020・0005・0013 とも採用済み)、ステップ3 は粒度(0006)、ステップ4 は新規 ADR(0018 と未着手課題)、ステップ5 は接合面(0012)。ステップを跨いで上から下へ進み、その先が Phase 1 である">
         <defs>
           <marker id="arr3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
             <polygon points="0,1 10,5 0,9" fill="currentColor"></polygon>
           </marker>
         </defs>
 
-        <text class="eyebrow" x="20" y="34" text-anchor="start">採否の順序(段)</text>
+        <text class="eyebrow" x="20" y="34" text-anchor="start">採否の順序(ステップ)</text>
         <text class="eyebrow" x="596" y="34" text-anchor="start">その位置に置く理由</text>
 
         <!-- timeline -->
         <line class="arrow" x1="62" y1="52" x2="62" y2="680" marker-end="url(#arr3)"></line>
 
-        <!-- 段1 -->
+        <!-- ステップ1 -->
         <rect class="box" x="104" y="52" width="470" height="88" rx="9"></rect>
         <circle class="chip-done" cx="62" cy="96" r="15"></circle>
         <text class="chip-text" x="62" y="101" text-anchor="middle">1</text>
-        <text class="name" x="120" y="76" text-anchor="start" style="font-size:14px">束 A — 表記と命名</text>
+        <text class="name" x="120" y="76" text-anchor="start" style="font-size:14px">ステップ1 — 表記と命名</text>
         <text class="tiny" x="290" y="76" text-anchor="start">U17・U18 / Phase 0</text>
         <a class="node" href="decisions/0014-識別子と言語語彙の表記.md">
           <rect class="chip-done" x="120" y="88" width="210" height="26" rx="13"></rect>
@@ -797,17 +797,17 @@
           <rect class="chip-done" x="340" y="88" width="210" height="26" rx="13"></rect>
           <text class="chip-text" x="350" y="105" text-anchor="start">0015 C4 モデルの命名</text>
         </a>
-        <text class="tiny" x="120" y="131" text-anchor="start">0015・0014 とも採用済み。束 A は空になった</text>
+        <text class="tiny" x="120" y="131" text-anchor="start">0015・0014 とも採用済み。ステップ1 は空になった</text>
         <text class="tiny" x="596" y="76" text-anchor="start">0015 が 0014 の語彙表を改訂する(measure を外し unit へ)。</text>
         <text class="tiny" x="596" y="93" text-anchor="start">改訂する側の 0015 が先に採用され、改名は仕様書と索引へ</text>
-        <text class="tiny" x="596" y="110" text-anchor="start">反映済みである。この束は他の全 ADR の名前を決めるため、</text>
+        <text class="tiny" x="596" y="110" text-anchor="start">反映済みである。このステップは他の全 ADR の名前を決めるため、</text>
         <text class="tiny" x="596" y="127" text-anchor="start">0014 も 2026-08-29 に採用し、語彙は英字に揃った。</text>
 
-        <!-- 段2 -->
+        <!-- ステップ2 -->
         <rect class="box" x="104" y="156" width="470" height="152" rx="9"></rect>
         <circle class="chip-done" cx="62" cy="232" r="15"></circle>
         <text class="chip-text" x="62" y="237" text-anchor="middle">2</text>
-        <text class="name" x="120" y="180" text-anchor="start" style="font-size:14px">束 B — 基本型と層</text>
+        <text class="name" x="120" y="180" text-anchor="start" style="font-size:14px">ステップ2 — 基本型と層</text>
         <text class="tiny" x="290" y="180" text-anchor="start">U9・U15・U3 / Phase 0</text>
         <a class="node" href="decisions/0009-データ型の記述.md">
           <rect class="chip-done" x="120" y="192" width="210" height="26" rx="13"></rect>
@@ -831,19 +831,19 @@
         </a>
         <rect class="chip-done" x="340" y="256" width="210" height="26" rx="13"></rect>
         <text class="chip-text" x="350" y="273" text-anchor="start">0005・0013 層と役割</text>
-        <text class="tiny" x="120" y="299" text-anchor="start">5本を揃えて採用し、第6章「データと型」を新設した。束 B は空になった</text>
+        <text class="tiny" x="120" y="299" text-anchor="start">5本を揃えて採用し、第6章「データと型」を新設した。ステップ2 は空になった</text>
         <text class="tiny" x="596" y="180" text-anchor="start">0010 と 0013 が 0009 の基本型を、0017 が 0010 の数値型を、</text>
         <text class="tiny" x="596" y="197" text-anchor="start">0019 が 0009 の基本型の一覧と 0010・0017 を、0013 が 0005 の</text>
         <text class="tiny" x="596" y="214" text-anchor="start">内部階層を改訂する。0005・0013 だけが先に採用されたため、</text>
         <text class="tiny" x="596" y="231" text-anchor="start">層は仕様書に入り基本型は入っていない。</text>
         <text class="tiny" x="596" y="255" text-anchor="start">5本を揃えて採り、ねじれは 2026-08-29 に解消した。</text>
-        <text class="tiny" x="596" y="272" text-anchor="start">段1 に依拠: 語彙を英字へ読み替え、unit の綴りは 0015 に従う。</text>
+        <text class="tiny" x="596" y="272" text-anchor="start">ステップ1 に依拠: 語彙を英字へ読み替え、unit の綴りは 0015 に従う。</text>
 
-        <!-- 段3 -->
+        <!-- ステップ3 -->
         <rect class="box" x="104" y="324" width="470" height="76" rx="9"></rect>
         <circle class="chip-adr" cx="62" cy="362" r="15"></circle>
         <text class="chip-text" x="62" y="367" text-anchor="middle">3</text>
-        <text class="name" x="120" y="348" text-anchor="start" style="font-size:14px">束 C — 粒度</text>
+        <text class="name" x="120" y="348" text-anchor="start" style="font-size:14px">ステップ3 — 粒度</text>
         <text class="tiny" x="290" y="348" text-anchor="start">U7 / Phase 0〜継続</text>
         <a class="node" href="decisions/0006-ユニットの粒度の指針.md">
           <rect class="chip-adr" x="120" y="360" width="210" height="26" rx="13"></rect>
@@ -852,17 +852,17 @@
         <text class="tiny" x="340" y="377" text-anchor="start">単独で採否を判断できる</text>
         <text class="tiny" x="596" y="348" text-anchor="start">他を改訂せず、他からも改訂されない。ただし 0013 の決定5</text>
         <text class="tiny" x="596" y="365" text-anchor="start">(層はコンポーネントを割らない)が粒度の判定基準を動かす</text>
-        <text class="tiny" x="596" y="382" text-anchor="start">ため、段2 の後に置く。採用後も思考実験ごとに見直す。</text>
+        <text class="tiny" x="596" y="382" text-anchor="start">ため、ステップ2 の後に置く。採用後も思考実験ごとに見直す。</text>
 
-        <!-- 段4 -->
+        <!-- ステップ4 -->
         <rect class="box" x="104" y="416" width="470" height="156" rx="9"></rect>
         <circle class="chip-adr" cx="62" cy="494" r="15"></circle>
         <text class="chip-text" x="62" y="499" text-anchor="middle">4</text>
-        <text class="name" x="120" y="440" text-anchor="start" style="font-size:14px">束 E と新規 ADR — 入れ子と未着手の課題</text>
+        <text class="name" x="120" y="440" text-anchor="start" style="font-size:14px">ステップ4 — 入れ子と未着手の課題</text>
         <text class="tiny" x="404" y="440" text-anchor="start">U10〜U14 / Phase 0〜1</text>
         <a class="node" href="decisions/0018-システムの入れ子.md">
           <rect class="chip-adr" x="120" y="452" width="210" height="26" rx="13"></rect>
-          <text class="chip-text" x="130" y="469" text-anchor="start">束 E 0018 システムの入れ子</text>
+          <text class="chip-text" x="130" y="469" text-anchor="start">0018 システムの入れ子</text>
         </a>
         <text class="tiny" x="340" y="469" text-anchor="start">U14 の束ね方だけを先に取った</text>
         <rect class="chip" x="120" y="488" width="210" height="26" rx="13"></rect>
@@ -874,18 +874,18 @@
         <rect class="chip" x="340" y="520" width="210" height="26" rx="13"></rect>
         <text class="chip-text" x="350" y="537" text-anchor="start">4 U14 名前空間</text>
         <text class="tiny" x="120" y="563" text-anchor="start">数字は起案の順。U10 と U11 だけは同時に決める</text>
-        <text class="tiny" x="596" y="440" text-anchor="start">段2 の基本型と、採用済みの役割に依拠する。ただし 0018 は</text>
+        <text class="tiny" x="596" y="440" text-anchor="start">ステップ2 の基本型と、採用済みの役割に依拠する。ただし 0018 は</text>
         <text class="tiny" x="596" y="457" text-anchor="start">この順序の外で先に起案した。U14 のうち束ね方(システムが</text>
         <text class="tiny" x="596" y="474" text-anchor="start">システムを含めるか)だけを取り、名前空間には踏み込まない。</text>
         <text class="tiny" x="596" y="498" text-anchor="start">U13 を先頭にするのは、0010・0013・0004・0017 が失敗の語彙へ</text>
         <text class="tiny" x="596" y="515" text-anchor="start">入力を残しており、U10〜U12 がそれを使うため。U10(再入)と</text>
         <text class="tiny" x="596" y="532" text-anchor="start">U11(再送の順序)は同時に決める。U14 の名前空間は最後。</text>
 
-        <!-- 段5 -->
+        <!-- ステップ5 -->
         <rect class="box" x="104" y="588" width="470" height="76" rx="9"></rect>
         <circle class="chip-adr" cx="62" cy="626" r="15"></circle>
         <text class="chip-text" x="62" y="631" text-anchor="middle">5</text>
-        <text class="name" x="120" y="612" text-anchor="start" style="font-size:14px">束 D — 接合面</text>
+        <text class="name" x="120" y="612" text-anchor="start" style="font-size:14px">ステップ5 — 接合面</text>
         <text class="tiny" x="290" y="612" text-anchor="start">U5 / Phase 1 の前</text>
         <a class="node" href="decisions/0012-動作環境の言語とトランスパイル先の言語.md">
           <rect class="chip-adr" x="120" y="624" width="260" height="26" rx="13"></rect>
@@ -894,7 +894,7 @@
         <text class="tiny" x="390" y="641" text-anchor="start">凍結は 0012 決定10 に従う</text>
         <text class="tiny" x="596" y="612" text-anchor="start">接合面 H1〜H8 は他の決定の写しである。H2・H3 = U10、</text>
         <text class="tiny" x="596" y="629" text-anchor="start">H5 = U11、H8 = U13、H6 = U4。未決のまま凍結すると</text>
-        <text class="tiny" x="596" y="646" text-anchor="start">Phase 1 の途中で書き直しになる。採否は段2 の後で判断可。</text>
+        <text class="tiny" x="596" y="646" text-anchor="start">Phase 1 の途中で書き直しになる。採否はステップ2 の後で判断可。</text>
 
         <text class="small" x="104" y="702" text-anchor="start">→ Phase 1(パーサ+検証器+トランスパイラ)へ</text>
 
@@ -902,22 +902,22 @@
         <rect class="chip-adr" x="20" y="732" width="24" height="15" rx="7"></rect>
         <text class="tiny" x="50" y="744" text-anchor="start">提案・判断待ちの ADR</text>
         <rect class="chip-done" x="184" y="732" width="24" height="15" rx="7"></rect>
-        <text class="tiny" x="214" y="744" text-anchor="start">束のうち採用済みの ADR</text>
+        <text class="tiny" x="214" y="744" text-anchor="start">ステップのうち採用済みの ADR</text>
         <rect class="chip" x="360" y="732" width="24" height="15" rx="7"></rect>
         <text class="tiny" x="390" y="744" text-anchor="start">未着手の課題(これから ADR を起案する)</text>
         <line class="arrow" x1="660" y1="740" x2="700" y2="740" marker-end="url(#arr3)"></line>
-        <text class="tiny" x="708" y="744" text-anchor="start">段の順序(上から下へ)</text>
+        <text class="tiny" x="708" y="744" text-anchor="start">ステップの順序(上から下へ)</text>
       </svg>
       <figcaption>
-        <p><a href="PLAN.md">docs/PLAN.md</a> 第4節より。束は「同時に採否を判断する ADR のまとまり」であり、改訂の関係にある ADR を片方だけ採らないための単位である。</p>
+        <p><a href="PLAN.md">docs/PLAN.md</a> 第4節より。ステップは「同時に採否を判断する ADR のまとまり」であり、改訂の関係にある ADR を片方だけ採らないための単位である。</p>
         <ul>
-          <li><b>段1・段2 はこの規則を守れなかった</b> — 2026-08-28 に一部だけが採用され、「層は仕様書に入ったが基本型は入っていない」ねじれが生じた。</li>
-          <li><b>段1 は空になった</b> — 2026-08-29 の 0014 の採用による。</li>
-          <li><b>段2 は一度空になり、再び開いた</b> — 同日に 0009・0010・0017・0019・0020 を揃えて採ったが、2026-09-03 に 0010・0017 を破棄し、0019 の数値関連の決定を凍結した(数値型は暫定 ADR 0021 として書き直し中)。</li>
-          <li><b>段2 の非数値部分は影響を受けない</b> — 0009 の構成子、0019 の論理・時間の型、0020 の暦は採用済みのまま。</li>
-          <li><b>段4 の 0018(束 E)は単独で採れる</b> — 0015 を改訂するが、改訂される側が既に採用済みのため。</li>
-          <li><b>段4 の U10 と U11 は同時に決める</b> — 同じ実行モデルの二つの面であるため。</li>
-          <li><b>段5 の 0012</b> — 採否だけなら段2 の後に判断できるが、接合面の凍結は段4 の決定と TypeScript の適合試験を待つ。</li>
+          <li><b>ステップ1・ステップ2 はこの規則を守れなかった</b> — 2026-08-28 に一部だけが採用され、「層は仕様書に入ったが基本型は入っていない」ねじれが生じた。</li>
+          <li><b>ステップ1 は空になった</b> — 2026-08-29 の 0014 の採用による。</li>
+          <li><b>ステップ2 は一度空になり、再び開いた</b> — 同日に 0009・0010・0017・0019・0020 を揃えて採ったが、2026-09-03 に 0010・0017 を破棄し、0019 の数値関連の決定を凍結した(数値型は暫定 ADR 0021 として書き直し中)。</li>
+          <li><b>ステップ2 の非数値部分は影響を受けない</b> — 0009 の構成子、0019 の論理・時間の型、0020 の暦は採用済みのまま。</li>
+          <li><b>ステップ4 の 0018(ステップ4)は単独で採れる</b> — 0015 を改訂するが、改訂される側が既に採用済みのため。</li>
+          <li><b>ステップ4 の U10 と U11 は同時に決める</b> — 同じ実行モデルの二つの面であるため。</li>
+          <li><b>ステップ5 の 0012</b> — 採否だけならステップ2 の後に判断できるが、接合面の凍結はステップ4 の決定と TypeScript の適合試験を待つ。</li>
         </ul>
       </figcaption>
     </figure>
@@ -934,7 +934,7 @@
       <li><b>思考実験 09 → U22 と ADR 0019</b><br>ADR 0017 が数値型を軽くした副作用で 19 桁の値(ナノ秒の時点)の置き場所が消えていた事が、整数型を置く直接の理由である。これも思考実験が ADR へ差し戻した例である。</li>
       <li><b>思考実験 10 → ADR 0019 を同日に改訂</b><br>6点の穴(時刻に長さを足せない・曜日が無い・整数の単位換算が無い・隔たりの桁溢れ 等)を見つけた。</li>
       <li><b>思考実験 11 → ADR 0020 の起案</b><br>「元号は版が変わる表だから持たない」という判断が、退ける対象を取り違えていた事を示した。</li>
-      <li><b>束 B の5本を採用し、第6章「データと型」を新設</b></li>
+      <li><b>ステップ2 の5本を採用し、第6章「データと型」を新設</b></li>
       <li><b>思考実験 12 → U23 を新設</b><br>思考実験 01〜11 の全データを仕様書だけで書き直し、全て書けた上で5つの論点が出た。2つは仕様書の文面で閉じ、スカラー倍の穴が U23 となった。</li>
       <li><b>思考実験 13 → U24 を新設</b><br>U23 への「数える値にも単位を持たせる」案を検証し、単位の軸と数値型の軸が直交している事(この案では U23 が解けない事)を示した。</li>
       <li><b>2026-09-03 — 4つの方向のうち3つを白紙から再検討</b><br>U14 の論点は計画書 第5節に8つへ展開し、方向の上で残る問題は第6節に置いた。その上で書き手が次のように決めた。
