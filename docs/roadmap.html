@@ -739,6 +739,7 @@
           <li><span class="what"><a href="experiments/13-数える単位.md">思考実験 13 数える単位</a> <span class="note">U23 の制限案の検証・U24 を新設</span></span><span class="pill done">一巡 ✓</span></li>
           <li><span class="what"><a href="experiments/14-数値型の再検討.md">思考実験 14 数値型の再検討</a> <span class="note">ADR 0010・0017 破棄後・他言語の比較</span></span><span class="pill done">一巡 ✓</span></li>
           <li><span class="what"><a href="experiments/15-名前空間の再検討.md">思考実験 15 名前空間の再検討</a> <span class="note">逆ドメイン名を撤回・他言語の比較</span></span><span class="pill done">一巡 ✓</span></li>
+          <li><span class="what"><a href="experiments/16-整数型の要否.md">思考実験 16 整数型の要否</a> <span class="note">ADR 0021 の反証試験・整数を十進数に畳めるか</span></span><span class="pill done">一巡 ✓</span></li>
         </ul>
       </div>
       <div class="card wide">
@@ -951,6 +952,7 @@
         <ul>
           <li><b>数値型(U23)</b> — ADR 0010・0017 を破棄。思考実験 14 で金融機関(COBOL・BigDecimal・C# decimal)と科学技術計算(Fortran の KIND・単精度・区間演算)を比較し、7つの論点にまとめた</li>
           <li><b>名前空間(U14 論点4・5)</b> — 逆ドメイン名を撤回。思考実験 15 で Java・Rust・Common Lisp・Unison 等を比較し、<code>contains</code> の木構造(ADR 0018)をそのまま名前空間にできる可能性を示した</li>
+          <li><b><a href="experiments/16-整数型の要否.md">思考実験 16</a> → ADR 0021 の理由の書き直し</b> — <code>十進数(0)</code> が任意精度の整数になったため、ADR 0019 が <code>整数</code> を置いた根拠は失効していた。<code>整数</code> は残すが、理由は「厳密かつ記憶域と実行時間の上界を型が言う唯一の型だから」に変わった</li>
           <li><b>可視性のキーワード(U14 論点1)</b> — <code>expose</code> の流用を撤回し、<code>share</code> を候補として提案した</li>
           <li><b>組み込みの区分名(U14 論点2)</b> — 第6章 6.1 の指針(不在の区分名は何が無いのかを言う)と衝突するため、撤回のまま確定した</li>
         </ul>
@@ -980,7 +982,7 @@
   </section>
 
   <footer>
-    出典: <a href="PLAN.md">docs/PLAN.md</a>(Draft, 2026-08-18)・<a href="spec/">docs/spec/</a> 第0〜6章・<a href="decisions/">docs/decisions/</a> 0001〜0021(0011 は欠番。0010・0017 は破棄)・<a href="experiments/">docs/experiments/</a> 01〜15。2026-09-10 時点の状態を反映。
+    出典: <a href="PLAN.md">docs/PLAN.md</a>(Draft, 2026-08-18)・<a href="spec/">docs/spec/</a> 第0〜6章・<a href="decisions/">docs/decisions/</a> 0001〜0021(0011 は欠番。0010・0017 は破棄)・<a href="experiments/">docs/experiments/</a> 01〜16。2026-09-15 時点の状態を反映。
   </footer>
 
 </div>
