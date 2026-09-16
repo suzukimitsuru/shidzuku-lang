@@ -703,7 +703,7 @@
           <li><b>ADR 0017</b>(破棄)— 0010 を改訂し、数値型を <code>実数</code>(IEEE 754 binary64)と <code>十進数</code> の2つにするものだった。</li>
           <li><b>ADR 0019</b>(採用)— 0009 の基本型の一覧を10(論理・整数・実数・十進数・テキスト・バイト列・時点・日付・時刻・時間帯)に確定し、<code>期間</code> と <code>時間量</code> を外した。暦は <code>日付</code> の型の欄(単位と同じ形)、日時は直積で書き、<code>日付</code> は紀元前まで表す。</li>
           <li><b>ADR 0020</b>(採用)— 0019 の暦を改訂し、書き手が紀年法(和暦・仏暦)を宣言できるようにする。</li>
-          <li><b>ADR 0021</b>(提案)— 0010・0017 の後継。数値型は <code>十進数(s)</code> と <code>実数</code> の<b>2つ</b>とし、<code>整数</code> は基本型から外す(数える値は <code>十進数(0)</code>)。<code>十進数</code> の宣言は刻み(小数部の桁)だけで上限を型から外し、<b>型に序列も暗黙の変換も置かない</b>。外部との詰め替えは境界で幅・符号・バイト順を宣言する。この形式は単位付き・静的位取り・任意精度の十進固定小数点数であり、Haskell の <code>Data.Fixed</code> と同型。</li>
+          <li><b>ADR 0021</b>(提案)— 0010・0017 の後継。数値型は <code>int8〜int256(s)</code>・<code>uint8〜uint256(s)</code>・<code>float32/64</code> とし、<b>幅で上限を、位取りで刻みを型に書く</b>。単位の欄は必須で、単位なしは <code>none</code>。暗黙の変換は1本も無く、桁溢れはラップもトラップもせず失敗とする。<code>float128</code> はハードウェアと出力先の事情から置かない。</li>
           <li><b>番号について</b> — ADR 0011 は欠番。検証番号は ADR 0016 により <code>E&lt;出自&gt;-&lt;連番&gt;</code> 形式で、出自はその検査を定めた ADR の番号(<code>0000</code> は仕様書本体)。</li>
         </ul>
       </figcaption>
@@ -741,6 +741,7 @@
           <li><span class="what"><a href="experiments/15-名前空間の再検討.md">思考実験 15 名前空間の再検討</a> <span class="note">逆ドメイン名を撤回・他言語の比較</span></span><span class="pill done">一巡 ✓</span></li>
           <li><span class="what"><a href="experiments/16-整数型の要否.md">思考実験 16 整数型の要否</a> <span class="note">ADR 0021 の反証試験・整数を十進数に畳めるか</span></span><span class="pill done">一巡 ✓</span></li>
           <li><span class="what"><a href="experiments/17-主要言語の数値型の比較.md">思考実験 17 主要言語の数値型の比較</a> <span class="note">ビット幅と範囲・桁溢れの扱いの4分類</span></span><span class="pill done">一巡 ✓</span></li>
+          <li><span class="what"><a href="experiments/18-幅と位取りの数値型.md">思考実験 18 幅と位取りの数値型</a> <span class="note">確定した型での書き下ろし・3つの論点</span></span><span class="pill done">一巡 ✓</span></li>
         </ul>
       </div>
       <div class="card wide">
@@ -983,7 +984,7 @@
   </section>
 
   <footer>
-    出典: <a href="PLAN.md">docs/PLAN.md</a>(Draft, 2026-08-18)・<a href="spec/">docs/spec/</a> 第0〜6章・<a href="decisions/">docs/decisions/</a> 0001〜0021(0011 は欠番。0010・0017 は破棄)・<a href="experiments/">docs/experiments/</a> 01〜17。2026-09-15 時点の状態を反映。
+    出典: <a href="PLAN.md">docs/PLAN.md</a>(Draft, 2026-08-18)・<a href="spec/">docs/spec/</a> 第0〜6章・<a href="decisions/">docs/decisions/</a> 0001〜0021(0011 は欠番。0010・0017 は破棄)・<a href="experiments/">docs/experiments/</a> 01〜18。2026-09-16 時点の状態を反映。
   </footer>
 
 </div>
