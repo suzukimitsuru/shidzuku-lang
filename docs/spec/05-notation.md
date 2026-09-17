@@ -2,8 +2,8 @@
 
 - 状態: Draft
 - 日付: 2026-08-29(ADR 0014 の採用に伴い新設。同日 ADR 0009・0010・0017・0019・0020 の採用で型の語彙を 5.3 に加えた)
-  (改訂 2026-09-16: ADR 0021 の採用で基本型の語彙を `int`・`uint`・`float`・`dec` に差し替えた。2026-09-17: 単位なしを `unitless` とした)
-- 依拠: 第0章 0.5、第6章、ADR 0008・0009・0010・0014・0015・0016・0017・0019・0020(いずれも採用)、ADR 0012(提案)。未採用 ADR の採否により本章も改訂される
+  (改訂 2026-09-16: ADR 0021 の採用で基本型の語彙を `int`・`uint`・`float`・`dec` に差し替えた。2026-09-17: 単位なしを `unitless` とした。同日 ADR 0022 の採用で量の種別の語彙を加えた)
+- 依拠: 第0章 0.5、第6章、ADR 0008・0009・0010・0014・0015・0016・0017・0019・0020・0021・0022(いずれも採用)、ADR 0012(提案)。未採用 ADR の採否により本章も改訂される
 
 ## 5.1 二つの語 — 言語が定める語と、書き手が定める名前
 
@@ -56,6 +56,7 @@ Shidzuku の記述に現れる語は二種類しかない(ADR 0014)。
 | 基本型               | `bool` `int` `uint` `float` `dec` `text` `bytes` `instant` `date` `clock` `zone`                                       | 第6章 6.2            |
 | 論理                 | `true` `false` `and` `or` `not`                                                                                        | 第6章 6.2            |
 | 数値の量と単位       | `quantity` `unit` `unitless` `base` `exp` `convert`                                                                    | 第6章 6.3            |
+| 量の種別             | `ratio` `count` `amount` `position` `delta`                                                                            | 第6章 6.3            |
 | 数値の操作           | `divide` `divmod` `round` `fit` `pow` `sqrt` `sum` `strip_measure` `apply_measure` `overflow` `approximate` `exact`    | 第6章 6.3            |
 | 丸め                 | `rounding` `truncate` `away` `floor` `ceil` `half_up` `half_even`                                                      | 第6章 6.3            |
 | 時間の操作           | `between` `backwards` `advance_clock` `weekday` `add_days` `days` `to_calendar` `to_instant` `nonexistent` `ambiguous` | 第6章 6.4            |
@@ -66,6 +67,9 @@ Shidzuku の記述に現れる語は二種類しかない(ADR 0014)。
 - `none` は「該当なし」を表す唯一の語である。`depends none`・`state none`・`external none`・`collator none`・
   `deadline none` はいずれも同じ語であり、省略の禁止(第0章 0.5)が要求する明示の形はこの一語に揃う。
 - **単位の欄だけは `none` を使わず `unitless` と書く**(`int64(0) unitless`。ADR 0021)。
+  `unitless` は比率の量の基準単位(数の 1)であり、単位の欄が空である事ではない(ADR 0022)。
+- 量の種別は `ratio`(比率)・`count`(計数)・`amount`(計量)・`position`(位置)、位置の差の量を指す語は `delta` とする(ADR 0022)。
+  計量に `measure` を使わないのは、ADR 0015 が `measure` を単位の語から外した経緯と紛れるためである。
   書くのは「単位が無い」事であって「該当が無い」事ではなく、`none` に重ねると何を否定しているのかが文脈ごとに変わるためである。
 - 整数型と十進数型は幅と位取りを語の一部として書く(`int8`〜`int256`・`uint8`〜`uint256` に `(位取り)`、`dec(整数部.小数部)`)。
   浮動小数点型は `float32`・`float64` の二語のみで、位取りの欄を持たない(第6章 6.3、E0021-2)。
