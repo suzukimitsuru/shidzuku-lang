@@ -317,7 +317,7 @@
         <text class="chip-text" x="125" y="261" text-anchor="middle">U2 通信モデル</text>
         <rect class="chip-done" x="50" y="278" width="150" height="26" rx="13"></rect>
         <text class="chip-text" x="125" y="295" text-anchor="middle">U3 内部階層の制約</text>
-        <rect class="chip-adr" x="50" y="312" width="150" height="26" rx="13"></rect>
+        <rect class="chip-done" x="50" y="312" width="150" height="26" rx="13"></rect>
         <text class="chip-text" x="125" y="329" text-anchor="middle">U7 コンポーネントの粒度</text>
         <rect class="chip-done" x="50" y="346" width="150" height="26" rx="13"></rect>
         <text class="chip-text" x="125" y="363" text-anchor="middle">U9 データ型の記述</text>
@@ -344,7 +344,7 @@
 
         <!-- U7 continues across phases -->
         <line class="arrow dashed" x1="205" y1="325" x2="930" y2="325" marker-end="url(#arr)"></line>
-        <text class="tiny" x="565" y="318" text-anchor="middle">U7 はフェーズを跨いで継続判断</text>
+        <text class="tiny" x="565" y="318" text-anchor="middle">U7 は ADR 0006 採用後もフェーズを跨いで継続検証</text>
 
         <!-- before Phase 1 -->
         <rect class="chip-done" x="295" y="210" width="150" height="26" rx="13"></rect>
@@ -379,9 +379,9 @@
 
         <!-- legend -->
         <rect class="chip-done" x="20" y="788" width="26" height="16" rx="8"></rect>
-        <text class="tiny" x="54" y="800" text-anchor="start">ADR 採用済み(U1・U2・U3・U5・U9・U15・U17・U18・U19・U22)</text>
-        <rect class="chip-adr" x="430" y="788" width="26" height="16" rx="8"></rect>
-        <text class="tiny" x="464" y="800" text-anchor="start">ADR 提案あり(U7)</text>
+        <text class="tiny" x="54" y="800" text-anchor="start">ADR 採用済み(U1・U2・U3・U5・U7・U9・U15・U17・U18・U19・U22)</text>
+        <rect class="chip-adr" x="450" y="788" width="26" height="16" rx="8"></rect>
+        <text class="tiny" x="484" y="800" text-anchor="start">ADR 提案あり(該当なし)</text>
         <rect class="chip-rel" x="20" y="816" width="26" height="16" rx="8"></rect>
         <text class="tiny" x="54" y="828" text-anchor="start">関連/一部の ADR は採用・本体は未決(U6・U8・U12・U14)</text>
         <rect class="chip" x="380" y="816" width="26" height="16" rx="8"></rect>
@@ -525,7 +525,7 @@
         <text class="chip-text" x="454" y="225" text-anchor="middle">U5 トランスパイル先</text>
         <rect class="chip-rel" x="356" y="246" width="196" height="26" rx="13"></rect>
         <text class="chip-text" x="454" y="263" text-anchor="middle">U6 Raft の適用範囲</text>
-        <rect class="chip-adr" x="356" y="284" width="196" height="26" rx="13"></rect>
+        <rect class="chip-done" x="356" y="284" width="196" height="26" rx="13"></rect>
         <text class="chip-text" x="454" y="301" text-anchor="middle">U7 コンポーネントの粒度</text>
         <rect class="chip-rel" x="356" y="322" width="196" height="26" rx="13"></rect>
         <text class="chip-text" x="454" y="339" text-anchor="middle">U8 図と実装の一致</text>
@@ -594,11 +594,11 @@
           <text class="chip-text" x="702" y="317" text-anchor="start">0001 分散環境の通信プロトコル</text>
         </a>
         <text class="tiny" x="982" y="317" text-anchor="end">採用</text>
-        <a class="node" href="decisions/0006-ユニットの粒度の指針.md">
-          <rect class="chip-adr" x="692" y="348" width="300" height="26" rx="13"></rect>
-          <text class="chip-text" x="702" y="365" text-anchor="start">0006 ユニットの粒度の指針</text>
+        <a class="node" href="decisions/0006-コンポーネントの粒度の指針.md">
+          <rect class="chip-done" x="692" y="348" width="300" height="26" rx="13"></rect>
+          <text class="chip-text" x="702" y="365" text-anchor="start">0006 コンポーネントの粒度の指針</text>
         </a>
-        <text class="tiny" x="982" y="365" text-anchor="end">提案 · ステップ3</text>
+        <text class="tiny" x="982" y="365" text-anchor="end">採用 2026-09-18</text>
         <a class="node" href="decisions/0007-ADRとC4モデルの考え方の取り込み.md">
           <rect class="chip-done" x="692" y="396" width="300" height="26" rx="13"></rect>
           <text class="chip-text" x="702" y="413" text-anchor="start">0007 ADR と C4 の考え方の取り込み</text>
@@ -714,6 +714,7 @@
           <li><b>ADR 0017</b>(破棄)— 0010 を改訂し、数値型を <code>実数</code>(IEEE 754 binary64)と <code>十進数</code> の2つにするものだった。</li>
           <li><b>ADR 0019</b>(採用)— 0009 の基本型の一覧を10(論理・整数・実数・十進数・テキスト・バイト列・時点・日付・時刻・時間帯)に確定し(数値の3つは ADR 0021 が <code>int</code>・<code>uint</code>・<code>float</code>・<code>dec</code> に置き換えた)、<code>期間</code> と <code>時間量</code> を外した。暦は <code>日付</code> の型の欄(単位と同じ形)、日時は直積で書き、<code>日付</code> は紀元前まで表す。</li>
           <li><b>ADR 0020</b>(採用)— 0019 の暦を改訂し、書き手が紀年法(和暦・仏暦)を宣言できるようにする。</li>
+          <li><b>ADR 0006</b>(採用 2026-09-18)— 1コンポーネント = 隠す設計判断が1つ。後続 ADR に追従させ、小さすぎのシグナルの比べる相手をシステムの intent に改め、内部階層の数と役割を分割のシグナルにしない事(0013 決定5)を取り込んだ。第2章 2.5 に反映した。U7 の検証は続ける。</li>
           <li><b>ADR 0012</b>(採用 2026-09-17)— 動作環境は Rust の1実装、トランスパイル先は Rust と TypeScript。コンポーネントと動作環境は正準形だけが流れる接合面 H1〜H8 で繋がり、第1章 1.6 に分担を入れた。H1〜H8 の凍結は TypeScript のコンポーネントが通ってから。</li>
           <li><b>ADR 0021</b>(採用 2026-09-16)— 0010・0017 の後継。数値型は <code>int8〜int256(s)</code>・<code>uint8〜uint256(s)</code>・<code>float32/64</code> と、内部計算用の <code>dec(i.f)</code> の4種。<b>幅(または宣言した桁)で上限を、位取りで刻みを型に書く</b>。単位の欄は必須で、単位なしは <code>unitless</code>。暗黙の変換は1本も無く、桁溢れはラップもトラップもせず失敗とする。<code>dec</code> は格納が可変長だが上界は宣言が言い、跨ぐ値・状態・外部には書けない。<code>float128</code> はハードウェアと出力先の事情から置かない。</li>
           <li><b>ADR 0022</b>(採用 2026-09-17)— 0021 の決定4・決定11 を改訂した。量を<b>比率・計数・計量・位置</b>の4種別に分けて宣言し、乗除算は強さの順(比率 &lt; 計数 &lt; 計量)で決める。数える量は掛けると単位が消え(<code>円 × 個 = 円</code>)、位置の量(<code>版目</code>・<code>要素目</code>)は差とだけ足せる。U24(序数と基数)を新しい基本型なしで解いた。第6章 6.3 に「量の種別」、第3章 3.3 に E0022-1〜E0022-5 として反映済み。</li>
@@ -766,7 +767,7 @@
           <li><span class="what"><a href="decisions/0003-検証不能な意図の記述形式.md">ADR 0003 検証不能な意図の記述形式</a> <span class="note">U1</span></span><span class="pill done">採用 ✓</span></li>
           <li><span class="what"><a href="decisions/0004-ユニット間の通信モデル.md">ADR 0004 ユニット間の通信モデル</a> <span class="note">U2</span></span><span class="pill done">採用 ✓</span></li>
           <li><span class="what"><a href="decisions/0005-内部階層の制約宣言.md">ADR 0005 内部階層の制約宣言</a> <span class="note">U3・0008/0013 が改訂</span></span><span class="pill done">採用 ✓</span></li>
-          <li><span class="what"><a href="decisions/0006-ユニットの粒度の指針.md">ADR 0006 ユニットの粒度の指針</a> <span class="note">U7・継続検証・ステップ3</span></span><span class="pill prog">提案</span></li>
+          <li><span class="what"><a href="decisions/0006-コンポーネントの粒度の指針.md">ADR 0006 コンポーネントの粒度の指針</a> <span class="note">U7・後続 ADR へ追従した上で 2026-09-18 に採用・層では割らない・継続検証</span></span><span class="pill done">採用 ✓</span></li>
           <li><span class="what"><a href="decisions/0007-ADRとC4モデルの考え方の取り込み.md">ADR 0007 ADR と C4 の考え方の取り込み</a> <span class="note">U8 先行</span></span><span class="pill done">採用 ✓</span></li>
           <li><span class="what"><a href="decisions/0008-省略の禁止.md">ADR 0008 省略の禁止</a> <span class="note">全体制約・0004/0005 を改訂</span></span><span class="pill done">採用 ✓</span></li>
           <li><span class="what"><a href="decisions/0009-データ型の記述.md">ADR 0009 データ型の記述</a> <span class="note">U9・構成子と基本型の一覧(数値は 0021 が確定)</span></span><span class="pill done">採用 ✓</span></li>
@@ -794,11 +795,11 @@
     <ul class="points">
       <li><b>ステップにまとめる</b> — 改訂の関係にある ADR をまとめ、同時に採否を判断する。</li>
       <li><b>ステップを並べる</b> — 依拠の向き(名前 → 型 → 指針 → 接合面)に並べる。</li>
-      <li><b>いまの状態</b> — 2026-08-28 の採用(0005・0013・0015)と 2026-08-29 の採用(0014)でステップ1 は空になり、ステップ2 の一部も先に抜けた。2026-09-17 の採用(0012)でステップ5 も空になった。残りだけを判断待ちとして示す。</li>
+      <li><b>いまの状態</b> — 2026-08-28 の採用(0005・0013・0015)と 2026-08-29 の採用(0014)でステップ1 は空になり、ステップ2 の一部も先に抜けた。2026-09-17 の採用(0012)でステップ5 も、2026-09-18 の採用(0006)でステップ3 も空になった。残りだけを判断待ちとして示す。</li>
       <li><b>ステップの番号は動かさない</b> — 採用の記録と対応が付くようにするため。</li>
     </ul>
     <figure>
-      <svg viewBox="0 0 980 784" role="img" aria-label="判断待ちの ADR の採否の順序を5つのステップに並べた図。ステップ1 は表記と命名(0014・0015 とも採用済み)、ステップ2 は基本型と層(0009・0010・0017・0019・0020・0005・0013 とも採用済み)、ステップ3 は粒度(0006)、ステップ4 は新規 ADR(0018 と未着手課題)、ステップ5 は接合面(0012 は採用済み)。ステップを跨いで上から下へ進み、その先が Phase 1 である">
+      <svg viewBox="0 0 980 784" role="img" aria-label="判断待ちの ADR の採否の順序を5つのステップに並べた図。ステップ1 は表記と命名(0014・0015 とも採用済み)、ステップ2 は基本型と層(0009・0010・0017・0019・0020・0005・0013 とも採用済み)、ステップ3 は粒度(0006 は採用済み)、ステップ4 は新規 ADR(0018 と未着手課題)、ステップ5 は接合面(0012 は採用済み)。ステップを跨いで上から下へ進み、その先が Phase 1 である">
         <defs>
           <marker id="arr3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
             <polygon points="0,1 10,5 0,9" fill="currentColor"></polygon>
@@ -877,18 +878,18 @@
 
         <!-- ステップ3 -->
         <rect class="box" x="104" y="356" width="470" height="76" rx="9"></rect>
-        <circle class="chip-adr" cx="62" cy="394" r="15"></circle>
+        <circle class="chip-done" cx="62" cy="394" r="15"></circle>
         <text class="chip-text" x="62" y="399" text-anchor="middle">3</text>
         <text class="name" x="120" y="380" text-anchor="start" style="font-size:14px">ステップ3 — 粒度</text>
         <text class="tiny" x="290" y="380" text-anchor="start">U7 / Phase 0〜継続</text>
-        <a class="node" href="decisions/0006-ユニットの粒度の指針.md">
-          <rect class="chip-adr" x="120" y="392" width="210" height="26" rx="13"></rect>
+        <a class="node" href="decisions/0006-コンポーネントの粒度の指針.md">
+          <rect class="chip-done" x="120" y="392" width="210" height="26" rx="13"></rect>
           <text class="chip-text" x="130" y="409" text-anchor="start">0006 コンポーネントの粒度</text>
         </a>
-        <text class="tiny" x="340" y="409" text-anchor="start">単独で採否を判断できる</text>
+        <text class="tiny" x="340" y="409" text-anchor="start">2026-09-18 に単独で採用済み</text>
         <text class="tiny" x="596" y="380" text-anchor="start">他を改訂せず、他からも改訂されない。ただし 0013 の決定5</text>
         <text class="tiny" x="596" y="397" text-anchor="start">(層はコンポーネントを割らない)が粒度の判定基準を動かす</text>
-        <text class="tiny" x="596" y="414" text-anchor="start">ため、ステップ2 の後に置く。採用後も思考実験ごとに見直す。</text>
+        <text class="tiny" x="596" y="414" text-anchor="start">ため、ステップ2 の後に置く。採用時に決定5 を取り込んだ。</text>
 
         <!-- ステップ4 -->
         <rect class="box" x="104" y="448" width="470" height="156" rx="9"></rect>
@@ -953,6 +954,7 @@
           <li><b>ステップ2 の非数値部分は影響を受けない</b> — 0009 の構成子、0019 の論理・時間の型、0020 の暦は採用済みのまま。</li>
           <li><b>ステップ4 の 0018(ステップ4)は単独で採れる</b> — 0015 を改訂するが、改訂される側が既に採用済みのため。</li>
           <li><b>ステップ4 の U10 と U11 は同時に決める</b> — 同じ実行モデルの二つの面であるため。</li>
+          <li><b>ステップ3 は空になった</b> — 2026-09-18 の <a href="decisions/0006-コンポーネントの粒度の指針.md">ADR 0006</a> の採用による。後続 ADR に追従させ、0013 の決定5(層はコンポーネントを割らない)を決定に取り込んだ。U7 は採用後も思考実験ごとに見直す。</li>
           <li><b>ステップ5 は空になった</b> — 2026-09-17 の <a href="decisions/0012-動作環境の言語とトランスパイル先の言語.md">ADR 0012</a> の採用による。採ったのは接合面の形と分担であり、H1〜H8 の凍結はステップ4 の決定と TypeScript の適合試験を待つ。</li>
         </ul>
       </figcaption>
@@ -986,7 +988,8 @@
       <li><b>2026-09-16 — 数値型が確定し、型の体系が閉じた</b><br><a href="decisions/0021-数値型の体系.md">ADR 0021</a> を採用した。U15・U23 が決着し、ADR 0019 の決定2・決定7 の凍結も解けた(決定7 は 0021 が置き換えた)。第6章 6.2・6.3 を書き直し、第3章 3.3 に E0021-1〜E0021-4 と実行時に戻る失敗7つを、第5章 5.3 に新しい基本型の語彙を入れた。<b>2026-09-03 から続いていた「数値型が宙に浮いている」状態は 13 日で解消した。</b>残る宿題は値域の宣言(幅より細かい上界)と、序数と基数の区別(U24)である。</li>
       <li><b>2026-09-17 — ADR 0012 を後続の決定に追従させた</b><br><a href="decisions/0012-動作環境の言語とトランスパイル先の言語.md">ADR 0012</a>(提案)は起案以来改訂されていなかったため、採否の判断に先立って書き直した。<a href="decisions/0021-数値型の体系.md">ADR 0021</a>・<a href="decisions/0019-基本型の体系.md">ADR 0019</a>・<a href="decisions/0013-文字列型の廃止、text%20型の導入、および層モデル.md">ADR 0013</a> から「基本型の写像」(8〜256 ビットの整数・<code>dec</code> の多倍長・ナノ秒の <code>時点</code>・テキスト)を比較の軸と決定8 に加え、<a href="decisions/0014-識別子と言語語彙の表記.md">ADR 0014</a> の名前の符号化を取り込み、<a href="decisions/0015-C4モデルの命名の取り込み.md">ADR 0015</a> に従って「ユニット」を「コンポーネント」に改め、章番号を現行に合わせた。机上検証の「block の上限は実装を待たずに要る」は <a href="spec/04-communication.md">第4章</a> 4.6 にも記した。<b>決定の骨格は変わらず</b>、TypeScript が基本型を最も素直に写せない事は、2つ目の言語の選び方をむしろ裏付けた。</li>
       <li><b>2026-09-17 — U5 が決着し、ステップ5 が空になった</b><br>書き手の判断により <a href="decisions/0012-動作環境の言語とトランスパイル先の言語.md">ADR 0012</a> を採用した。動作環境は Rust の1実装、トランスパイル先は Rust と TypeScript に確定し、<a href="spec/00-vision.md">第0章</a> 0.8・<a href="spec/01-system-context.md">第1章</a> 1.6・<a href="spec/03-constraints.md">第3章</a> 3.5 に反映した。接合面 H1〜H8 の表は凍結まで ADR 0012 に置く。</li>
-      <li><b>判断待ち</b><br>U7(ADR 0006)・U14 の一部(ADR 0018)。残る U20・U21 は U4・U10〜U14・U16 と併せて順次検討する。詳細は計画書 第5〜7節にある。</li>
+      <li><b>2026-09-18 — ADR 0006 を後続の決定に追従させて採用し、ステップ3 が空になった</b><br><a href="decisions/0006-コンポーネントの粒度の指針.md">ADR 0006</a>(提案)は起案以来改訂されていなかった。<a href="decisions/0015-C4モデルの命名の取り込み.md">ADR 0015</a> に従って「ユニット」を「コンポーネント」に改めてファイル名も改め、小さすぎのシグナルの「親ユニット」を所属するシステムの intent に直し(コンポーネントは入れ子にならない)、<a href="decisions/0013-文字列型の廃止、text%20型の導入、および層モデル.md">ADR 0013</a> の決定5 から「内部階層の数と役割は分割のシグナルにしない」を取り込んだ。<a href="experiments/08-多言語商品カタログ検索.md">思考実験 08</a>(15層でもコンポーネントは割れなかった)を裏付けに加え、<a href="experiments/10-多地域シフト勤怠.md">思考実験 10</a> の論点8(body の中の業務判断を intent が拾えない)を将来の検証に置いた。書き手の判断により同日に採用し、<a href="spec/02-component.md">第2章</a> 2.5 に反映した。<b>決定の骨格は変わらず</b>、U7 の検証は続ける。</li>
+      <li><b>判断待ち</b><br>U14 の一部(ADR 0018)。残る U20・U21 は U4・U10〜U14・U16 と併せて順次検討する。詳細は計画書 第5〜7節にある。</li>
     </ul>
     <figure>
       <svg viewBox="0 0 560 132" role="img" aria-label="仕様と思考実験のあいだを往復するループ。仕様を既存システムで記述してみて、書けない事があれば仕様に戻す">
