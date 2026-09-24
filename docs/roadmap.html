@@ -397,7 +397,7 @@
     <h3 class="sub">2-1. 言語仕様の文書構成図</h3>
     <p class="lead">左から、仕様の章(<a href="spec/">docs/spec/</a>)・課題(PLAN 第2節)・決定 ADR(PLAN 第3節)。</p>
     <figure>
-      <svg viewBox="0 0 1080 1166" role="img" aria-label="左から順に、仕様の第0〜6章、未解決課題 U1〜U24、決定 ADR 0001〜0022 を3つの列に並べ、課題を決めた ADR と、その決定が書かれた章を線で結んだ文書構成図">
+      <svg viewBox="0 0 1080 1166" role="img" aria-label="左から順に、仕様の第0〜6章、未解決課題 U1〜U25、決定 ADR 0001〜0022 を3つの列に並べ、課題を決めた ADR と、その決定が書かれた章を線で結んだ文書構成図">
         <defs>
           <marker id="arr4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
             <polygon points="0,1 10,5 0,9" fill="var(--accent)"></polygon>
@@ -561,6 +561,8 @@
         <text class="chip-text" x="454" y="909" text-anchor="middle">U23 数値型の設計全体</text>
         <rect class="chip-done" x="356" y="930" width="196" height="26" rx="13"></rect>
         <text class="chip-text" x="454" y="947" text-anchor="middle">U24 序数と基数の区別</text>
+        <rect class="chip" x="356" y="968" width="196" height="26" rx="13"></rect>
+        <text class="chip-text" x="454" y="985" text-anchor="middle">U25 対になる通信</text>
 
         <!-- 決定(ADR) -->
         <a class="node" href="decisions/0003-検証不能な意図の記述形式.md">
@@ -757,6 +759,7 @@
           <li><span class="what"><a href="experiments/17-主要言語の数値型の比較.md">思考実験 17 主要言語の数値型の比較</a> <span class="note">ビット幅と範囲・桁溢れの扱いの4分類</span></span><span class="pill done">一巡 ✓</span></li>
           <li><span class="what"><a href="experiments/18-幅と位取りの数値型.md">思考実験 18 幅と位取りの数値型</a> <span class="note">確定した型での書き下ろし・3つの論点と dec の検証</span></span><span class="pill done">一巡 ✓</span></li>
           <li><span class="what"><a href="experiments/19-単位の種別.md">思考実験 19 単位の種別</a> <span class="note">比率・計数・計量・位置の4種別・U24 の検証</span></span><span class="pill done">一巡 ✓</span></li>
+          <li><span class="what"><a href="experiments/20-対になる通信.md">思考実験 20 対になる通信</a> <span class="note">ask と後から届く flow の相関・U25 を新設</span></span><span class="pill done">一巡 ✓</span></li>
         </ul>
       </div>
       <div class="card wide">
@@ -990,7 +993,8 @@
       <li><b>2026-09-17 — U5 が決着し、ステップ5 が空になった</b><br>書き手の判断により <a href="decisions/0012-動作環境の言語とトランスパイル先の言語.md">ADR 0012</a> を採用した。動作環境は Rust の1実装、トランスパイル先は Rust と TypeScript に確定し、<a href="spec/00-vision.md">第0章</a> 0.8・<a href="spec/01-system-context.md">第1章</a> 1.6・<a href="spec/03-constraints.md">第3章</a> 3.5 に反映した。接合面 H1〜H8 の表は凍結まで ADR 0012 に置く。</li>
       <li><b>2026-09-18 — ADR 0006 を後続の決定に追従させて採用し、ステップ3 が空になった</b><br><a href="decisions/0006-コンポーネントの粒度の指針.md">ADR 0006</a>(提案)は起案以来改訂されていなかった。<a href="decisions/0015-C4モデルの命名の取り込み.md">ADR 0015</a> に従って「ユニット」を「コンポーネント」に改めてファイル名も改め、小さすぎのシグナルの「親ユニット」を所属するシステムの intent に直し(コンポーネントは入れ子にならない)、<a href="decisions/0013-文字列型の廃止、text%20型の導入、および層モデル.md">ADR 0013</a> の決定5 から「内部階層の数と役割は分割のシグナルにしない」を取り込んだ。<a href="experiments/08-多言語商品カタログ検索.md">思考実験 08</a>(15層でもコンポーネントは割れなかった)を裏付けに加え、<a href="experiments/10-多地域シフト勤怠.md">思考実験 10</a> の論点8(body の中の業務判断を intent が拾えない)を将来の検証に置いた。書き手の判断により同日に採用し、<a href="spec/02-component.md">第2章</a> 2.5 に反映した。<b>決定の骨格は変わらず</b>、U7 の検証は続ける。</li>
       <li><b>2026-09-25 — ADR 0018 を採用し、判断待ちの ADR が無くなった</b><br>採否の判断に先立って読み直したところ、<b>決定1 と決定5 が噛み合っていない</b>事が分かった——決定1 はコンポーネントとシステムが一つの <code>contains</code> に混在してよいと定めたのに、決定5 の <code>depends</code> は相手をシステムに限っており、<b>混在させた当人どうしがどの行にも当たらない</b>。<code>depends</code> の相手を<b>兄弟(同じ <code>contains</code>)と親の兄弟、そして <code>external</code></b> に揃え、相手がコンポーネントかシステムかを問わない形にして塞いだ(検証番号は増えていない。E0018-3 の定義が広がった)。逆向きを「元の <code>ask</code> への後からの戻り(コールバック)」で説明する案は捨てた——<code>ask</code> は期限内に必ず返ると定めており(<a href="decisions/0004-ユニット間の通信モデル.md">ADR 0004</a>)、内側のシステムが自分から出す <code>ask</code>・<code>flow</code>(採番・監査)も説明できないためである。対になる通信の相関は<a href="spec/04-communication.md">第4章</a> 4.6 の未定事項に残した。<a href="spec/01-system-context.md">第1章</a> 1.4・1.5、<a href="spec/02-component.md">第2章</a> 2.3、<a href="spec/03-constraints.md">第3章</a> 3.2・3.3 に反映した。</li>
-      <li><b>次に決める事</b><br>U14(名前空間と可視範囲)・U10〜U13。残る U20・U21 は U4・U16 と併せて順次検討する。詳細は計画書 第5〜7節にある。</li>
+      <li><b>思考実験 20 → U25 を新設</b><br>ADR 0018 の採用で残った「対になる通信」(第4章 4.6)を、受注の確定が後から決まる系で書き下ろした。<code>flow</code> 宣言に二本を並べれば意図と障害時の埋め合わせは書けるが、<b>二本を結ぶ鍵(受注番号)が同じ物である事は検査されず</b>、同じ相手に複数の <code>ask</code> があると戻りがどれの続きか決まらない。さらに <b>「確定が何分以内に決まるか」という仕事全体の期限を書く場所が無い</b>事が分かった(<code>ask</code> の <code>deadline</code> は応答までの期限、<code>pressure block</code> の期限は投入までの期限である)。案は3つに整理し、<code>flow</code> 宣言に相関の鍵と期限を書く案を第一候補とした。ADR 0004(通信は ask と flow の2方式)を改訂せずに済むためである。</li>
+      <li><b>次に決める事</b><br>U25(対になる通信)・U14(名前空間と可視範囲)・U10〜U13。残る U20・U21 は U4・U16 と併せて順次検討する。詳細は計画書 第5〜7節にある。</li>
     </ul>
     <figure>
       <svg viewBox="0 0 560 132" role="img" aria-label="仕様と思考実験のあいだを往復するループ。仕様を既存システムで記述してみて、書けない事があれば仕様に戻す">
