@@ -397,7 +397,7 @@
     <h3 class="sub">2-1. 言語仕様の文書構成図</h3>
     <p class="lead">左から、仕様の章(<a href="spec/">docs/spec/</a>)・課題(PLAN 第2節)・決定 ADR(PLAN 第3節)。</p>
     <figure>
-      <svg viewBox="0 0 1080 1166" role="img" aria-label="左から順に、仕様の第0〜6章、未解決課題 U1〜U25、決定 ADR 0001〜0022 を3つの列に並べ、課題を決めた ADR と、その決定が書かれた章を線で結んだ文書構成図">
+      <svg viewBox="0 0 1080 1230" role="img" aria-label="左から順に、仕様の第0〜6章、未解決課題 U1〜U25、決定 ADR 0001〜0022 を3つの列に並べ、課題を決めた ADR と、その決定が書かれた章を線で結んだ文書構成図">
         <defs>
           <marker id="arr4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
             <polygon points="0,1 10,5 0,9" fill="var(--accent)"></polygon>
@@ -687,22 +687,29 @@
         <text class="tiny" x="710" y="1087" text-anchor="start">改訂 → 0021 の決定4・11 を改訂。量を比率・計数・計量・位置に分ける</text>
         <path class="link" d="M692 1061 C640 1061, 616 943, 552 943"></path>
         <path class="link link-rel" d="M692 1061 C640 1061, 616 601, 552 601"></path>
+        <a class="node" href="decisions/0023-対になる通信の相関.md">
+          <rect class="chip-adr" x="692" y="1096" width="300" height="26" rx="13"></rect>
+          <text class="chip-text" x="702" y="1113" text-anchor="start">0023 対になる通信の相関</text>
+        </a>
+        <text class="tiny" x="982" y="1113" text-anchor="end">提案 2026-09-26</text>
+        <text class="tiny" x="710" y="1135" text-anchor="start">新規 → flow 宣言に相関の鍵を足す。鍵は接続の対ごと</text>
+        <path class="link" d="M692 1109 C640 1109, 616 981, 552 981"></path>
 
         <!-- 凡例 -->
-        <rect class="chip-done" x="8" y="1106" width="24" height="15" rx="7"></rect>
-        <text class="tiny" x="38" y="1118" text-anchor="start">採用・執筆済み</text>
-        <rect class="chip-adr" x="152" y="1106" width="24" height="15" rx="7"></rect>
-        <text class="tiny" x="182" y="1118" text-anchor="start">提案・判断待ち(該当なし)</text>
-        <rect class="chip-rel" x="296" y="1106" width="24" height="15" rx="7"></rect>
-        <text class="tiny" x="326" y="1118" text-anchor="start">一部・先行のみ決定済み</text>
-        <rect class="chip-void" x="476" y="1106" width="24" height="15" rx="7"></rect>
-        <text class="tiny" x="506" y="1118" text-anchor="start">破棄</text>
-        <rect class="chip" x="574" y="1106" width="24" height="15" rx="7"></rect>
-        <text class="tiny" x="604" y="1118" text-anchor="start">ADR 無し(未着手・再検討中)</text>
-        <path class="link" d="M8 1142 L48 1142"></path>
-        <text class="tiny" x="54" y="1146" text-anchor="start">決めた・依拠する関係</text>
-        <path class="link link-rel" d="M240 1142 L280 1142"></path>
-        <text class="tiny" x="286" y="1146" text-anchor="start">関連・先行・言及</text>
+        <rect class="chip-done" x="8" y="1166" width="24" height="15" rx="7"></rect>
+        <text class="tiny" x="38" y="1178" text-anchor="start">採用・執筆済み</text>
+        <rect class="chip-adr" x="152" y="1166" width="24" height="15" rx="7"></rect>
+        <text class="tiny" x="182" y="1178" text-anchor="start">提案・判断待ち</text>
+        <rect class="chip-rel" x="296" y="1166" width="24" height="15" rx="7"></rect>
+        <text class="tiny" x="326" y="1178" text-anchor="start">一部・先行のみ決定済み</text>
+        <rect class="chip-void" x="476" y="1166" width="24" height="15" rx="7"></rect>
+        <text class="tiny" x="506" y="1178" text-anchor="start">破棄</text>
+        <rect class="chip" x="574" y="1166" width="24" height="15" rx="7"></rect>
+        <text class="tiny" x="604" y="1178" text-anchor="start">ADR 無し(未着手・再検討中)</text>
+        <path class="link" d="M8 1202 L48 1202"></path>
+        <text class="tiny" x="54" y="1206" text-anchor="start">決めた・依拠する関係</text>
+        <path class="link link-rel" d="M240 1202 L280 1202"></path>
+        <text class="tiny" x="286" y="1206" text-anchor="start">関連・先行・言及</text>
       </svg>
       <figcaption>
         <p><a href="PLAN.md">docs/PLAN.md</a> 第2・3節と、各章の「依拠」行より。</p>
@@ -788,6 +795,7 @@
           <li><span class="what"><a href="decisions/0020-暦の拡張.md">ADR 0020 暦の拡張</a> <span class="note">U22・0019 の暦を改訂・紀年法を書き手が宣言</span></span><span class="pill done">採用 ✓</span></li>
           <li><span class="what"><a href="decisions/0021-数値型の体系.md">ADR 0021 数値型の体系</a> <span class="note">U23・U15・0010/0017 の後継・幅で上限、位取りで刻み</span></span><span class="pill done">採用 ✓</span></li>
           <li><span class="what"><a href="decisions/0022-単位の種別.md">ADR 0022 単位の種別</a> <span class="note">U24・U15・0021 を改訂・数える量は掛けると消え、位置は差とだけ足せる</span></span><span class="pill done">採用 ✓</span></li>
+          <li><span class="what"><a href="decisions/0023-対になる通信の相関.md">ADR 0023 対になる通信の相関</a> <span class="note">U25・思考実験 20・21 が材料・鍵は接続の対ごと・期限は U13 へ</span></span><span class="pill prog">提案</span></li>
         </ul>
       </div>
     </div>
@@ -799,7 +807,7 @@
     <ul class="points">
       <li><b>ステップにまとめる</b> — 改訂の関係にある ADR をまとめ、同時に採否を判断する。</li>
       <li><b>ステップを並べる</b> — 依拠の向き(名前 → 型 → 指針 → 接合面)に並べる。</li>
-      <li><b>いまの状態</b> — 2026-08-28 の採用(0005・0013・0015)と 2026-08-29 の採用(0014)でステップ1 は空になり、ステップ2 の一部も先に抜けた。2026-09-17 の採用(0012)でステップ5 も、2026-09-18 の採用(0006)でステップ3 も、2026-09-25 の採用(0018)でステップ4 も空になった。<b>判断待ちの ADR は無い。</b>残るのはステップ4 の未着手の課題(U10〜U14)である。</li>
+      <li><b>いまの状態</b> — 2026-08-28 の採用(0005・0013・0015)と 2026-08-29 の採用(0014)でステップ1 は空になり、ステップ2 の一部も先に抜けた。2026-09-17 の採用(0012)でステップ5 も、2026-09-18 の採用(0006)でステップ3 も、2026-09-25 の採用(0018)でステップ4 も空になった。既存の5つのステップは空であり、<b>判断待ちはステップ4 の新規 ADR として起案した 0023 の1本である。</b>残るのはステップ4 の未着手の課題(U10〜U14)である。</li>
       <li><b>ステップの番号は動かさない</b> — 採用の記録と対応が付くようにするため。</li>
     </ul>
     <figure>
@@ -897,7 +905,7 @@
 
         <!-- ステップ4 -->
         <rect class="box" x="104" y="448" width="470" height="156" rx="9"></rect>
-        <circle class="chip-done" cx="62" cy="526" r="15"></circle>
+        <circle class="chip-adr" cx="62" cy="526" r="15"></circle>
         <text class="chip-text" x="62" y="531" text-anchor="middle">4</text>
         <text class="name" x="120" y="472" text-anchor="start" style="font-size:14px">ステップ4 — 入れ子と未着手の課題</text>
         <text class="tiny" x="404" y="472" text-anchor="start">U10〜U14 / Phase 0〜1</text>
@@ -918,6 +926,7 @@
         <text class="tiny" x="596" y="472" text-anchor="start">ステップ2 の基本型と、採用済みの役割に依拠する。ただし 0018 は</text>
         <text class="tiny" x="596" y="489" text-anchor="start">この順序の外で先に起案した。U14 のうち束ね方(システムが</text>
         <text class="tiny" x="596" y="506" text-anchor="start">システムを含めるか)だけを取り、2026-09-25 に採用した。</text>
+        <text class="tiny" x="596" y="523" text-anchor="start">U25 の ADR 0023(相関の鍵)を 2026-09-26 に起案し、判断待ちである。</text>
         <text class="tiny" x="596" y="530" text-anchor="start">U13 を先頭にするのは、0010・0013・0004・0017 が失敗の語彙へ</text>
         <text class="tiny" x="596" y="547" text-anchor="start">入力を残しており、U10〜U12 がそれを使うため。U10(再入)と</text>
         <text class="tiny" x="596" y="564" text-anchor="start">U11(再送の順序)は同時に決める。U14 の名前空間は最後。</text>
@@ -941,7 +950,7 @@
 
         <!-- 凡例 -->
         <rect class="chip-adr" x="20" y="764" width="24" height="15" rx="7"></rect>
-        <text class="tiny" x="50" y="776" text-anchor="start">提案・判断待ちの ADR(該当なし)</text>
+        <text class="tiny" x="50" y="776" text-anchor="start">提案・判断待ちの ADR</text>
         <rect class="chip-done" x="184" y="764" width="24" height="15" rx="7"></rect>
         <text class="tiny" x="214" y="776" text-anchor="start">ステップのうち採用済みの ADR</text>
         <rect class="chip" x="360" y="764" width="24" height="15" rx="7"></rect>
@@ -996,7 +1005,8 @@
       <li><b>2026-09-25 — ADR 0018 を採用し、判断待ちの ADR が無くなった</b><br>採否の判断に先立って読み直したところ、<b>決定1 と決定5 が噛み合っていない</b>事が分かった——決定1 はコンポーネントとシステムが一つの <code>contains</code> に混在してよいと定めたのに、決定5 の <code>depends</code> は相手をシステムに限っており、<b>混在させた当人どうしがどの行にも当たらない</b>。<code>depends</code> の相手を<b>兄弟(同じ <code>contains</code>)と親の兄弟、そして <code>external</code></b> に揃え、相手がコンポーネントかシステムかを問わない形にして塞いだ(検証番号は増えていない。E0018-3 の定義が広がった)。逆向きを「元の <code>ask</code> への後からの戻り(コールバック)」で説明する案は捨てた——<code>ask</code> は期限内に必ず返ると定めており(<a href="decisions/0004-ユニット間の通信モデル.md">ADR 0004</a>)、内側のシステムが自分から出す <code>ask</code>・<code>flow</code>(採番・監査)も説明できないためである。対になる通信の相関は<a href="spec/04-communication.md">第4章</a> 4.6 の未定事項に残した。<a href="spec/01-system-context.md">第1章</a> 1.4・1.5、<a href="spec/02-component.md">第2章</a> 2.3、<a href="spec/03-constraints.md">第3章</a> 3.2・3.3 に反映した。</li>
       <li><b>思考実験 20 → U25 を新設</b><br>ADR 0018 の採用で残った「対になる通信」(第4章 4.6)を、受注の確定が後から決まる系で書き下ろした。<code>flow</code> 宣言に二本を並べれば意図と障害時の埋め合わせは書けるが、<b>二本を結ぶ鍵(受注番号)が同じ物である事は検査されず</b>、同じ相手に複数の <code>ask</code> があると戻りがどれの続きか決まらない。さらに <b>「確定が何分以内に決まるか」という仕事全体の期限を書く場所が無い</b>事が分かった(<code>ask</code> の <code>deadline</code> は応答までの期限、<code>pressure block</code> の期限は投入までの期限である)。案は3つに整理し、<code>flow</code> 宣言に相関の鍵と期限を書く案を第一候補とした。ADR 0004(通信は ask と flow の2方式)を改訂せずに済むためである。</li>
       <li><b>思考実験 21 → U25 の形を直し、論点5 を U13 へ送った</b><br>D-2(<code>flow</code> 宣言に相関の鍵を書く案)を起案する前に、引当 → 決済 → 確定という<b>巻き戻しが要る系</b>で検証した。業務上の補償(引当の解放)は普通の接続として書けたため、<b>サーガの単位は要らない</b>。一方で、同じ補償が障害時には <code>on failure</code> の散文になり、その通信は <code>depends</code> も型も期限も検査されない事が分かった(第4章 4.6 に「<code>on failure</code> の欄の形」として足した)。さらに<b>鍵は仕事に一つではなく、結ぶ対ごとにある</b>(受注番号と引当番号)事が分かり、D-2 の形を直す入力になった。孤児の引当が残る論点は、<b>仕事の期限を U13(失敗の体系)へ送った判断を裏付けた</b>。</li>
-      <li><b>次に決める事</b><br>U25(対になる通信。鍵は接続の対ごと)・U14(名前空間と可視範囲)・U10〜U13。残る U20・U21 は U4・U16 と併せて順次検討する。詳細は計画書 第5〜7節にある。</li>
+      <li><b>2026-09-26 — U25 の ADR 0023 を起案した</b><br>思考実験 20・21 が材料を出し切ったため、<a href="decisions/0023-対になる通信の相関.md">ADR 0023</a> を起案した。<code>flow</code> 宣言に<code>correlate 受注番号 : 受注 -> 受注の状態</code> のように<b>二本を結ぶ鍵</b>を書く。鍵は仕事に一つではなく<b>接続の対ごと</b>であり、接続が2本以上ある宣言では必須(結ぶ対が無ければ <code>correlate none</code>)。仕事の期限(U13)と <code>on failure</code> の欄の形は、あえて含めていない。机上検証では<b>相関がフローの切り方を押す</b>事が分かった — 受付と確定を別の宣言に切ると、在庫を戻す道が記述の上で切れる。</li>
+      <li><b>次に決める事</b><br>ADR 0023 の採否・U14(名前空間と可視範囲)・U10〜U13。残る U20・U21 は U4・U16 と併せて順次検討する。詳細は計画書 第5〜7節にある。</li>
     </ul>
     <figure>
       <svg viewBox="0 0 560 132" role="img" aria-label="仕様と思考実験のあいだを往復するループ。仕様を既存システムで記述してみて、書けない事があれば仕様に戻す">
