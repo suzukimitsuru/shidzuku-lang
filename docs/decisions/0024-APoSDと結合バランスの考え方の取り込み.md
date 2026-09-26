@@ -98,6 +98,9 @@ Khononov の釣り合いの式(強度・距離・変動性を数に置いて比�
 | 決定2        | 第0章 0.9 の系譜(APoSD の行に「既定値は採らない。ADR 0024」と添える) |
 | 決定4        | 反映先なし(本 ADR に残す)                                            |
 
+両書の書誌情報(著者・書名・ASIN)と結合バランスの行は、起案と同日に書き手の指示で第0章 0.9 に先に入れた。
+採用時に反映するのは、APoSD の行の取り込み範囲の要約(決定1)と、既定値の対比への参照(決定2)である。
+
 ## 捨てたもの・理由
 
 - **P1(一語のまま置く)**: 後の ADR が APoSD を根拠に挙げた時、どの知見を根拠にしたのかが読めない。既定値の対比も記録されないまま残る。
@@ -115,3 +118,10 @@ Khononov の釣り合いの式(強度・距離・変動性を数に置いて比�
 - 業務の区分(中核・支援・汎用)の語彙を intent に足すかどうかは、変動性を見積もる手掛かりとして検討の余地がある。
   ADR 0003 が必須項目を増やさなかった理由(項目を増やすほど質が下がる)があるため、足すなら任意項目である。今は足さない。
 - APoSD の「汎用と専用」の軸は ADR 0003・0006 の将来の変更想定に残ったままである。本 ADR は扱わない。
+
+## 参考文献
+
+- John Ousterhout, *A Philosophy of Software Design*(APoSD)— ASIN: B09B8LFKQL
+  <https://www.amazon.co.jp/dp/B09B8LFKQL>
+- Vlad Khononov, *Balancing Coupling in Software Design*(『ソフトウェア設計の結合バランス』)— ASIN: B0FVDYKJYQ
+  <https://www.amazon.co.jp/dp/B0FVDYKJYQ>
