@@ -80,7 +80,7 @@ Shidzuku のコンポーネント(component)は、次の四つが**同一のも�
 ## 0.9 参照する系譜
 
 - John Ousterhout, *A Philosophy of Software Design*(APoSD。ASIN: B09B8LFKQL)— 深いモジュール
-- Vlad Khononov, *Balancing Coupling in Software Design*(『ソフトウェア設計の結合バランス』。ASIN: B0FVDYKJYQ)— 統合の強度・距離・変動性による結合の釣り合い(思考実験 22、ADR 0024 提案)
+- Vlad Khononov, *Balancing Coupling in Software Design*(『ソフトウェア設計の結合バランス』。ASIN: B0FVDYKJYQ)— 統合の強度・距離・変動性による結合の釣り合い(思考実験 23、ADR 0024 提案)
 - D. L. Parnas (1972), *On the Criteria to be Used in Decomposing Systems into Modules* — 情報隠蔽
 - Eiffel — Design by Contract(検証可能な意図)
 - Erlang/OTP — プロセス=障害境界=分散単位、Let it crash
