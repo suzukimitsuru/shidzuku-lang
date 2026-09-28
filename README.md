@@ -27,7 +27,7 @@ Shidzuku は、設計意図から制約・構造・実装までを一本の記�
 | 📄 [docs/spec/04-communication.md](docs/spec/04-communication.md)                  | 第4章 通信モデル                             |
 | 📄 [docs/spec/05-notation.md](docs/spec/05-notation.md)                            | 第5章 記述の表記                             |
 | 📄 [docs/spec/06-data.md](docs/spec/06-data.md)                                    | 第6章 データと型                             |
-| 📄 [docs/PLAN.md](docs/PLAN.md)                                                    | フェーズ計画・未解決課題 (U1〜U25)・ADR 一覧 |
+| 📄 [docs/PLAN.md](docs/PLAN.md)                                                    | フェーズ計画・未解決課題 (U1〜U26)・ADR 一覧 |
 | 🔗 [docs/roadmap.html](https://suzukimitsuru.github.io/shidzuku-lang/roadmap.html) | 道のりと現在位置の図(クリックでブラウザ表示) |
 | 🗂️ docs/decisions/                                                                 | ADR — 課題の決定を記録する                   |
 | 🗂️ docs/experiments/                                                               | 思考実験 — 既存システムの Shidzuku 記述      |
@@ -36,7 +36,7 @@ Shidzuku は、設計意図から制約・構造・実装までを一本の記�
 
 Phase 0(言語仕様)を進行中。
 
-課題(U1〜U25)は [docs/PLAN.md](docs/PLAN.md) 第2節に、
+課題(U1〜U26)は [docs/PLAN.md](docs/PLAN.md) 第2節に、
 それに対する決定(ADR 0001〜0026、0011 は欠番)の状態は同じく第3節にまとめてあります。
 ADR 0005・0013・0015・0016 は 2026-08-28 に、ADR 0014・0009・0019・0020 は 2026-08-29 に採用しました。
 **型の体系(束 B)の大半が確定し、第6章「データと型」を新設しました。**
@@ -74,6 +74,8 @@ Phase 1 へ移る条件と、それまでに残る判断の振り分けは計画
 **同日、suzukimitsuru の判断で shidzuku-lint を作る事を決め、ADR 0026 として採用しました** — 他の言語での応用を言語仕様と共に考えるためです。
 Phase 1 の言語実装から着手して継続して改良し、範囲はそのまま移せる11件と既にある10件、宣言を足せば移せる17件は要検討です。
 言語としての shidzuku-lang が lint を退けた判断(ADR 0008・0013)とは分けて考えます。対象の言語は Rust と TypeScript から始め、[Hike](https://github.com/kanryu/hike-lang) を三つ目に加えます(トランスパイル先の候補としても提案)。
+同日、suzukimitsuru の判断で **ADR 0024・0025 を採用し、判断待ちの ADR は無くなりました**。Phase 1 へ移る条件を M1〜M5 に確定し、U14(プログラムの宣言)を Phase 1 の前に決める事にしました。
+あわせて、body(第三層)の記法が決まっていない事を **U26** として新設し、成果物の題材(Phase 1 で実装して動かすシステム)の候補と併せて計画書 第4節 4.5 に並べました。
 
 ## License
 

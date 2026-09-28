@@ -1,7 +1,7 @@
 # Shidzuku 言語仕様書 — 第0章 ビジョン
 
 - 状態: Draft
-- 日付: 2026-08-18(改訂 2026-08-29: ADR 0014 の採用に伴い、語彙を ASCII に揃え、第5章を足した。改訂 2026-09-17: ADR 0012 の採用で 0.8 に出力先と動作環境の言語を足した。改訂 2026-09-26: suzukimitsuru の指示で 0.9 に書誌情報と結合バランスを足した。取り込みの範囲は ADR 0024(提案)で決める。改訂 2026-09-28: ADR 0026 の採用で 0.8 に shidzuku-lint を足した)
+- 日付: 2026-08-18(改訂 2026-08-29: ADR 0014 の採用に伴い、語彙を ASCII に揃え、第5章を足した。改訂 2026-09-17: ADR 0012 の採用で 0.8 に出力先と動作環境の言語を足した。改訂 2026-09-26: suzukimitsuru の指示で 0.9 に書誌情報と結合バランスを足した。取り込みの範囲は ADR 0024(提案)で決める。改訂 2026-09-28: ADR 0026 の採用で 0.8 に shidzuku-lint を足した。同日、ADR 0024 の採用で 0.9 の APoSD の行に取り込み範囲と既定値の対比を足した)
 
 ## 0.1 理念
 
@@ -81,8 +81,11 @@ Shidzuku のコンポーネント(component)は、次の四つが**同一のも�
 
 ## 0.9 参照する系譜
 
-- John Ousterhout, *A Philosophy of Software Design*(APoSD。ASIN: B09B8LFKQL)— 深いモジュール
-- Vlad Khononov, *Balancing Coupling in Software Design*(『ソフトウェア設計の結合バランス』。ASIN: B0FVDYKJYQ)— 統合の強度・距離・変動性による結合の釣り合い(思考実験 23、ADR 0024 提案)
+- John Ousterhout, *A Philosophy of Software Design*(APoSD。ASIN: B09B8LFKQL)— 深いモジュール(0.4)、素通しの委譲を小さすぎのシグナルに(ADR 0006)、
+  二度設計する(`rejected` の必須、ADR 0003)、例外を存在しないように定義する(障害の非伝播、`ask` は必ず返る)。
+  **既定値は採らない**——APoSD の勧めとは逆を選んだ(ADR 0008、対比は ADR 0024)
+- Vlad Khononov, *Balancing Coupling in Software Design*(『ソフトウェア設計の結合バランス』。ASIN: B0FVDYKJYQ)— 統合の強度・距離・変動性による結合の釣り合い。
+  設計とレビューの物差しとして取り込み、言語の検証にはしない(思考実験 23、ADR 0024・0025)
 - D. L. Parnas (1972), *On the Criteria to be Used in Decomposing Systems into Modules* — 情報隠蔽
 - Eiffel — Design by Contract(検証可能な意図)
 - Erlang/OTP — プロセス=障害境界=分散単位、Let it crash
