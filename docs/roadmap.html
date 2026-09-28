@@ -260,7 +260,7 @@
     <h2>1. フェーズと決定の地図</h2>
     <p class="lead">各フェーズは「動く最小の成果物」で締める。未解決課題 U1〜U22 は、それぞれの決定フェーズの下に置いた。</p>
     <figure>
-      <svg viewBox="0 0 980 852" role="img" aria-label="4つのフェーズ(言語仕様・最小の言語実装・最小の分散動作環境・可視化)を左から右へ並べ、現在地は Phase 0。各フェーズの下に決定すべき課題 U1〜U22 を配置した図">
+      <svg viewBox="0 0 980 852" role="img" aria-label="4つのフェーズ(言語仕様・最小の言語実装・最小の分散動作環境・可視化)を左から右へ並べ、現在地は Phase 0。各フェーズの下に決定すべき課題 U1〜U22 を配置した図。既存の言語への lint である shidzuku-lint は Phase 1 から着手し、以後のフェーズを跨いで改良する">
         <defs>
           <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
             <polygon points="0,1 10,5 0,9" fill="currentColor"></polygon>
@@ -354,6 +354,14 @@
         <text class="chip-text" x="370" y="295" text-anchor="middle">U16 版の混在と移行</text>
         <text class="tiny" x="460" y="295" text-anchor="start">(Phase 1 で決定)</text>
 
+        <!-- shidzuku-lint: Phase 1 から継続して改良(ADR 0026) -->
+        <a class="node" href="decisions/0026-shidzuku-lintの作成.md">
+          <rect class="chip-done" x="295" y="380" width="150" height="26" rx="13"></rect>
+          <text class="chip-text" x="370" y="397" text-anchor="middle">shidzuku-lint</text>
+        </a>
+        <line class="arrow dashed" x1="450" y1="393" x2="930" y2="393" marker-end="url(#arr)"></line>
+        <text class="tiny" x="690" y="386" text-anchor="middle">既存の言語への lint は Phase 1 から継続して改良(ADR 0026 採用)</text>
+
         <!-- Phase 2 issues -->
         <rect class="chip" x="540" y="210" width="150" height="26" rx="13"></rect>
         <text class="chip-text" x="615" y="227" text-anchor="middle">U4 ログ規約</text>
@@ -397,7 +405,7 @@
     <h3 class="sub">2-1. 言語仕様の文書構成図</h3>
     <p class="lead">左から、仕様の章(<a href="spec/">docs/spec/</a>)・課題(PLAN 第2節)・決定 ADR(PLAN 第3節)。</p>
     <figure>
-      <svg viewBox="0 0 1080 1326" role="img" aria-label="左から順に、仕様の第0〜6章、未解決課題 U1〜U25、決定 ADR 0001〜0025 を3つの列に並べ、課題を決めた ADR と、その決定が書かれた章を線で結んだ文書構成図">
+      <svg viewBox="0 0 1080 1374" role="img" aria-label="左から順に、仕様の第0〜6章、未解決課題 U1〜U25、決定 ADR 0001〜0026 を3つの列に並べ、課題を決めた ADR と、その決定が書かれた章を線で結んだ文書構成図">
         <defs>
           <marker id="arr4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
             <polygon points="0,1 10,5 0,9" fill="var(--accent)"></polygon>
@@ -709,22 +717,29 @@
         <text class="tiny" x="982" y="1209" text-anchor="end">提案</text>
         <text class="tiny" x="710" y="1231" text-anchor="start">改訂 → 0006 にシグナルを3つ足す(変わる理由・共有・束ね方)</text>
         <path class="link" d="M692 1205 C640 1205, 616 297, 552 297"></path>
+        <a class="node" href="decisions/0026-shidzuku-lintの作成.md">
+          <rect class="chip-done" x="692" y="1240" width="300" height="26" rx="13"></rect>
+          <text class="chip-text" x="702" y="1257" text-anchor="start">0026 shidzuku-lint の作成</text>
+        </a>
+        <text class="tiny" x="982" y="1257" text-anchor="end">採用 2026-09-28</text>
+        <text class="tiny" x="710" y="1279" text-anchor="start">新規 → 全体。既存の言語への lint を Phase 1 から作り続ける</text>
+        <path class="link link-rel" d="M692 1253 C640 1253, 616 221, 552 221"></path>
 
         <!-- 凡例 -->
-        <rect class="chip-done" x="8" y="1262" width="24" height="15" rx="7"></rect>
-        <text class="tiny" x="38" y="1274" text-anchor="start">採用・執筆済み</text>
-        <rect class="chip-adr" x="152" y="1262" width="24" height="15" rx="7"></rect>
-        <text class="tiny" x="182" y="1274" text-anchor="start">提案・判断待ち</text>
-        <rect class="chip-rel" x="296" y="1262" width="24" height="15" rx="7"></rect>
-        <text class="tiny" x="326" y="1274" text-anchor="start">一部・先行のみ決定済み</text>
-        <rect class="chip-void" x="476" y="1262" width="24" height="15" rx="7"></rect>
-        <text class="tiny" x="506" y="1274" text-anchor="start">破棄</text>
-        <rect class="chip" x="574" y="1262" width="24" height="15" rx="7"></rect>
-        <text class="tiny" x="604" y="1274" text-anchor="start">ADR 無し(未着手・再検討中)</text>
-        <path class="link" d="M8 1298 L48 1298"></path>
-        <text class="tiny" x="54" y="1302" text-anchor="start">決めた・依拠する関係</text>
-        <path class="link link-rel" d="M240 1298 L280 1298"></path>
-        <text class="tiny" x="286" y="1302" text-anchor="start">関連・先行・言及</text>
+        <rect class="chip-done" x="8" y="1310" width="24" height="15" rx="7"></rect>
+        <text class="tiny" x="38" y="1322" text-anchor="start">採用・執筆済み</text>
+        <rect class="chip-adr" x="152" y="1310" width="24" height="15" rx="7"></rect>
+        <text class="tiny" x="182" y="1322" text-anchor="start">提案・判断待ち</text>
+        <rect class="chip-rel" x="296" y="1310" width="24" height="15" rx="7"></rect>
+        <text class="tiny" x="326" y="1322" text-anchor="start">一部・先行のみ決定済み</text>
+        <rect class="chip-void" x="476" y="1310" width="24" height="15" rx="7"></rect>
+        <text class="tiny" x="506" y="1322" text-anchor="start">破棄</text>
+        <rect class="chip" x="574" y="1310" width="24" height="15" rx="7"></rect>
+        <text class="tiny" x="604" y="1322" text-anchor="start">ADR 無し(未着手・再検討中)</text>
+        <path class="link" d="M8 1346 L48 1346"></path>
+        <text class="tiny" x="54" y="1350" text-anchor="start">決めた・依拠する関係</text>
+        <path class="link link-rel" d="M240 1346 L280 1346"></path>
+        <text class="tiny" x="286" y="1350" text-anchor="start">関連・先行・言及</text>
       </svg>
       <figcaption>
         <p><a href="PLAN.md">docs/PLAN.md</a> 第2・3節と、各章の「依拠」行より。</p>
@@ -743,6 +758,7 @@
           <li><b>ADR 0021</b>(採用 2026-09-16)— 0010・0017 の後継。数値型は <code>int8〜int256(s)</code>・<code>uint8〜uint256(s)</code>・<code>float32/64</code> と、内部計算用の <code>dec(i.f)</code> の4種。<b>幅(または宣言した桁)で上限を、位取りで刻みを型に書く</b>。単位の欄は必須で、単位なしは <code>unitless</code>。暗黙の変換は1本も無く、桁溢れはラップもトラップもせず失敗とする。<code>dec</code> は格納が可変長だが上界は宣言が言い、跨ぐ値・状態・外部には書けない。<code>float128</code> はハードウェアと出力先の事情から置かない。</li>
           <li><b>ADR 0022</b>(採用 2026-09-17)— 0021 の決定4・決定11 を改訂した。量を<b>比率・計数・計量・位置</b>の4種別に分けて宣言し、乗除算は強さの順(比率 &lt; 計数 &lt; 計量)で決める。数える量は掛けると単位が消え(<code>円 × 個 = 円</code>)、位置の量(<code>版目</code>・<code>要素目</code>)は差とだけ足せる。U24(序数と基数)を新しい基本型なしで解いた。第6章 6.3 に「量の種別」、第3章 3.3 に E0022-1〜E0022-5 として反映済み。</li>
           <li><b>ADR 0024・0025</b>(提案 2026-09-26)— <a href="experiments/23-結合の釣り合い.md">思考実験 23</a> で既存の記述を結合バランスの三軸(強度・距離・変動性)で読み直して起案した。<a href="decisions/0024-APoSDと結合バランスの考え方の取り込み.md">0024</a> は APoSD の取り込み範囲と、既定値について APoSD と逆を選んだ理由(<a href="decisions/0008-省略の禁止.md">ADR 0008</a>)を記録し、結合バランスを検証ではなく物差しとして取り込む。<a href="decisions/0025-粒度の指針に結合の釣り合いを加える.md">0025</a> は <a href="decisions/0006-コンポーネントの粒度の指針.md">ADR 0006</a> の粒度の指針に、コンポーネントの間を見るシグナルを3つ足す。</li>
+          <li><b>ADR 0026</b>(採用 2026-09-28)— <a href="experiments/26-shidzuku-lint.md">思考実験 26</a> の論点1 に書き手の判断で答えた。Shidzuku の考え方を既存の言語(Rust・TypeScript)へ届ける lint である shidzuku-lint を、Phase 1 の言語実装から作り、以後も仕様と共に改良する。<a href="decisions/0008-省略の禁止.md">ADR 0008</a>・<a href="decisions/0013-文字列型の廃止、text%20型の導入、および層モデル.md">0013</a> が lint を退けたのは言語としての shidzuku-lang の判断であり、shidzuku-lint とは分けて考える。課題(U)を持たないため、ADR 0012 の出力先(U5)への関連だけを破線で引いた。<a href="spec/00-vision.md">第0章</a> 0.8 に反映した。</li>
           <li><b>番号について</b> — ADR 0011 は欠番。検証番号は ADR 0016 により <code>E&lt;出自&gt;-&lt;連番&gt;</code> 形式で、出自はその検査を定めた ADR の番号(<code>0000</code> は仕様書本体)。</li>
         </ul>
       </figcaption>
@@ -819,6 +835,7 @@
           <li><span class="what"><a href="decisions/0023-対になる通信の相関.md">ADR 0023 対になる通信の相関</a> <span class="note">U25・思考実験 20・21 が材料・鍵は接続の対ごと・期限は U13 へ・起案と同日に採用</span></span><span class="pill done">採用 ✓</span></li>
           <li><span class="what"><a href="decisions/0024-APoSDと結合バランスの考え方の取り込み.md">ADR 0024 APoSD と結合バランスの考え方の取り込み</a> <span class="note">全体・思考実験 23 が材料・既定値は APoSD と逆を選ぶ・結合は物差しにし検証にしない</span></span><span class="pill prog">提案</span></li>
           <li><span class="what"><a href="decisions/0025-粒度の指針に結合の釣り合いを加える.md">ADR 0025 粒度の指針に結合の釣り合いを加える</a> <span class="note">U7・0006 にシグナルを足す・変わる理由/共有と同じ変化/束ね方・機械検証しない</span></span><span class="pill prog">提案</span></li>
+          <li><span class="what"><a href="decisions/0026-shidzuku-lintの作成.md">ADR 0026 shidzuku-lint の作成</a> <span class="note">全体・思考実験 26 の論点1・Phase 1 から継続・移せる11件と既にある10件(17件は要検討)・Rust/TypeScript と Hike</span></span><span class="pill done">採用 ✓</span></li>
         </ul>
       </div>
     </div>
@@ -1045,6 +1062,7 @@
       <li><b>2026-09-27 — U13 論点1 の三案を書き比べた</b><br><a href="experiments/25-系の失敗の書き分け.md">思考実験 25</a> で、系の失敗(期限超過・相手障害)を公開面にどう書くかの三案を同じ系に書き下ろした。<b>F-2(直和に並べる)・F-3(器を分ける)は、同じ二語を全ての <code>ask</code> に書き写す</b>記述になり、しかも<b>言語が語を1つ足すだけで全コンポーネントの版が上がる</b>(公開面は互換性の単位。U16)。F-1(書かない)は省略の禁止に反する。書いている途中で<b>第四の形</b>に行き着いた — 系の失敗を公開面に書かず、<b>フローが業務の語彙へ翻訳する</b>。思考実験 21 の <code>on failure Inventory : OrderIntake は受注不可を返す</code> は、既にその形になっていた。新しい語を増やさず、既にある必須の欄を型の付いた形にするだけで済む。</li>
       <li><b>2026-09-27 — F-4 の「全ての接続がフローに現れる」を記述の中に限った</b><br>F-4 は U13 の ADR に「全ての接続がどれかのフローに現れる」事を求めるが、外部システムは今はフローの端点に書けない(U12 の未定事項)。書き手の判断により、<b>U13 ではこの要求を記述の中の接続(兄弟と親の兄弟)に限り、外部との接続は U12 がフローの端点を決める時に広げる</b>(<a href="PLAN.md">docs/PLAN.md</a> 第4節 4.5)。U12 と組にして決める案は、U13 が U10・U11 を越えて U12 を待つ事になり順序が崩れるため採らなかった。</li>
       <li><b>2026-09-28 — 既存の言語に移せる検査を抜き出した</b><br>書き手の指示により、<a href="spec/03-constraints.md">第3章</a> 3.3 の検査と、それを支える宣言を、既存の言語(主に Rust と TypeScript)の lint(仮称 shidzuku-lint)に移せるかで分けた(<a href="experiments/26-shidzuku-lint.md">思考実験 26</a>)。<b>そのまま移せる11件・宣言を足せば移せる17件・既にある10件・移せない9群</b>になった。注釈なしで最も効くのは、既定が「無限」になっている所(期限の無い要求・上限の無い待ち行列)、公開面に名前の無い値を出す所(<code>bool</code>・素の数値)、壁時計での経過時間の計測である。宣言を足せば、層の強度と役割と、意図の構造(<code>rejected</code> の組)が移る。<b>lint が届くのはコンポーネントの内側とその公開面まで</b>で、動作環境が担う物とプロセスを跨ぐ記述には届かない。<a href="decisions/0008-省略の禁止.md">ADR 0008</a>・<a href="decisions/0013-文字列型の廃止、text%20型の導入、および層モデル.md">0013</a> が lint を退けたのは Shidzuku の中の話であり、本実験はその判断を覆さない。Shidzuku へ跳ね返る論点が3つ出た — 直和の分岐の「残り全部」と警告の抑止の書き方は <a href="PLAN.md">計画書</a> 第4節 4.5 の「Phase 1 の中で決める物」へ、外への要求の期限は U12 へ。shidzuku-lint を作るかどうかは書き手の判断に委ねた。</li>
+      <li><b>2026-09-28 — ADR 0026 で shidzuku-lint を作る事を決めた</b><br>書き手の判断により、<a href="experiments/26-shidzuku-lint.md">思考実験 26</a> の論点1 に答えを出した(<a href="decisions/0026-shidzuku-lintの作成.md">ADR 0026</a>、起案と同日に採用)。理由は<b>他の言語での応用を言語仕様と共に考える事で得る物がある</b>事で、思考実験 26 だけで仕様の穴が3つ見つかった事がそれを裏付けている。<b>Phase 1 の言語実装から着手し、以後も継続して改良する</b>。範囲は、そのまま移せる11件と既にある10件(既存の lint を束ね、深刻度を Shidzuku に揃える)で、宣言を足せば移せる17件は宣言の置き場と構文を決めてから件ごとに判断する(要検討)。移せない9群は作らない。以後、検査を足す ADR は既存の言語に移せるかを併せて書く(<a href="PLAN.md">docs/PLAN.md</a> 第9節)。<b>shidzuku-lang と shidzuku-lint は分けて考える</b> — <a href="decisions/0008-省略の禁止.md">ADR 0008</a>・<a href="decisions/0013-文字列型の廃止、text%20型の導入、および層モデル.md">0013</a> が lint を退けたのは言語としての shidzuku-lang の判断であり、既存の言語を対象とする shidzuku-lint の設計はそれに縛られない。対象の言語は Rust と TypeScript から始め、書き手の指示で <a href="experiments/24-Hikeの取り組み.md">Hike</a> を検討した。shidzuku-lint の三つ目の対象に加え(既存の lint が無く「束ねる物が無い」場合を試す)、shidzuku-lang のトランスパイル先としては GC の無い言語での写像と寿命を試せるため <a href="decisions/0012-動作環境の言語とトランスパイル先の言語.md">ADR 0012</a> 決定7 の候補に加える事を提案とし、接合面の凍結の後に判断する。<a href="spec/00-vision.md">第0章</a> 0.8 の実現戦略に反映した。</li>
       <li><b>次に決める事</b><br>計画書 第4節 4.5 の「書き手に決めてもらう事」と、ステップ3 の 0024・0025 の採否。その上で U13(失敗の体系)から順に、U10・U11 → U12・U20 → U14 と進める。U13 の論点1 は<a href="experiments/25-系の失敗の書き分け.md">思考実験 25</a> が答えを出しており、<code>on failure</code> の欄の形と併せて ADR にする段である。</li>
     </ul>
     <figure>
