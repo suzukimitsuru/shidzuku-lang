@@ -88,7 +88,7 @@ Shidzuku の中だけで考えていた間は見えず、既存の言語に当�
 
 - **Rust と TypeScript から始める。** ADR 0012 の出力先と揃え、Phase 1 のトランスパイラが出す言語と同じ言語で lint も試す。
 - 外への要求(L-4)や IO(L-24)を見分ける API の一覧は、言語とライブラリごとに持つ。
-- **Hike(`hike-lang`)を三つ目の言語として検討する。** 書き手の指示により、shidzuku-lint の対象としてだけでなく、shidzuku-lang のトランスパイル先としても検討した。
+- **Hike(`hike-lang`、<https://github.com/kanryu/hike-lang>)を三つ目の言語として検討する。** 書き手の指示により、shidzuku-lint の対象としてだけでなく、shidzuku-lang のトランスパイル先としても検討した。
   材料は思考実験 24 である(Go に似た構文の、GC の無いシステム言語。LLVM IR と WebAssembly の WAT へ出力する)。
 
 #### Hike を shidzuku-lint の対象にするか
@@ -158,3 +158,5 @@ Rust・TypeScript が「束ねる」を試すのに対し、Hike は「束ねる
 ## 参考
 
 - [思考実験 26](../experiments/26-shidzuku-lint.md) — 判定の表・宣言の置き場の三案・論点1〜5
+- [思考実験 24](../experiments/24-Hikeの取り組み.md) — Hike の取り組み17件の突き合わせ(決定5 の材料)
+- Hike(`hike-lang`)— <https://github.com/kanryu/hike-lang>(MIT License)
