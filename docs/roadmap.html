@@ -252,7 +252,7 @@
     <span class="mark" aria-hidden="true">雫</span>
     <div>
       <h1>雫の道のり</h1>
-      <p>設計意図から実装までを一本の記述で貫く言語 — <a href="PLAN.md">docs/PLAN.md</a> の4フェーズと、2026-09-26 時点の現在地。</p>
+      <p>設計意図から実装までを一本の記述で貫く言語 — <a href="PLAN.md">docs/PLAN.md</a> の4フェーズと、2026-09-30 時点の現在地。</p>
     </div>
   </header>
 
@@ -817,6 +817,7 @@
           <li><span class="what"><a href="experiments/24-Hikeの取り組み.md">思考実験 24 Hike の取り組み</a> <span class="note">17件を突き合わせ・取り込む候補5件は U10 と Phase 1 への入力</span></span><span class="pill done">一巡 ✓</span></li>
           <li><span class="what"><a href="experiments/25-系の失敗の書き分け.md">思考実験 25 系の失敗の書き分け</a> <span class="note">U13 論点1 の三案を書き比べ・フローが翻訳する第四の形へ</span></span><span class="pill done">一巡 ✓</span></li>
           <li><span class="what"><a href="experiments/26-shidzuku-lint.md">思考実験 26 shidzuku-lint</a> <span class="note">検査を既存の言語の lint に移せるかで分ける・注釈なしで11件、宣言を足して17件</span></span><span class="pill done">一巡 ✓</span></li>
+          <li><span class="what"><a href="experiments/27-ESP32の最小動作環境.md">思考実験 27 ESP32 の最小動作環境</a> <span class="note">通信・状態の確認・ロードに意味の最小限を足す・持たない意味は弱めずに拒む・論点6つ</span></span><span class="pill done">一巡 ✓</span></li>
         </ul>
       </div>
       <div class="card wide">
@@ -1079,6 +1080,7 @@
       <li><b>2026-09-28 — Phase 1 へ移る計画を見直した</b><br><a href="experiments/26-shidzuku-lint.md">思考実験 26</a> と <a href="decisions/0026-shidzuku-lintの作成.md">ADR 0026</a>(shidzuku-lint の作成)を受けて、<a href="PLAN.md">docs/PLAN.md</a> 第4節 4.5 を見直した。順序(U13 → U10・U11 → U12・U20 → U14 → 移行点検)は変わらない。変えた所は四つである — <b>移行の条件 M1〜M5 は shidzuku-lint の着手条件も兼ねる</b>(ADR 0026 決定2: Phase 0 の間は作らない)。<b>U13・U10・U11・U12・U20・U14 の ADR は既存の言語に移せるかを併せて書く</b>(決定6)。振り分けから漏れていた W0003-2 の判定基準(U16 の後)と shidzuku-lint の置き場所・実装の言語(Phase 1 の着手時)を足した。各章の未定事項のうち「必要が確認された時」に決める物と Phase 2 へ送る物も、漏れなく並べ直した。決めていただく問いは増えていない。</li>
       <li><b>2026-09-28 — 移行の条件と U14 の位置を決め、ADR 0024・0025 を採用した</b><br>suzukimitsuru が、移行の条件を M1〜M5 とし、U14 を Phase 1 の前に決め、<a href="decisions/0024-APoSDと結合バランスの考え方の取り込み.md">ADR 0024</a>・<a href="decisions/0025-粒度の指針に結合の釣り合いを加える.md">ADR 0025</a> を採用した。問い返しを受けて二つを足した — <b>成果物の題材</b>(Phase 1 で実装して動かすシステム)は一つに絞らず段を踏んで増やす案とし、候補を並べた(第1段 <a href="experiments/04-分散KVストア.md">思考実験 04</a>、第2段 <a href="experiments/01-注文管理サービス.md">思考実験 01</a> 系・<a href="experiments/02-センサー収集パイプライン.md">思考実験 02</a>、第3段 03・10・08)。また、全ての思考実験が body を <code>{ ... }</code> のまま書いてきた事から、<b>body の記法が決まっていない</b>事が分かり、<b>U26</b> として新設して U14 の次に置いた。候補は Go・Hike 風、Rust 風、TypeScript 風、ML 系、宣言の層に揃えた独自記法、出力言語で直に書く、の六つである(<a href="PLAN.md">docs/PLAN.md</a> 第4節 4.5・第7節 7.13)。</li>
       <li><b>2026-09-28 — 残る三つを決め、ADR 0027 を起票した</b><br>suzukimitsuru が、<b>U14 の思考実験</b>(<a href="experiments/15-名前空間の再検討.md">思考実験 15</a>・<a href="experiments/23-結合の釣り合い.md">23</a> の続き)を U13・U10・U11・U12・U20 と並行して進める事、<b>成果物の題材</b>を第1段から第3段の全てとする事を決めた。<b>U26 body の記法</b>はこれから検討するため、<a href="decisions/0027-bodyの記法.md">ADR 0027</a> を起票した(提案。候補 B-1〜B-6 と比べる物差し8つを置き、決定は書き比べの思考実験の後に書く)。計画書の本文の「順N」は、検索しやすいように課題の番号(U14 等)に置き換えた。</li>
+      <li><b>2026-09-30 — ESP32 を最小の動作環境として検討した</b><br>suzukimitsuru の指示により、ESP32 を管理機能の無い最小の動作環境(Container)にできるかを検討した(<a href="experiments/27-ESP32の最小動作環境.md">思考実験 27</a>)。<b>通信・状態の確認・ロードの三つでは足りず</b>、ask の期限・上限付きの待ち行列・<code>on failure</code> の再起動は ask と flow の約束として残る。durable・recoverable・<code>collator</code> は持てないため、<b>弱めずにロードで拒む</b>。ESP32 にはプロセスが無く、一体の書き込みなら障害境界は機器に、WASM ならコンポーネントに置き直す事になる。Rust の出力だけで載り、C を足す必要は無い(<a href="decisions/0012-動作環境の言語とトランスパイル先の言語.md">ADR 0012</a> の将来の変更想定の前提が一つ外れる)。<a href="experiments/02-センサー収集パイプライン.md">思考実験 02</a> は載り、<a href="experiments/04-分散KVストア.md">思考実験 04</a> は載らない。何も決めておらず、論点1〜6 は <a href="PLAN.md">docs/PLAN.md</a> 第7節 7.14 にある。</li>
       <li><b>次に決める事</b><br>U13(失敗の体系)から、U10・U11 → U12・U20 → U14 → U26 と進める。U14 の名前空間(論点4・5・7)と、<a href="decisions/0027-bodyの記法.md">ADR 0027</a> の候補の書き比べ(<a href="experiments/04-分散KVストア.md">思考実験 04</a> の KVCore、<a href="experiments/01-注文管理サービス.md">思考実験 01</a> 系の受注)は並行して進める。U13 の論点1 は<a href="experiments/25-系の失敗の書き分け.md">思考実験 25</a> が答えを出しており、<code>on failure</code> の欄の形と併せて ADR にする段である。</li>
     </ul>
     <figure>
@@ -1104,7 +1106,7 @@
   </section>
 
   <footer>
-    出典: <a href="PLAN.md">docs/PLAN.md</a>(Draft, 2026-08-18)・<a href="spec/">docs/spec/</a> 第0〜6章・<a href="decisions/">docs/decisions/</a> 0001〜0023(0011 は欠番。0010・0017 は破棄)・<a href="experiments/">docs/experiments/</a> 01〜22。2026-09-26 時点の状態を反映。
+    出典: <a href="PLAN.md">docs/PLAN.md</a>(Draft, 2026-08-18)・<a href="spec/">docs/spec/</a> 第0〜6章・<a href="decisions/">docs/decisions/</a> 0001〜0027(0011 は欠番。0010・0017 は破棄)・<a href="experiments/">docs/experiments/</a> 01〜27。2026-09-30 時点の状態を反映。
   </footer>
 
 </div>
