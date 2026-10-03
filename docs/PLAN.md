@@ -36,7 +36,7 @@
 - 成果物: 小さな分散システム(例: KV ストア)が「静かに」動き、ノード障害時に伝播しない事を確認
 - 最小の動作環境として ESP32 の器を作る(ADR 0029)。PC 1台と ESP32 1台で思考実験 02 の上流(SensorIntake・Normalizer)を動かし、ノードを跨いだ `pressure` と障害の非伝播を実機で見る。
   動作環境は意味の核(`no_std` の1クレート)と器(PC・ESP32)に分け、意味の核は Phase 1 の動作環境の着手時から `no_std` で作る
-  ボードは ADR 0030(提案)で選ぶ。P-1 は ESP32-C6-DevKitC-1 を2枚(予備を含めて3枚)、P-2 は ESP32-S3-DevKitC-1 を推す
+  ボードは ADR 0030(提案)で選ぶ。P-1 は ESP32-C6-DevKitC-1 を4枚(開発2・セキュアブートの確かめ1・予備1)、P-2 は ESP32-S3-DevKitC-1 を推す
 
 ### Phase 3 — 可視化
 
@@ -1688,11 +1688,14 @@ suzukimitsuru が、思考実験 27 の論点1〜6 を決めた。[ADR 0029](dec
 suzukimitsuru の指示で、Shidzuku で使う ESP32 のボードを選び、[ADR 0030](decisions/0030-ESP32ボードの選定.md) として起票した(提案)。
 
 - ADR 0029 の決定から、ボードに求める事を6つ(R1〜R6)にした。Rust で ESP-IDF の上に書ける・zenoh-pico・セキュアブート・2面の OTA 区画・USB 1本で繋がる・P-2 では PSRAM と WAMR。
-- **P-1 は ESP32-C6-DevKitC-1(N8)**。rustc 本流のターゲットで書け、`esp-idf-svc` の対応も成熟している。思考実験 02 の上流に2枚、予備を含めて3枚。
+- **P-1 は ESP32-C6-DevKitC-1(N8)**。rustc 本流のターゲットで書け、`esp-idf-svc` の対応も成熟している。思考実験 02 の上流に2枚、セキュアブートの確かめに1枚(eFuse を焼くと戻せない)、予備に1枚で4枚。
 - **P-2 は ESP32-S3-DevKitC-1(N16R8)**。8MB の PSRAM と WAMR の対応がある。Xtensa のため Espressif の分岐した道具が要るが、意味の核は `no_std` の1クレートなので中身は変わらない。
 - 思考実験 27 の後に量産に入った **ESP32-C5** は、PSRAM と WAMR の対応を持ち、P-1 と P-2 を RISC-V の1品種で揃えられる唯一の候補である。
   Rust の ESP-IDF の上の対応がまだ若いため、P-2 に入る時に比べ直す。ESP32-C61 は WAMR が対応していないため採らない。
 - 型番が手に入らない時のために、代わりを選ぶ条件(フラッシュ 8MB 以上・USB・PSRAM 4MB 以上・回路図の公開)を置いた。
+- 同日、suzukimitsuru の指示で公式ボード以外も比べた(XIAO ESP32C6・XIAO ESP32C5・M5Stack AtomS3R・Raspberry Pi Pico 2 W)。
+  **推奨は変わらない。** 公式の DevKitC-1 だけが USB の口を2つ持ち(UART 変換と USB シリアル/JTAG)、zenoh-pico をシリアルで繋ぎながら書き込みとログが取れる。これを R7 として足した。
+  XIAO ESP32C5(PSRAM 8MB)は C5 を採る時の小型の候補とし、XIAO ESP32C6 はフラッシュ 4MB で外した。Pico 2 W は zenoh-pico が動くが、ESP-IDF の1つの SDK で揃う利点が無い。
 
 ## 8. リポジトリ構成(案)
 
