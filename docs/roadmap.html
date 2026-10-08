@@ -328,8 +328,9 @@
         <text class="chip-text" x="125" y="431" text-anchor="middle">U11 順序保証</text>
         <rect class="chip-rel" x="50" y="448" width="150" height="26" rx="13"></rect>
         <text class="chip-text" x="125" y="465" text-anchor="middle">U12 外部との境界</text>
-        <rect class="chip" x="50" y="482" width="150" height="26" rx="13"></rect>
+        <rect class="chip-done" x="50" y="482" width="150" height="26" rx="13"></rect>
         <text class="chip-text" x="125" y="499" text-anchor="middle">U13 失敗の体系</text>
+        <text class="tiny" x="215" y="499" text-anchor="start">(ADR 0031 採用。第3・4・6章)</text>
         <rect class="chip-rel" x="50" y="516" width="150" height="26" rx="13"></rect>
         <text class="chip-text" x="125" y="533" text-anchor="middle">U14 プログラム宣言</text>
         <text class="tiny" x="215" y="533" text-anchor="start">(束ね方は ADR 0018 採用。名前空間は Phase 0〜1)</text>
@@ -396,13 +397,13 @@
 
         <!-- legend -->
         <rect class="chip-done" x="20" y="788" width="26" height="16" rx="8"></rect>
-        <text class="tiny" x="54" y="800" text-anchor="start">ADR 採用済み(U1・U2・U3・U5・U7・U9・U15・U17・U18・U19・U22 ほか)</text>
+        <text class="tiny" x="54" y="800" text-anchor="start">ADR 採用済み(U1・U2・U3・U5・U7・U9・U13・U15・U17・U18・U19・U22 ほか)</text>
         <rect class="chip-adr" x="450" y="788" width="26" height="16" rx="8"></rect>
         <text class="tiny" x="484" y="800" text-anchor="start">ADR 提案あり(U26)</text>
         <rect class="chip-rel" x="20" y="816" width="26" height="16" rx="8"></rect>
         <text class="tiny" x="54" y="828" text-anchor="start">関連/一部の ADR は採用・本体は未決(U6・U8・U12・U14)</text>
         <rect class="chip" x="380" y="816" width="26" height="16" rx="8"></rect>
-        <text class="tiny" x="414" y="828" text-anchor="start">未着手(U4・U10・U11・U13・U16・U20・U21)</text>
+        <text class="tiny" x="414" y="828" text-anchor="start">未着手(U4・U10・U11・U16・U20・U21)</text>
       </svg>
       <figcaption><a href="PLAN.md">docs/PLAN.md</a> 第1・2節より。現在は Phase 0(言語仕様)。compiler/ と runtime/ への着手は、仕様の裏付けができてから。</figcaption>
     </figure>
@@ -414,7 +415,7 @@
     <h3 class="sub">2-1. 言語仕様の文書構成図</h3>
     <p class="lead">左から、仕様の章(<a href="spec/">docs/spec/</a>)・課題(PLAN 第2節)・決定 ADR(PLAN 第3節)。</p>
     <figure>
-      <svg viewBox="0 0 1080 1566" role="img" aria-label="左から順に、仕様の第0〜6章、未解決課題 U1〜U26、決定 ADR 0001〜0030 を3つの列に並べ、課題を決めた ADR と、その決定が書かれた章を線で結んだ文書構成図">
+      <svg viewBox="0 0 1080 1614" role="img" aria-label="左から順に、仕様の第0〜6章、未解決課題 U1〜U26、決定 ADR 0001〜0031 を3つの列に並べ、課題を決めた ADR と、その決定が書かれた章を線で結んだ文書構成図">
         <defs>
           <marker id="arr4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
             <polygon points="0,1 10,5 0,9" fill="var(--accent)"></polygon>
@@ -449,6 +450,9 @@
         <path class="link" d="M356 677 C312 677, 268 663, 210 663" marker-end="url(#arr4)"></path>
         <path class="link" d="M356 867 C312 867, 268 663, 210 663" marker-end="url(#arr4)"></path>
         <path class="link" d="M356 943 C312 943, 268 663, 210 663" marker-end="url(#arr4)"></path>
+        <path class="link" d="M356 525 C312 525, 268 393, 210 393" marker-end="url(#arr4)"></path>
+        <path class="link" d="M356 525 C312 525, 268 483, 210 483" marker-end="url(#arr4)"></path>
+        <path class="link" d="M356 525 C312 525, 268 663, 210 663" marker-end="url(#arr4)"></path>
 
         <!-- 決定 → 課題 -->
         <path class="link" d="M692 73 C640 73, 616 69, 552 69"></path>
@@ -554,7 +558,7 @@
         <text class="chip-text" x="454" y="453" text-anchor="middle">U11 順序保証</text>
         <rect class="chip-rel" x="356" y="474" width="196" height="26" rx="13"></rect>
         <text class="chip-text" x="454" y="491" text-anchor="middle">U12 外部との境界</text>
-        <rect class="chip" x="356" y="512" width="196" height="26" rx="13"></rect>
+        <rect class="chip-done" x="356" y="512" width="196" height="26" rx="13"></rect>
         <text class="chip-text" x="454" y="529" text-anchor="middle">U13 失敗の体系</text>
         <rect class="chip-rel" x="356" y="550" width="196" height="26" rx="13"></rect>
         <text class="chip-text" x="454" y="567" text-anchor="middle">U14 プログラム宣言</text>
@@ -766,21 +770,29 @@
         <text class="tiny" x="710" y="1471" text-anchor="start">新規 → 全体。一体の書き込みは C6、WASM は S3</text>
         <path class="link link-rel" d="M692 1445 C640 1445, 616 221, 552 221"></path>
 
+        <a class="node" href="decisions/0031-失敗の体系.md">
+          <rect class="chip-done" x="692" y="1480" width="300" height="26" rx="13"></rect>
+          <text class="chip-text" x="702" y="1497" text-anchor="start">0031 失敗の体系</text>
+        </a>
+        <text class="tiny" x="982" y="1497" text-anchor="end">採用 2026-10-08</text>
+        <text class="tiny" x="710" y="1519" text-anchor="start">新規 → U13。接続の失敗はフローが翻訳し、待ちは区間の期限</text>
+        <path class="link" d="M692 1493 C640 1493, 616 525, 552 525"></path>
+
         <!-- 凡例 -->
-        <rect class="chip-done" x="8" y="1502" width="24" height="15" rx="7"></rect>
-        <text class="tiny" x="38" y="1514" text-anchor="start">採用・執筆済み</text>
-        <rect class="chip-adr" x="152" y="1502" width="24" height="15" rx="7"></rect>
-        <text class="tiny" x="182" y="1514" text-anchor="start">提案・判断待ち</text>
-        <rect class="chip-rel" x="296" y="1502" width="24" height="15" rx="7"></rect>
-        <text class="tiny" x="326" y="1514" text-anchor="start">一部・先行のみ決定済み</text>
-        <rect class="chip-void" x="476" y="1502" width="24" height="15" rx="7"></rect>
-        <text class="tiny" x="506" y="1514" text-anchor="start">破棄</text>
-        <rect class="chip" x="574" y="1502" width="24" height="15" rx="7"></rect>
-        <text class="tiny" x="604" y="1514" text-anchor="start">ADR 無し(未着手・再検討中)</text>
-        <path class="link" d="M8 1490 L48 1490"></path>
-        <text class="tiny" x="54" y="1542" text-anchor="start">決めた・依拠する関係</text>
-        <path class="link link-rel" d="M240 1490 L280 1490"></path>
-        <text class="tiny" x="286" y="1542" text-anchor="start">関連・先行・言及</text>
+        <rect class="chip-done" x="8" y="1550" width="24" height="15" rx="7"></rect>
+        <text class="tiny" x="38" y="1562" text-anchor="start">採用・執筆済み</text>
+        <rect class="chip-adr" x="152" y="1550" width="24" height="15" rx="7"></rect>
+        <text class="tiny" x="182" y="1562" text-anchor="start">提案・判断待ち</text>
+        <rect class="chip-rel" x="296" y="1550" width="24" height="15" rx="7"></rect>
+        <text class="tiny" x="326" y="1562" text-anchor="start">一部・先行のみ決定済み</text>
+        <rect class="chip-void" x="476" y="1550" width="24" height="15" rx="7"></rect>
+        <text class="tiny" x="506" y="1562" text-anchor="start">破棄</text>
+        <rect class="chip" x="574" y="1550" width="24" height="15" rx="7"></rect>
+        <text class="tiny" x="604" y="1562" text-anchor="start">ADR 無し(未着手・再検討中)</text>
+        <path class="link" d="M8 1538 L48 1538"></path>
+        <text class="tiny" x="54" y="1590" text-anchor="start">決めた・依拠する関係</text>
+        <path class="link link-rel" d="M240 1538 L280 1538"></path>
+        <text class="tiny" x="286" y="1590" text-anchor="start">関連・先行・言及</text>
       </svg>
       <figcaption>
         <p><a href="PLAN.md">docs/PLAN.md</a> 第2・3節と、各章の「依拠」行より。</p>
@@ -882,6 +894,7 @@
           <li><span class="what"><a href="decisions/0028-データ宣言の語.md">ADR 0028 データ宣言の語</a> <span class="note">U9・0009 を改訂・<code>data</code> を直積 <code>record</code>・直和 <code>choice</code>・識別子型 <code>id</code> に分ける・起案と同日に採用</span></span><span class="pill done">採用 ✓</span></li>
           <li><span class="what"><a href="decisions/0029-最小の動作環境.md">ADR 0029 最小の動作環境</a> <span class="note">全体・<a href="experiments/27-ESP32の最小動作環境.md">思考実験 27(ESP32 の最小動作環境)</a> の論点1〜6・意味の核1つと器・能力は配置の設定で照らす・一体の書き込みから WASM でのロードへ・状態はコードに出さない・ロードは署名で認証・最小の分散動作環境(Phase 2)</span></span><span class="pill done">採用 ✓</span></li>
           <li><span class="what"><a href="decisions/0030-ESP32ボードの選定.md">ADR 0030 ESP32 ボードの選定</a> <span class="note">全体・ADR 0029(最小の動作環境)から求める事を7つ・一体の書き込みは ESP32-C6-DevKitC-1・WASM でのロードは ESP32-S3-DevKitC-1・その時に ESP32-C5 と比べ直す・公式ボード以外も比べた</span></span><span class="pill done">採用 ✓</span></li>
+          <li><span class="what"><a href="decisions/0031-失敗の体系.md">ADR 0031 失敗の体系</a> <span class="note">U13・<a href="experiments/22-失敗の棚卸し.md">思考実験 22(失敗の棚卸し)</a>・<a href="experiments/25-系の失敗の書き分け.md">思考実験 25(系の失敗の書き分け)</a> が材料・失敗を四つの置き場に・接続の失敗は公開面に書かずフローが翻訳・<code>on failure</code> を型の付いた欄に・演算の失敗はコンポーネントの中で受ける・待ちの期限は相関の区間に・起案と同日に採用</span></span><span class="pill done">採用 ✓</span></li>
         </ul>
       </div>
     </div>
@@ -1009,8 +1022,10 @@
           <text class="chip-text" x="130" y="501" text-anchor="start">0018 システムの入れ子</text>
         </a>
         <text class="tiny" x="340" y="501" text-anchor="start">採用済み。U14 の束ね方だけを先に取った</text>
-        <rect class="chip" x="120" y="520" width="210" height="26" rx="13"></rect>
-        <text class="chip-text" x="130" y="537" text-anchor="start">1 U13 失敗の体系</text>
+        <a class="node" href="decisions/0031-失敗の体系.md">
+          <rect class="chip-done" x="120" y="520" width="210" height="26" rx="13"></rect>
+          <text class="chip-text" x="130" y="537" text-anchor="start">1 U13 失敗の体系</text>
+        </a>
         <rect class="chip" x="340" y="520" width="210" height="26" rx="13"></rect>
         <text class="chip-text" x="350" y="537" text-anchor="start">2 U10・U11 実行と順序</text>
         <rect class="chip" x="120" y="552" width="210" height="26" rx="13"></rect>
@@ -1116,7 +1131,9 @@
       <li><b>2026-09-30 — ESP32 を最小の動作環境として検討した</b><br>suzukimitsuru の指示により、ESP32 を管理機能の無い最小の動作環境(Container)にできるかを検討した(<a href="experiments/27-ESP32の最小動作環境.md">思考実験 27</a>)。<b>通信・状態の確認・ロードの三つでは足りず</b>、ask の期限・上限付きの待ち行列・<code>on failure</code> の再起動は ask と flow の約束として残る。durable・recoverable・<code>collator</code> は持てないため、<b>弱めずにロードで拒む</b>。ESP32 にはプロセスが無く、一体の書き込みなら障害境界は機器に、WASM ならコンポーネントに置き直す事になる。Rust の出力だけで載り、C を足す必要は無い(<a href="decisions/0012-動作環境の言語とトランスパイル先の言語.md">ADR 0012</a> の将来の変更想定の前提が一つ外れる)。<a href="experiments/02-センサー収集パイプライン.md">思考実験 02</a> は載り、<a href="experiments/04-分散KVストア.md">思考実験 04</a> は載らない。何も決めておらず、論点1〜6 は <a href="PLAN.md">docs/PLAN.md</a> の第7節 7.15 にある。</li>
       <li><b>2026-09-30 — ADR 0029 で最小の動作環境を決めた</b><br>suzukimitsuru が <a href="experiments/27-ESP32の最小動作環境.md">思考実験 27</a> の論点1〜6 を決め、<a href="decisions/0029-最小の動作環境.md">ADR 0029</a> として採用した。<b>動作環境を意味の核と器に分ける</b>——期限・待ち行列と <code>pressure</code>・記述子の照合・<code>on failure</code> の規則を <code>no_std</code> の1クレートにし、PC と ESP32 の器が共に使う。<a href="decisions/0012-動作環境の言語とトランスパイル先の言語.md">ADR 0012</a> は改訂せず、その「1実装」は意味の核が1つである事として保たれる。持たない意味は<b>配置の設定の時に拒み</b>、ロードは一体の書き込みと1機器1コンポーネントから始めて WASM を後に足す。ロードは署名で認証する。論点4(状態の確認)は判断の前に調べ、<b>状態の確認をコードが読む必要は無い</b>——相手の障害と期限切れは ask の失敗として、背圧は <code>pressure</code> として既に届いている——ため、組み込みのデータ型は提供しない。ESP32 の器は最小の分散動作環境(Phase 2)に置き、<a href="spec/01-system-context.md">第1章</a> 1.6(動作環境は言語の記述対象外)に反映した。</li>
       <li><b>2026-10-03 — ADR 0030 で ESP32 ボードを選び、採用した</b><br>suzukimitsuru の指示で、<a href="decisions/0029-最小の動作環境.md">ADR 0029(最小の動作環境)</a> の決定からボードに求める事を7つにまとめ(Rust で ESP-IDF の上に書ける・zenoh-pico・セキュアブート・OTA(回線越しの更新)の区画を2面取れるフラッシュ・USB だけで繋がる・PSRAM(外付けの擬似 SRAM)と WAMR(組込み向けの WebAssembly 実行系)の対応・USB の口の分離)、<a href="decisions/0030-ESP32ボードの選定.md">ADR 0030(ESP32 ボードの選定)</a> を起票した。<b>一体の書き込みには ESP32-C6-DevKitC-1</b>(rustc 本流のターゲット、開発2・セキュアブートの確かめ1・予備1の4枚)、<b>WASM でのロードには ESP32-S3-DevKitC-1</b>(PSRAM 8MB)を使う。<a href="experiments/27-ESP32の最小動作環境.md">思考実験 27(ESP32 の最小動作環境)</a> の後に量産に入った ESP32-C5 は RISC-V の1品種で両方を揃えられるが、Rust の ESP-IDF の上の対応が若いため、WASM でのロードに入る時に比べ直す。ESP32-C61 は WAMR が対応していないため採らない。同日に公式ボード以外(XIAO ESP32C6・XIAO ESP32C5・M5Stack AtomS3R・Raspberry Pi Pico 2 W)も比べたが、<b>推奨は変わらなかった</b>——USB の口を2つ持ち、zenoh-pico をシリアルで繋ぎながら書き込みとログが取れるのは公式の DevKitC-1 だけである。suzukimitsuru の判断により、<b>公式ボード以外に適したボードが無い事を前提として同日に採用した</b>。</li>
-      <li><b>次に決める事</b><br>U13(失敗の体系)から、U10・U11 → U12・U20 → U14 → U26 と進める。U14 の名前空間(論点4・5・7)と、<a href="decisions/0027-bodyの記法.md">ADR 0027</a> の候補の書き比べ(<a href="experiments/04-分散KVストア.md">思考実験 04</a> の KVCore、<a href="experiments/01-注文管理サービス.md">思考実験 01</a> 系の受注)は並行して進める。U13 の論点1 は<a href="experiments/25-系の失敗の書き分け.md">思考実験 25</a> が答えを出しており、<code>on failure</code> の欄の形と併せて ADR にする段である。</li>
+      <li><b>2026-10-08 — 失敗の体系(U13)を ADR 0031 として起案した</b><br>suzukimitsuru の指示で、Phase 1 の前に決める課題の先頭である失敗の体系(U13)を <a href="decisions/0031-失敗の体系.md">ADR 0031(失敗の体系)</a> として起案した(提案)。失敗を<b>四つの置き場</b>に分ける——データの区分(業務の <code>choice</code>)・演算と解析の失敗(body の中で受け、公開面を越えない)・接続の失敗(<code>on failure</code>)・待ちの期限切れ(<code>on expiry</code>)。<b>接続の失敗は公開面に書かず、フローが業務の区分へ翻訳する</b>(<a href="experiments/25-系の失敗の書き分け.md">思考実験 25(系の失敗の書き分け)</a> の第四の形)。<code>on failure</code> は接続の行・<code>respond</code>・<code>restart</code> の三種の行で書き、補償は平常時と同じ検査を受ける。待ちの期限は <code>correlate</code> の区間に <code>within</code> で書き、待つ側の動作環境が測る。記述の中の接続は全てどれかのフローに現れる事を求め、机上検証で書き漏れた接続が一つ見つかった。接合面には待ちを置く・解く呼び出しを足す(<a href="decisions/0012-動作環境の言語とトランスパイル先の言語.md">ADR 0012</a> の改訂)。仕様書は採用時に書き換える。</li>
+      <li><b>2026-10-08 — ADR 0031 を採用した</b><br>suzukimitsuru の判断により、<a href="decisions/0031-失敗の体系.md">ADR 0031(失敗の体系)</a> を起案と同日に採用した。期限切れに通信しない時の書き方は <code>on expiry &lt;接続&gt; none</code> とした。<a href="spec/03-constraints.md">第3章</a> に E0031-1〜E0031-9・W0031-1 と演算の失敗の受け方を、<a href="spec/04-communication.md">第4章</a> に四つの置き場・<code>on failure</code> の新しい形・<code>within</code> と <code>on expiry</code> を、<a href="spec/05-notation.md">第5章</a> に語彙を、<a href="spec/06-data.md">第6章</a> に正常な不在と接続の失敗の切り分けを書き、<a href="spec/01-system-context.md">第1章</a> 1.6 と <a href="decisions/0012-動作環境の言語とトランスパイル先の言語.md">ADR 0012</a> の接合面を H1〜H9 にした。判断待ちの ADR は 0027(body の記法)の1本に戻った。</li>
+      <li><b>次に決める事</b><br>U10・U11(実行モデルと順序保証)→ U12・U20 → U14 → U26 と進める。U14 の名前空間(論点4・5・7)と、<a href="decisions/0027-bodyの記法.md">ADR 0027</a> の候補の書き比べ(<a href="experiments/04-分散KVストア.md">思考実験 04</a> の KVCore、<a href="experiments/01-注文管理サービス.md">思考実験 01</a> 系の受注)は並行して進める。<a href="decisions/0031-失敗の体系.md">ADR 0031</a> が body の記法(U26)に渡したのは、演算の失敗を受けずに上へ渡す記法と、受ける粒度である。</li>
     </ul>
     <figure>
       <svg viewBox="0 0 560 132" role="img" aria-label="仕様と思考実験のあいだを往復するループ。仕様を既存システムで記述してみて、書けない事があれば仕様に戻す">
@@ -1141,7 +1158,7 @@
   </section>
 
   <footer>
-    出典: <a href="PLAN.md">docs/PLAN.md</a>(Draft, 2026-08-18)・<a href="spec/">docs/spec/</a> 第0〜6章・<a href="decisions/">docs/decisions/</a> 0001〜0030(0011 は欠番。0010・0017 は破棄)・<a href="experiments/">docs/experiments/</a> 01〜27。2026-10-03 時点の状態を反映。
+    出典: <a href="PLAN.md">docs/PLAN.md</a>(Draft, 2026-08-18)・<a href="spec/">docs/spec/</a> 第0〜6章・<a href="decisions/">docs/decisions/</a> 0001〜0031(0011 は欠番。0010・0017 は破棄)・<a href="experiments/">docs/experiments/</a> 01〜27。2026-10-08 時点の状態を反映。
   </footer>
 
 </div>
