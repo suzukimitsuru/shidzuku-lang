@@ -859,6 +859,7 @@
           <li><span class="what"><a href="experiments/25-系の失敗の書き分け.md">思考実験 25 系の失敗の書き分け</a> <span class="note">U13 論点1 の三案を書き比べ・フローが翻訳する第四の形へ</span></span><span class="pill done">一巡 ✓</span></li>
           <li><span class="what"><a href="experiments/26-shidzuku-lint.md">思考実験 26 shidzuku-lint</a> <span class="note">検査を既存の言語の lint に移せるかで分ける・注釈なしで11件、宣言を足して17件</span></span><span class="pill done">一巡 ✓</span></li>
           <li><span class="what"><a href="experiments/27-ESP32の最小動作環境.md">思考実験 27 ESP32 の最小動作環境</a> <span class="note">通信・状態の確認・ロードに意味の最小限を足す・持たない意味は弱めずに拒む・論点6つは ADR 0029 で決定</span></span><span class="pill done">一巡 ✓</span></li>
+          <li><span class="what"><a href="experiments/28-実行モデルと順序.md">思考実験 28 実行モデルと順序</a> <span class="note">U10・U11 の材料・待たせる逐次/待つ所で次を受ける逐次/内側の並行を書き比べ・再入の害は状態と待つ所を持つ仕事にだけ出る・接続の中は FIFO・再送は追い越さない・待ち行列と仕事の上限・論点9つ</span></span><span class="pill done">一巡 ✓</span></li>
         </ul>
       </div>
       <div class="card wide">
@@ -1133,7 +1134,8 @@
       <li><b>2026-10-03 — ADR 0030 で ESP32 ボードを選び、採用した</b><br>suzukimitsuru の指示で、<a href="decisions/0029-最小の動作環境.md">ADR 0029(最小の動作環境)</a> の決定からボードに求める事を7つにまとめ(Rust で ESP-IDF の上に書ける・zenoh-pico・セキュアブート・OTA(回線越しの更新)の区画を2面取れるフラッシュ・USB だけで繋がる・PSRAM(外付けの擬似 SRAM)と WAMR(組込み向けの WebAssembly 実行系)の対応・USB の口の分離)、<a href="decisions/0030-ESP32ボードの選定.md">ADR 0030(ESP32 ボードの選定)</a> を起票した。<b>一体の書き込みには ESP32-C6-DevKitC-1</b>(rustc 本流のターゲット、開発2・セキュアブートの確かめ1・予備1の4枚)、<b>WASM でのロードには ESP32-S3-DevKitC-1</b>(PSRAM 8MB)を使う。<a href="experiments/27-ESP32の最小動作環境.md">思考実験 27(ESP32 の最小動作環境)</a> の後に量産に入った ESP32-C5 は RISC-V の1品種で両方を揃えられるが、Rust の ESP-IDF の上の対応が若いため、WASM でのロードに入る時に比べ直す。ESP32-C61 は WAMR が対応していないため採らない。同日に公式ボード以外(XIAO ESP32C6・XIAO ESP32C5・M5Stack AtomS3R・Raspberry Pi Pico 2 W)も比べたが、<b>推奨は変わらなかった</b>——USB の口を2つ持ち、zenoh-pico をシリアルで繋ぎながら書き込みとログが取れるのは公式の DevKitC-1 だけである。suzukimitsuru の判断により、<b>公式ボード以外に適したボードが無い事を前提として同日に採用した</b>。</li>
       <li><b>2026-10-08 — 失敗の体系(U13)を ADR 0031 として起案した</b><br>suzukimitsuru の指示で、Phase 1 の前に決める課題の先頭である失敗の体系(U13)を <a href="decisions/0031-失敗の体系.md">ADR 0031(失敗の体系)</a> として起案した(提案)。失敗を<b>四つの置き場</b>に分ける——データの区分(業務の <code>choice</code>)・演算と解析の失敗(body の中で受け、公開面を越えない)・接続の失敗(<code>on failure</code>)・待ちの期限切れ(<code>on expiry</code>)。<b>接続の失敗は公開面に書かず、フローが業務の区分へ翻訳する</b>(<a href="experiments/25-系の失敗の書き分け.md">思考実験 25(系の失敗の書き分け)</a> の第四の形)。<code>on failure</code> は接続の行・<code>respond</code>・<code>restart</code> の三種の行で書き、補償は平常時と同じ検査を受ける。待ちの期限は <code>correlate</code> の区間に <code>within</code> で書き、待つ側の動作環境が測る。記述の中の接続は全てどれかのフローに現れる事を求め、机上検証で書き漏れた接続が一つ見つかった。接合面には待ちを置く・解く呼び出しを足す(<a href="decisions/0012-動作環境の言語とトランスパイル先の言語.md">ADR 0012</a> の改訂)。仕様書は採用時に書き換える。</li>
       <li><b>2026-10-08 — ADR 0031 を採用した</b><br>suzukimitsuru の判断により、<a href="decisions/0031-失敗の体系.md">ADR 0031(失敗の体系)</a> を起案と同日に採用した。期限切れに通信しない時の書き方は <code>on expiry &lt;接続&gt; none</code> とした。<a href="spec/03-constraints.md">第3章</a> に E0031-1〜E0031-9・W0031-1 と演算の失敗の受け方を、<a href="spec/04-communication.md">第4章</a> に四つの置き場・<code>on failure</code> の新しい形・<code>within</code> と <code>on expiry</code> を、<a href="spec/05-notation.md">第5章</a> に語彙を、<a href="spec/06-data.md">第6章</a> に正常な不在と接続の失敗の切り分けを書き、<a href="spec/01-system-context.md">第1章</a> 1.6 と <a href="decisions/0012-動作環境の言語とトランスパイル先の言語.md">ADR 0012</a> の接合面を H1〜H9 にした。判断待ちの ADR は 0027(body の記法)の1本に戻った。</li>
-      <li><b>次に決める事</b><br>U10・U11(実行モデルと順序保証)→ U12・U20 → U14 → U26 と進める。U14 の名前空間(論点4・5・7)と、<a href="decisions/0027-bodyの記法.md">ADR 0027</a> の候補の書き比べ(<a href="experiments/04-分散KVストア.md">思考実験 04</a> の KVCore、<a href="experiments/01-注文管理サービス.md">思考実験 01</a> 系の受注)は並行して進める。<a href="decisions/0031-失敗の体系.md">ADR 0031</a> が body の記法(U26)に渡したのは、演算の失敗を受けずに上へ渡す記法と、受ける粒度である。</li>
+      <li><b>2026-10-08 — 思考実験 28 で実行モデルと順序を書き比べた</b><br>suzukimitsuru の指示で、コンポーネントの実行モデル(U10)とメッセージの順序保証(U11)の材料として <a href="experiments/28-実行モデルと順序.md">思考実験 28(実行モデルと順序)</a> を行った。<a href="experiments/04-分散KVストア.md">思考実験 04</a> の KVCore と受注の一生の OrderIntake を、待たせる逐次・待つ所で次を受ける逐次・内側の並行の三案で書き下ろした。<b>内側の並行は TypeScript に写せない。</b>待たせる逐次では読みが書きの詰まりに巻き込まれ、<code>ask</code> の閉路は必ず期限切れになる。待つ所で次を受けると、<b>状態と待つ所の両方を持つ仕事どうしで追い越しが起きる</b>ため、再入を公開面ごとに選ぶ形が要りそうである。順序は、接続の中の FIFO(先に入った物が先に出る)と、durable の再送で追い越さない事の二つを言えば足りる。<code>pressure block</code>・<code>drop</code> の上限と、<code>ask</code> の受け口・待つ所の仕事の上限も要る。何も決めていない。</li>
+      <li><b>次に決める事</b><br>思考実験 28 の論点3(再入を公開面ごとに選ぶか)を思考実験 01・02・04 の全ての公開面に当てて宣言の増え方を数え、U10・U11 の ADR を起案する。その後 U12・U20 → U14 → U26 と進める。U14 の名前空間(論点4・5・7)と、<a href="decisions/0027-bodyの記法.md">ADR 0027</a> の候補の書き比べ(<a href="experiments/04-分散KVストア.md">思考実験 04</a> の KVCore、<a href="experiments/01-注文管理サービス.md">思考実験 01</a> 系の受注)は並行して進める。</li>
     </ul>
     <figure>
       <svg viewBox="0 0 560 132" role="img" aria-label="仕様と思考実験のあいだを往復するループ。仕様を既存システムで記述してみて、書けない事があれば仕様に戻す">
@@ -1158,7 +1160,7 @@
   </section>
 
   <footer>
-    出典: <a href="PLAN.md">docs/PLAN.md</a>(Draft, 2026-08-18)・<a href="spec/">docs/spec/</a> 第0〜6章・<a href="decisions/">docs/decisions/</a> 0001〜0031(0011 は欠番。0010・0017 は破棄)・<a href="experiments/">docs/experiments/</a> 01〜27。2026-10-08 時点の状態を反映。
+    出典: <a href="PLAN.md">docs/PLAN.md</a>(Draft, 2026-08-18)・<a href="spec/">docs/spec/</a> 第0〜6章・<a href="decisions/">docs/decisions/</a> 0001〜0031(0011 は欠番。0010・0017 は破棄)・<a href="experiments/">docs/experiments/</a> 01〜28。2026-10-08 時点の状態を反映。
   </footer>
 
 </div>
