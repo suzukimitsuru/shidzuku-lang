@@ -1,0 +1,24 @@
+# 文書の検査。main への push と pull request のたびに、Markdown の形式とリンクを確かめる
+name: 文書の検査
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  docs:
+    name: Markdown の形式とリンク
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: markdownlint
+        run: npx -y markdownlint-cli2@0.24.0 "**/*.md" "#node_modules"
+      - name: リンクの確かめ
+        run: node scripts/check-links.mjs

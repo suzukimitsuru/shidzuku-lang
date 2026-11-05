@@ -45,5 +45,8 @@ Shidzuku(雫)— 設計意図から実装までを一本の記述で貫く言語
   - 表示する文字は元の表記(例: `docs/PLAN.md`)のまま変えない事とする
   - 対応する `.md` が無い項目(欠番の ADR、未解決課題 U〜 等)はリンクにしない事とする
   - 文書を追加・改名したら、HTML のリンク切れが無いか確かめる事とする
+- 検査の自動化
+  - リンク(Markdown・`docs/roadmap.html`・領域の `roadmap.js`)は `node scripts/check-links.mjs` で確かめ、問題が報告されない事とする。`roadmap.js` の `id`・ドル記号と波括弧の組・下位の領域の有無も同じ検査で見る
+  - markdownlint とリンクの確かめは、main への push と pull request のたびに GitHub Actions(`.github/workflows/docs-check.yml`)が回す。手元でも commit の前に二つとも回す事とする
   - 領域の `roadmap.js` のリンク先は、どの段でも docs/roadmap.html から見た相対パスで書く事とする。断片の中で `id` を作らず、本文に逆引用符と、ドル記号と波括弧の組を書かない事とする
 - 現在は言語仕様(Phase 0)。compiler/ runtime/ への実装着手は仕様の裏付けができてから
