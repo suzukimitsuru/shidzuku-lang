@@ -1,6 +1,7 @@
 # 思考実験 24: Hike の取り組み — Shidzuku に取り込める物はあるか
 
 - 状態: Draft
+- 領域: [実行モデル](../areas/実行モデル/README.md)
 - 日付: 2026-09-26
   (改訂 2026-09-29: ADR 0028 の採用で `data` を `record`・`choice`・`id` に書き換えた)
 - 目的: プログラミング言語 Hike(`hike-lang`)の設計上の取り組みを一つずつ Shidzuku の仕様に当て、
