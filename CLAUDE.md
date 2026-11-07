@@ -57,3 +57,4 @@ Shidzuku(雫)— 設計意図から実装までを一本の記述で貫く言語
   - markdownlint とリンクの確かめは、main への push と pull request のたびに GitHub Actions(`.github/workflows/docs-check.yml`)が回す。手元でも commit の前に二つとも回す事とする
   - 領域の `roadmap.js` のリンク先は、どの段でも docs/roadmap.html から見た相対パスで書く事とする。断片の中で `id` を作らず、本文に逆引用符と、ドル記号と波括弧の組を書かない事とする
 - 現在は言語仕様(Phase 0)。compiler/ runtime/ への実装着手は仕様の裏付けができてから
+  - 裏付けとは採用済みの ADR と仕様書の本文である。それだけに依る部分は、Phase 1 への移行の前に先に着手してよい(docs/PLAN.md 第4節 4.5 の「先に着手する部分」)。提案中の ADR・思考実験だけにある案に依る実装はしない

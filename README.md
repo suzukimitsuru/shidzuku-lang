@@ -37,6 +37,7 @@ Shidzuku は、設計意図から制約・構造・実装までを一本の記�
 ## 状態
 
 Phase 0(言語仕様)を進行中。
+2026-11-07 から、採用済みの ADR だけに依る部分(データ宣言と型・正準形・動作環境の意味の核の一部・shidzuku-lint の一部)を、Phase 1(最小の言語実装)への移行の前に先に着手します。
 
 仕様の検討は、領域の木([docs/areas/README.md](docs/areas/README.md))に分けて進めています。
 各領域の README に、担当する課題・現在地・次に決める事・経緯があります。思考実験・ADR・課題の番号は [docs/numbering.md](docs/numbering.md)(採番台帳)で予約します。
