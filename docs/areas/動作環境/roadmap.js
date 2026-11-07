@@ -5,7 +5,7 @@ Shidzuku.area({
   title: "動作環境",
   children: [],
   html: `
-<p class="lead">状態: トランスパイル先の言語(U5)は ADR 0012 で、最小の動作環境は ADR 0029・0030 で決着。ログ規約(U4)と Raft の適用範囲(U6)は Phase 2、版の混在と移行(U16)は Phase 1 の中で決める</p>
+<p class="lead">状態: トランスパイル先の言語(U5)は ADR 0012 で、最小の動作環境は ADR 0029・0030 で決着(外部との境界と実行モデルからの入力を一件ずつ保留)。ログ規約(U4)と Raft の適用範囲(U6)は Phase 2、版の混在と移行(U16)は Phase 1 の中で決める</p>
 <figure>
   <svg viewBox="0 0 920 212" role="img" aria-label="領域「動作環境」の課題・決定(ADR)・思考実験と、その関係。左から課題、ADR、思考実験の順に並べ、ADR が決めた課題と、ADR が依拠する思考実験を線で結んだ図">
     <text class="eyebrow" x="108" y="22" text-anchor="middle">課題</text>
