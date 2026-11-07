@@ -7,9 +7,15 @@ Shidzuku(雫)— 設計意図から実装までを一本の記述で貫く言語
 
 ## 進め方の原則
 
-- 未解決課題(U)の決定は docs/decisions/ に ADR として残す(template.md 使用)
+- 試作を先に置く(ADR 0033(試作を先に置く進め方))
+  - 未決の課題は試作の中で仮に決め、動かして確かめてから決める。仮置きは docs/PLAN.md 第4節の「仮置き」の表にだけ置き、仕様書には書かない
+  - 試作は docs/PLAN.md 第4節の「試作の順」に従い、一つずつ動く物で締めて `examples/` に置く。前の試作が動くまで次へ進まない
+  - 試作で動いた事は仕様書に書き戻す。仕様書と実装が食い違ったら、動いた方を正とする
+  - 試作の作業は `compiler/`・`runtime/`・`examples/` を書き換え、仮置きを確かめた結果は担当する領域の README に書く
+- 未解決課題(U)の決定は docs/decisions/ に ADR として残す(template.md 使用)。ADR を起こすのは、二つ以上の候補を比べて選ぶ時とする。試作で一つに決まった事は仕様書に書き戻し、担当する領域の README の経緯に一行残す
 - 各フェーズは「動く最小の成果物」で締める。仕様だけを先行させない
-- 仕様に迷ったら docs/experiments/ の思考実験(既存システムを Shidzuku で記述してみる)に戻る
+- 仕様に迷ったら、まず試作で動かして確かめる。docs/experiments/ の思考実験(既存システムを Shidzuku で記述してみる)に戻るのは、候補を比べる時と、まだ作れない段(分散・可視化)を考える時に限る
+- 文書の運営の規則(本書の制約と docs/areas/README.md の規則)を新しく足さない。足したくなったら、試作を妨げた事を理由として ADR に書く
 - 仕様の検討は領域の木(docs/areas/)に分ける。規則と手順は docs/areas/README.md にある
   - 検討の作業は、持っている領域(とその下)の `README.md` と `roadmap.js`、予約したファイル、その領域の既存の思考実験と提案中の ADR だけを書き換える。進捗(思考実験の追加・更新、ADR の起案、論点の整理)は領域の README と `roadmap.js` に書く
   - 並列に検討してよいのは、互いに祖先と子孫の関係に無い領域どうしである。親の README に子の状態を写さない
@@ -56,5 +62,4 @@ Shidzuku(雫)— 設計意図から実装までを一本の記述で貫く言語
   - リンク(Markdown・`docs/roadmap.html`・領域の `roadmap.js`)は `node scripts/check-links.mjs` で確かめ、問題が報告されない事とする。`roadmap.js` の `id`・ドル記号と波括弧の組・下位の領域の有無も同じ検査で見る
   - markdownlint とリンクの確かめは、main への push と pull request のたびに GitHub Actions(`.github/workflows/docs-check.yml`)が回す。手元でも commit の前に二つとも回す事とする
   - 領域の `roadmap.js` のリンク先は、どの段でも docs/roadmap.html から見た相対パスで書く事とする。断片の中で `id` を作らず、本文に逆引用符と、ドル記号と波括弧の組を書かない事とする
-- 現在は言語仕様(Phase 0)。compiler/ runtime/ への実装着手は仕様の裏付けができてから
-  - 裏付けとは採用済みの ADR と仕様書の本文である。それだけに依る部分は、Phase 1 への移行の前に先に着手してよい(docs/PLAN.md 第4節 4.5 の「先に着手する部分」)。提案中の ADR・思考実験だけにある案に依る実装はしない
+- 現在は最小の言語実装(Phase 1)。compiler/・runtime/・examples/ の試作を進める。試作の順と仮置きは docs/PLAN.md 第4節にある

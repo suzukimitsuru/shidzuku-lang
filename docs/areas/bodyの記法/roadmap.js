@@ -5,7 +5,7 @@ Shidzuku.area({
   title: "bodyの記法",
   children: [],
   html: `
-<p class="lead">状態: 検討中。ADR 0027(body の記法)を提案として起票した。決定は候補の書き比べの後に書く。実行モデルからの入力を一件保留</p>
+<p class="lead">状態: 検討中。ADR 0027(body の記法)を提案として起票した。試作の間は候補「出力言語で直に書く」を仮に使い、混在の試作の前に決める。実行モデルからの入力を一件保留</p>
 <figure>
   <svg viewBox="0 0 920 82" role="img" aria-label="領域「bodyの記法」の課題・決定(ADR)・思考実験と、その関係。左から課題、ADR、思考実験の順に並べ、ADR が決めた課題と、ADR が依拠する思考実験を線で結んだ図">
     <text class="eyebrow" x="108" y="22" text-anchor="middle">課題</text>
