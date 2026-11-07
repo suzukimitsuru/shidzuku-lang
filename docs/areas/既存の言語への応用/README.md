@@ -3,12 +3,12 @@
 [全体](../../PLAN.md) › [検討の領域](../README.md) › 既存の言語への応用
 
 - 担当する課題: 課題の番号を持たない。Shidzuku の検査を既存の言語(Rust・TypeScript・Hike)の lint(shidzuku-lint)へ移す検討
-- 状態: ADR 0026(shidzuku-lint の作成)を採用した。Phase 1 の言語実装から着手し、継続して改良する
+- 状態: ADR 0026(shidzuku-lint の作成)を採用した。細い縦の試作の検証器ができてから着手し、継続して改良する(ADR 0033(試作を先に置く進め方))
 - 道のりの図: この領域の節は [roadmap.js](roadmap.js) に書き、[docs/roadmap.html](../../roadmap.html) の「検討の領域」に差し込まれる
 
 ## 次に決める事
 
-- shidzuku-lint の置き場所と実装の言語を Phase 1 の着手時に決める(計画書 第4節 4.5)
+- shidzuku-lint の置き場所と実装の言語を、細い縦の試作の検証器ができた時に決める(計画書 第4節「Phase 1 の中で決める物」、ADR 0033(試作を先に置く進め方))
 
 ## 現在地
 

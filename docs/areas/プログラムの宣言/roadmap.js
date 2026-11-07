@@ -5,7 +5,7 @@ Shidzuku.area({
   title: "プログラムの宣言",
   children: [],
   html: `
-<p class="lead">状態: 検討中。ADR 0018 が一部を決めている。名前空間は思考実験 15(名前空間の再検討)で再検討している</p>
+<p class="lead">状態: 検討中。ADR 0018 が一部を決めている。名前空間は思考実験 15(名前空間の再検討)で再検討している。試作の間は1ファイルに1つのルートの system を書き、名前空間を持たない(ADR 0033(試作を先に置く進め方))</p>
 <figure>
   <svg viewBox="0 0 920 136" role="img" aria-label="領域「プログラムの宣言」の課題・決定(ADR)・思考実験と、その関係。左から課題、ADR、思考実験の順に並べ、ADR が決めた課題と、ADR が依拠する思考実験を線で結んだ図">
     <text class="eyebrow" x="108" y="22" text-anchor="middle">課題</text>

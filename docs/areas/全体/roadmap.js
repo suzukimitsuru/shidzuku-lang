@@ -5,7 +5,7 @@ Shidzuku.area({
   title: "全体",
   children: [],
   html: `
-<p class="lead">状態: 継続。Phase 1 へ移る条件と残る判断の振り分けは、計画書 第4節 4.5(Phase 1 へ移るまでの計画)にある</p>
+<p class="lead">状態: 継続。2026-11-07 に ADR 0033(試作を先に置く進め方)を採用し、最小の言語実装(Phase 1)へ移った。試作の順と仮置きは <a href="PLAN.md">docs/PLAN.md</a> 第4節(最小の言語実装(Phase 1)の進め方)にある</p>
 <figure>
   <svg viewBox="0 0 920 380" role="img" aria-label="領域「全体」の課題・決定(ADR)・思考実験と、その関係。左から課題、ADR、思考実験の順に並べ、ADR が決めた課題と、ADR が依拠する思考実験を線で結んだ図">
     <text class="eyebrow" x="108" y="22" text-anchor="middle">課題</text>
@@ -16,6 +16,11 @@ Shidzuku.area({
       <text class="chip-text" x="270" y="57" text-anchor="start">0002 プロジェクト名の再考</text>
     </a>
     <text class="tiny" x="550" y="57" text-anchor="end">採用</text>
+    <a class="node" href="decisions/0033-試作を先に置く進め方.md">
+      <rect class="chip-done" x="260" y="78" width="300" height="26" rx="13"></rect>
+      <text class="chip-text" x="270" y="95" text-anchor="start">0033 試作を先に置く進め方</text>
+    </a>
+    <text class="tiny" x="550" y="95" text-anchor="end">採用</text>
     <a class="node" href="experiments/01-注文管理サービス.md">
       <rect class="chip" x="612" y="40" width="300" height="26" rx="13"></rect>
       <text class="chip-text" x="622" y="57" text-anchor="start">01 注文管理サービス</text>
@@ -64,6 +69,7 @@ Shidzuku.area({
     <p class="card-title">決定 — ADR</p>
     <ul>
       <li><span class="what"><a href="decisions/0002-プロジェクト名の再考.md">ADR 0002 プロジェクト名の再考</a></span><span class="pill done">採用 ✓</span></li>
+      <li><span class="what"><a href="decisions/0033-試作を先に置く進め方.md">ADR 0033 試作を先に置く進め方</a> <span class="note">Phase 1 へ今移る・未決の課題は試作で仮に決めて確かめる・動いた事を仕様へ書き戻す</span></span><span class="pill done">採用 ✓</span></li>
     </ul>
   </div>
   <div class="card">
@@ -98,7 +104,8 @@ Shidzuku.area({
   <li><b>2026-09-28 — 残る三つを決め、ADR 0027 を起票した</b><br>suzukimitsuru が、<b>U14 の思考実験</b>(<a href="experiments/15-名前空間の再検討.md">思考実験 15</a>・<a href="experiments/23-結合の釣り合い.md">23</a> の続き)を U13・U10・U11・U12・U20 と並行して進める事、<b>成果物の題材</b>を第1段から第3段の全てとする事を決めた。<b>U26 body の記法</b>はこれから検討するため、<a href="decisions/0027-bodyの記法.md">ADR 0027</a> を起票した(提案。候補 B-1〜B-6 と比べる物差し8つを置き、決定は書き比べの思考実験の後に書く)。計画書の本文の「順N」は、検索しやすいように課題の番号(U14 等)に置き換えた。</li>
   <li><b>2026-10-14 — シンプリシティと比べた</b><br>suzukimitsuru の指示により、Dave Thomas『シンプリシティ ―持続可能かつ人間的で効果的なソフトウェア開発』の思想と Shidzuku の設計思想を並べた(<a href="experiments/28-シンプリシティとの比較.md">思考実験 28(シンプリシティとの比較)</a>)。複雑さと煩雑さを分ける事、方向を定め一歩進み学ぶ事、持続可能で人間的である事は同じで、<b>目指す所は同じだが手段が違う</b>——本書は人の習慣と判断に頼り、Shidzuku は言語による強制に頼る(規則を退けるか強制するか、削るか省略を禁じて書かせるか)。同じ所はいずれも suzukimitsuru の構想から出ており、本書から取り込んだ物は無いため、suzukimitsuru の判断により <a href="spec/00-vision.md">第0章</a> 0.9(参照する系譜)には含めない。何も決めていない。</li>
   <li><b>2026-10-18 — 反証と肯定をまとめた</b><br>suzukimitsuru の指示により、言語仕様に対する反証(今のプログラマに受け入れられない所)と肯定(プログラマ以外の人に与える良い影響)を、外部の研究と事例に照らしてまとめた(<a href="experiments/31-反証と肯定.md">思考実験 31(反証と肯定)</a>)。外部の知見は要旨と二次資料に拠る。<b>反証の芯は、費用を書き手が払い、利益を読み手が受ける非対称である</b>——言語を選ぶのは書き手であり、言語の普及は機能よりもライブラリ・既存のコード・慣れで決まる。強い反証は、言語の外の物(生態系)・外部世界が書けない事(U12)・警告を黙らせられない事の三つで、いずれも未完成の部分である。書く量・慣れた操作・設計を書く層(UML(統一モデリング言語)とモデル駆動工学の轍)への反証は中に留まり、意図して逆を選んだ所に当たる。<b>最も強い肯定は、科学技術・計測・金融の担当者に対して、単位の取り違えと暗黙の変換で値が化けない事</b>である(火星探査機の単位の事故、表計算による遺伝子名の化け)。業務の専門家・監査・後任には業務の語と判断の跡が届く。肯定はいずれも読む事で得られ、振る舞い駆動開発の経験から、読み手に書かせず、図や名前と区分の一覧で早く届ける事が条件になる。論点は7つ。何も決めていない。</li>
-  <li><b>次に決める事</b><br>U10・U11 の ADR を起案する。その後 U12・U20 → U14 → U26 と進める。U14 の名前空間(論点4・5・7)と、<a href="decisions/0027-bodyの記法.md">ADR 0027</a> の候補の書き比べ(<a href="experiments/04-分散KVストア.md">思考実験 04</a> の KVCore、<a href="experiments/01-注文管理サービス.md">思考実験 01</a> 系の受注)は並行して進める。<a href="decisions/0031-失敗の体系.md">ADR 0031</a> が body の記法(U26)に渡したのは、演算の失敗を受けずに上へ渡す記法と、受ける粒度である。</li>
+  <li><b>2026-11-07 — 振り返りを受けて、試作を先に置く進め方に組み替えた</b><br>suzukimitsuru の依頼で、解きたい問題と三つの要件(試作を繰り返して定義する・データフロー言語とする・分散環境で動作環境が再起動と版の更新を行う)に照らして振り返った。約80日で文書は約1万9千行に達したが、動く物は無かった。Phase 1 へ移る五つの条件が、仕様を先に固める形になっていたためである。suzukimitsuru の決定で <a href="decisions/0033-試作を先に置く進め方.md">ADR 0033(試作を先に置く進め方)</a> を採用し、<b>最小の言語実装(Phase 1)へ移った</b>。細い縦の試作・再起動と版の入れ替えの試作・混在の試作を順に作り、未決の課題は試作の中で仮に決めて確かめる。計画書の旧第4節(ADR の検討順と移行の計画)は、この領域の README の経緯へ移した。</li>
+  <li><b>次に決める事</b><br>細い縦の試作に着手する(<a href="PLAN.md">docs/PLAN.md</a> 第4節「試作の順」)。題材は <a href="experiments/02-センサー収集パイプライン.md">思考実験 02(センサー収集パイプライン)</a> の SensorIntake と Normalizer である。試作が動いたら、仮置きの表の行を一つずつ確かめる。</li>
 </ul>
 `,
 });
