@@ -5,7 +5,7 @@ Shidzuku.area({
   title: "型と単位",
   children: [],
   html: `
-<p class="lead">状態: 決着。ADR 0009・0013・0019・0020・0021・0022・0028 を採用した(ADR 0010・0017 は破棄)</p>
+<p class="lead">状態: 決着(外部との境界からの入力を一件保留)。ADR 0009・0013・0019・0020・0021・0022・0028 を採用した(ADR 0010・0017 は破棄)</p>
 <figure>
   <svg viewBox="0 0 920 500" role="img" aria-label="領域「型と単位」の課題・決定(ADR)・思考実験と、その関係。左から課題、ADR、思考実験の順に並べ、ADR が決めた課題と、ADR が依拠する思考実験を線で結んだ図">
     <text class="eyebrow" x="108" y="22" text-anchor="middle">課題</text>

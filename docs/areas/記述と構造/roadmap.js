@@ -5,7 +5,7 @@ Shidzuku.area({
   title: "記述と構造",
   children: [],
   html: `
-<p class="lead">状態: 図と実装の一致の範囲(U8)を除いて決着。コンポーネントの粒度の指針(U7)は採用後も反例を探し続ける</p>
+<p class="lead">状態: 図と実装の一致の範囲(U8)を除いて決着(実行モデルからの入力を一件保留)。コンポーネントの粒度の指針(U7)は採用後も反例を探し続ける</p>
 <figure>
   <svg viewBox="0 0 920 558" role="img" aria-label="領域「記述と構造」の課題・決定(ADR)・思考実験と、その関係。左から課題、ADR、思考実験の順に並べ、ADR が決めた課題と、ADR が依拠する思考実験を線で結んだ図">
     <text class="eyebrow" x="108" y="22" text-anchor="middle">課題</text>

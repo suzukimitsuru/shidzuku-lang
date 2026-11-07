@@ -5,7 +5,7 @@ Shidzuku.area({
   title: "既存の言語への応用",
   children: [],
   html: `
-<p class="lead">状態: ADR 0026(shidzuku-lint の作成)を採用した。細い縦の試作の検証器ができてから着手し、継続して改良する(ADR 0033(試作を先に置く進め方))</p>
+<p class="lead">状態: ADR 0026(shidzuku-lint の作成)を採用した。細い縦の試作の検証器ができてから着手し、継続して改良する(ADR 0033(試作を先に置く進め方))。実行モデルからの入力を一件保留</p>
 <figure>
   <svg viewBox="0 0 920 98" role="img" aria-label="領域「既存の言語への応用」の課題・決定(ADR)・思考実験と、その関係。左から課題、ADR、思考実験の順に並べ、ADR が決めた課題と、ADR が依拠する思考実験を線で結んだ図">
     <text class="eyebrow" x="108" y="22" text-anchor="middle">課題</text>
