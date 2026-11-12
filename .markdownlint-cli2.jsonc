@@ -2,6 +2,8 @@
   // 検査から外すもの(規則そのものは .markdownlint.json に置く)
   "ignores": [
     "node_modules/**",
+    // Cargo の生成物
+    "target/**",
     // Claude Code の作業ツリー。中身は別の枝の写しなので、ここでは検査しない
     ".claude/**",
     // 書き手の覚え書き。纏まっていない状態のまま書き足す場所なので検査しない

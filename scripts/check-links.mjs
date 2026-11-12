@@ -15,7 +15,7 @@ const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const docs = join(root, "docs");
 
 // 確かめないもの。docs/dev-memo.md は書き手の覚え書きなので外す(.markdownlint-cli2.jsonc と揃える)
-const skipDirs = new Set(["node_modules", ".git", ".claude"]);
+const skipDirs = new Set(["node_modules", ".git", ".claude", "target"]);
 const skipFiles = new Set([join(docs, "dev-memo.md")]);
 
 const problems = [];
