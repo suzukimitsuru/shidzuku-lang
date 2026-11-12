@@ -13,6 +13,8 @@
 
 ## 動かし方
 
+Rust 1.85 以上が要る(作業場が Rust の 2024 版を使うため。古ければ `rustup update stable` で上げる)。
+
 リポジトリの根で `cargo test` を回すと、コンパイラ・動作環境・全ての試作の確かめが通る。作業場の置き方は根の `Cargo.toml` にある。
 
 - コンパイラ: [compiler/README.md](../compiler/README.md)

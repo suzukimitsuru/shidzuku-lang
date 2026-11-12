@@ -3,6 +3,7 @@ name = "shidzuku-runtime-core"
 description = "Shidzuku の動作環境の意味の核。標準ライブラリに依らない(ADR 0029 の決定1)"
 version = "0.1.0"
 edition.workspace = true
+rust-version.workspace = true
 license.workspace = true
 publish.workspace = true
 

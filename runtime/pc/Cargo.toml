@@ -3,6 +3,7 @@ name = "shidzuku-runtime-pc"
 description = "Shidzuku の動作環境の PC の器(時計・同居のロード・試験の口)"
 version = "0.1.0"
 edition.workspace = true
+rust-version.workspace = true
 license.workspace = true
 publish.workspace = true
 
