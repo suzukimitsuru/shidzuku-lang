@@ -1,0 +1,15 @@
+# Shidzuku の試作の作業場。`cargo test` 一回で、コンパイラ・動作環境・examples の確かめが回る
+[workspace]
+resolver = "3"
+members = [
+  "compiler",
+  "runtime/core",
+  "runtime/pc",
+  "examples/細い縦の試作",
+]
+
+[workspace.package]
+edition = "2024"
+rust-version = "1.85"
+license = "MIT"
+publish = false

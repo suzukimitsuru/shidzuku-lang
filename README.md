@@ -33,6 +33,9 @@ Shidzuku は、設計意図から制約・構造・実装までを一本の記�
 | 🗂️ [docs/areas/](docs/areas/README.md)                                             | 検討の領域 — 領域ごとの計画・現在地・経緯      |
 | 🗂️ docs/decisions/                                                                 | ADR — 課題の決定を記録する                     |
 | 🗂️ docs/experiments/                                                               | 思考実験 — 既存システムの Shidzuku 記述        |
+| 🗂️ [compiler/](compiler/README.md)                                                 | コンパイラ — パーサ・検証器・Rust の生成器     |
+| 🗂️ [runtime/](runtime/README.md)                                                   | 動作環境 — 意味の核と PC の器                  |
+| 🗂️ [examples/](examples/README.md)                                                 | 試作ごとの動く例                               |
 
 ## 状態
 

@@ -1,0 +1,77 @@
+# 拒まれる記述 — センサー収集.shidzuku から接続の pressure だけを消した物
+#
+# 検証器が E0008-1(必須宣言の欠落)で拒む事を、締めの確かめで見る(計画書 第4節「試作の順」)。
+
+id       機器番号
+id       機種番号
+quantity 気圧 amount base ヘクトパスカル
+record 計測値           { 機器: 機器番号, 機種: 機種番号, 時刻: instant, 生値: float64 unitless }
+record 正規化済み計測値 { 機器: 機器番号, 時刻: instant, 値: float64 ヘクトパスカル }
+
+system センサー収集 {
+  intent {
+    why      "機器から届く計測値を受け、機種の癖を除いて正規化するところまでを一つの境界に収める"
+    rejected option "思考実験 02 の5つのコンポーネントを全て入れる"
+             reason "細い縦の試作は flow 一本で繋がる最小の形を動かす事が目的であり、下流は後の段で足す"
+    change   "Aggregator から下流を足す事を想定。計測値の受け入れは変えない"
+  }
+  constraint {
+    actor    none
+    external none
+    depends  none
+    expose   計測値の受け入れ(計測値) flow in                       by SensorIntake
+    expose   正規化済み計測値の送り出し(正規化済み計測値) flow out by Normalizer
+    contains SensorIntake, Normalizer
+  }
+}
+
+component SensorIntake {
+  intent {
+    why      "センサー機器のプロトコルと接続管理の知識をここに閉じ込める。内側は機器を知らず、計測値だけを扱う"
+    rejected option "各コンポーネントが機器と直接通信する"
+             reason "プロトコルや機器構成の変更が全コンポーネントに波及するため"
+    change   "機器側のプロトコルの追加(CoAP 等)を想定。内側への公開面は変えない"
+  }
+  constraint {
+    depends  Normalizer
+    expose   計測値の受け入れ(計測値) flow in
+    expose   計測値の送り出し(計測値) flow out
+    state    none
+    collator none
+    layers   { 中継 { io domain } }
+  }
+  body { }
+}
+
+component Normalizer {
+  intent {
+    why      "機種ごとの癖(単位系の違い)を吸収する知識をここに閉じ込める。下流は機種を知らない"
+    rejected option "Aggregator が集約の時に機種の差を吸収する"
+             reason "集約と機種は変わる理由が異なり、機種を足す度に集約を触る事になるため"
+    change   "対応する機種の追加を想定。換算表の追加で済み、公開面は変えない"
+  }
+  constraint {
+    depends  none
+    expose   計測値の受け入れ(計測値) flow in
+    expose   正規化済み計測値の送り出し(正規化済み計測値) flow out
+    state    none
+    collator none
+    layers   {
+      換算     { pure domain }
+      送り出し { io domain }
+    }
+  }
+  body { }
+}
+
+flow 計測の取り込み {
+  intent {
+    why      "受け入れと機種の癖の吸収を分け、非同期の流れで繋ぐ。正規化が詰まった時だけ受け入れを待たせる"
+    rejected option "SensorIntake から Normalizer へ ask で渡す"
+             reason "計測値に応答は要らず、受け入れが正規化を待つ理由が無いため"
+    change   "Aggregator を足す時は、この接続は変えずに Normalizer から下流への接続を足す"
+  }
+  SensorIntake -> Normalizer : flow 計測値 (transient)
+  on failure SensorIntake { restart }
+  on failure Normalizer   { restart }
+}

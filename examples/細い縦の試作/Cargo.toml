@@ -1,0 +1,18 @@
+[package]
+name = "shidzuku-example-thin-vertical-slice"
+description = "細い縦の試作: SensorIntake と Normalizer を flow 一本で繋ぎ、1プロセスで動かす"
+version = "0.1.0"
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[dependencies]
+shidzuku-runtime-pc = { path = "../../runtime/pc" }
+
+[build-dependencies]
+shidzuku-compiler = { path = "../../compiler" }
+
+[dev-dependencies]
+shidzuku-compiler = { path = "../../compiler" }
+tokio = { version = "1", features = ["rt", "time"] }
